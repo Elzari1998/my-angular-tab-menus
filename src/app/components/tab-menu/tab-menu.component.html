@@ -1,0 +1,108 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" (click)="selectTab('dashboard')" [class.active]="selectedTab === 'dashboard'">
+      <i class="bi bi-grid"></i> Dashboard
+    </a>
+    <div *ngIf="selectedTab === 'dashboard'" class="dropdown position-absolute top-0 end-0 p-2" style="top: 1cm;">
+      <button class="btn btn-transparent border-0 dropdown-toggle" type="button" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-gear"></i> Customize
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Option 1</a></li>
+        <li><a class="dropdown-item" href="#">Option 2</a></li>
+        <li><a class="dropdown-item" href="#">Option 3</a></li>
+      </ul>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="selectTab('backlog')" [class.active]="selectedTab === 'backlog'">
+      <i class="bi bi-list"></i> Backlog
+    </a>
+    <div *ngIf="selectedTab === 'backlog'" class="dropdown position-absolute top-0 end-0 p-2" style="top: 1cm;">
+      <button class="btn btn-transparent border-0 dropdown-toggle" type="button" id="dropdownMenuButton2"
+              data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-gear"></i> Customize
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Option 1</a></li>
+        <li><a class="dropdown-item" href="#">Option 2</a></li>
+        <li><a class="dropdown-item" href="#">Option 3</a></li>
+      </ul>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="selectTab('statusBoard')" [class.active]="selectedTab === 'statusBoard'">
+      <i class="bi bi-kanban"></i> Status Board
+    </a>
+    <div *ngIf="selectedTab === 'statusBoard'" class="dropdown position-absolute top-0 end-0 p-2" style="top: 1cm;">
+      <button class="btn btn-transparent border-0 dropdown-toggle" type="button" id="dropdownMenuButton3"
+              data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-gear"></i> Customize
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Option 1</a></li>
+        <li><a class="dropdown-item" href="#">Option 2</a></li>
+        <li><a class="dropdown-item" href="#">Option 3</a></li>
+      </ul>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="selectTab('board')" [class.active]="selectedTab === 'board'">
+      <i class="bi bi-columns"></i> Board
+    </a>
+    <div *ngIf="selectedTab === 'board'" class="dropdown position-absolute top-0 end-0 p-2" style="top: 1cm;">
+      <button class="btn btn-transparent border-0 dropdown-toggle" type="button" id="dropdownMenuButton4"
+              data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-gear"></i> Customize
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Option 1</a></li>
+        <li><a class="dropdown-item" href="#">Option 2</a></li>
+        <li><a class="dropdown-item" href="#">Option 3</a></li>
+      </ul>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="selectTab('guide')" [class.active]="selectedTab === 'guide'">
+      <i class="bi bi-book"></i> Getting Started Guide
+    </a>
+    <div *ngIf="selectedTab === 'guide'" class="dropdown position-absolute top-0 end-0 p-2" style="top: 1cm;">
+      <button class="btn btn-transparent border-0 dropdown-toggle" type="button" id="dropdownMenuButton5"
+              data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-gear"></i> Customize
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Option 1</a></li>
+        <li><a class="dropdown-item" href="#">Option 2</a></li>
+        <li><a class="dropdown-item" href="#">Option 3</a></li>
+      </ul>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="selectTab('list')" [class.active]="selectedTab === 'list'">
+      <i class="bi bi-list-check"></i> List
+    </a>
+    <div *ngIf="selectedTab === 'list'" class="dropdown position-absolute top-0 end-0 p-2" style="top: 1cm;">
+      <button class="btn btn-transparent border-0 dropdown-toggle" type="button" id="dropdownMenuButton6"
+              data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-gear"></i> Customize
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Option 1</a></li>
+        <li><a class="dropdown-item" href="#">Option 2</a></li>
+        <li><a class="dropdown-item" href="#">Option 3</a></li>
+      </ul>
+    </div>
+  </li>
+</ul>
+
+<!-- Tab Content -->
+<div class="tab-content mt-3">
+  <div *ngIf="selectedTab === 'dashboard'">Dashboard Content</div>
+  <div *ngIf="selectedTab === 'backlog'">Backlog Content</div>
+  <div *ngIf="selectedTab === 'statusBoard'">Status Board Content</div>
+  <div *ngIf="selectedTab === 'board'">Board Content</div>
+  <div *ngIf="selectedTab === 'guide'">Getting Started Guide Content</div>
+  <div *ngIf="selectedTab === 'list'">List Content</div>
+</div>
