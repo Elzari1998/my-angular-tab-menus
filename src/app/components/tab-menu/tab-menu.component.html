@@ -8,10 +8,10 @@
               data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi bi-gear"></i> Customize
       </button>
-      <ul class="dropdown-menu p-4" aria-labelledby="dropdownMenuButton">
-        <h6 class="fw-bold mb-3 ">Customize View
+      <ul class="dropdown-menu p-4" data-bs-auto-close="false" aria-expanded="false" aria-labelledby="dropdownMenuButton">
+        <h6 class="fw-bold mb-3 d-flex justify-content-between align-items-center ">Customize View
           <span>
-            <button type="button"  class="btn ms-4 btn-close px-4" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button"  class="btn btn-close" data-bs-dismiss="dropdown" aria-label="Close"></button>
           </span>
         </h6>
 
@@ -21,17 +21,91 @@
         </div>
 
 
-        <li> <a class="dropdown-item" href="#"> <span> <i class="bi bi-list-ul me-2"></i></span> Layout Options <span> <i class="ms-5 bi bi-chevron-right"></i></span></a></li>
+        <li> <a class="dropdown-item d-flex justify-content-between align-items-center" href="#"> <span> <i class="bi bi-list-ul "></i></span> Layout Options <span> <i class="ms-5 bi bi-chevron-right"></i></span></a></li>
         <li><hr class="dropdown-divider"></li>
 
 
+        <li>
+          <a class="dropdown-item d-flex justify-content-between align-items-center " href="#">
+            <span>
+              <i class="bi bi-pencil me-2"></i>
+              Fields
+            </span>
+            <span class=" text-muted ">5 shown <i class=" bi bi-chevron-right"></i>  </span>
+          </a>
+        </li>
 
-        <li><a class="dropdown-item " href="#"><span> <i class="bi bi-pencil me-2"></i></span>  Fields </a></li>
-        <li><a class="dropdown-item" href="#"><span> <i class="bi bi-filter me-2"></i></span>Filter </a></li>
-        <li><a class="dropdown-item" href="#"><span> <i class="bi bi-layers me-2"></i></span>Group</a></li>
-        <li><a class="dropdown-item" href="#"><span> <i class="bi bi-link me-2"></i></span>Subtasks</a></li>
+        <li>
+          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+            <span class="d-flex align-items-center">
+              <i class="bi bi-filter me-2"></i>
+              Filter
+            </span>
+            <span class=" text-muted ">None <i class=" bi bi-chevron-right"></i>  </span>
+          </a>
+        </li>
+
+        <li>
+          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+            <span class="d-flex align-items-center">
+              <i class="bi bi-layers me-2"></i>
+              Group
+            </span>
+            <span class=" text-muted ">Type <i class=" bi bi-chevron-right"></i>  </span>
+          </a>
+        </li>
+
+
+
+
+        <li class="subtask-container" >
+          <a  class="dropdown-item d-flex justify-content-between align-items-center " href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false"
+            (click)="preventRefreshingThePage($event)">
+            <span  class="d-flex align-items-center subtask-item"><i class="bi bi-link me-2"></i> Subtasks</span>
+            <span class="text-muted ms-5">Collapse <i class="bi bi-chevron-right"></i></span>
+          </a>
+
+          <div class="options-box">
+            <ul >
+              <li class="px-3 text-muted">Show subtasks</li>
+              <li><a class="dropdown-item active" href="#" (click)="preventRefreshingThePage($event)" >Collapsed </a></li>
+              <li><a class="dropdown-item" href="#" (click)="preventRefreshingThePage($event)" >Expanded</a></li>
+              <li><a class="dropdown-item" href="#" (click)="preventRefreshingThePage($event)" >Separate</a></li>
+            </ul>
+          </div>
+
+        </li>
+
+        <li>
+          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+            <span class="d-flex align-items-center">
+              <i class="bi bi-magic me-2"></i>
+              Templates
+            </span>
+            <span> <i class=" bi bi-chevron-right"></i>  </span>
+          </a>
+        </li>
+
+        <li class="subtask-container" >
+          <a  class="dropdown-item d-flex justify-content-between align-items-center " href="#"  (click)="preventRefreshingThePage($event)">
+            <span  class="d-flex align-items-center subtask-item"><i class="bi bi-magic me-2"></i> Templates</span>
+            <span class="text-muted ms-5"> <i class="bi bi-chevron-right ms-5"></i></span>
+          </a>
+
+          <div class="options-box">
+            <ul >
+              <li class="px-3 text-muted"></li>
+              <li><a class="dropdown-item active" href="#" (click)="preventRefreshingThePage($event)"  > <i class="bi bi-columns"> Browse Templates</i> </a></li>
+              <li><a class="dropdown-item" href="#" (click)="preventRefreshingThePage($event)" ><i class="bi bi-floppy"> Save as Template </i> </a></li>
+              <li><a class="dropdown-item" href="#" (click)="preventRefreshingThePage($event)" > <i class="bi bi-arrow-repeat">Separate </i></a></li>
+            </ul>
+          </div>
+
+        </li>
+
+
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#"><span> <i class="bi bi-floppy me-2"></i></span>Autosave for me</a></li>
+        <li><a class="dropdown-item " href="#"><span> <i class="bi bi-floppy me-2"></i></span>Autosave for me</a></li>
         <li><a class="dropdown-item" href="#"><span><i class="bi bi-pin-fill me-2"></i></span>Pin view</a></li>
         <li><a class="dropdown-item" href="#"><span><i class="bi bi-lock me-2"></i></span>Private view</a></li>
         <li><a class="dropdown-item" href="#"><span><i class="bi bi-shield-fill-check me-2"></i></span>Protect view</a></li>
@@ -136,30 +210,3 @@
   <div *ngIf="selectedTab === 'guide'">Getting Started Guide Content</div>
   <div *ngIf="selectedTab === 'list'">List Content</div>
 </div>
-
-<!-- Filter Modal -->
-<div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="filterModalLabel">Filters</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="filters-container">
-          <label for="filterType">Select Filter</label>
-          <select id="filterType" class="form-select">
-            <option value="date">Date</option>
-            <option value="status">Status</option>
-            <option value="priority">Priority</option>
-          </select>
-          <button class="btn btn-outline-primary mt-3">Add Filter</button>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-

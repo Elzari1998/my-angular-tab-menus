@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-declare var bootstrap: any; // Ensure Bootstrap is available
-
 @Component({
   selector: 'app-tab-menu',
   standalone: true,
@@ -12,12 +10,17 @@ declare var bootstrap: any; // Ensure Bootstrap is available
 })
 export class TabMenuComponent {
   selectedTab: string = 'dashboard'; // Default tab
-  showLayoutOption: boolean = false;
+  // selectedOption: string = 'Collapse';
 
   selectTab(tab: string) {
     this.selectedTab = tab;
-    this.showLayoutOption = true;
   }
+
+  // selectOption(option: string, event: Event) {
+  //   event.preventDefault();
+  //   this.selectedOption = option;
+  // }
+
 
   preventRefreshingThePage(event: Event) {
     event.preventDefault();
@@ -25,13 +28,4 @@ export class TabMenuComponent {
 
 
 
-
-
-  openFilterModal() {
-    const modalElement = document.getElementById('filterModal');
-    if (modalElement) {
-      const modal = new bootstrap.Modal(modalElement);
-      modal.show();
-    }
-  }
 }
