@@ -9,41 +9,64 @@
         <i class="bi bi-gear"></i> Customize
       </button>
       <ul class="dropdown-menu p-4" data-bs-auto-close="false" aria-expanded="false" aria-labelledby="dropdownMenuButton">
-        <h6 class="fw-bold mb-3 d-flex justify-content-between align-items-center ">Customize View
+        <h6 class="fw-bold mb-3 d-flex justify-content-between align-items-center">Customize View
           <span>
-            <button type="button"  class="btn btn-close" data-bs-dismiss="dropdown" aria-label="Close"></button>
+            <button type="button" class="btn btn-close" data-bs-dismiss="dropdown" aria-label="Close"></button>
           </span>
         </h6>
-
 
         <div>
           <input type="text" class=" form-control" placeholder="Backlog">
         </div>
 
+        <li><a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+          <span> <i class="bi bi-list-ul "></i></span> Layout Options
+          <span> <i class="ms-5 bi bi-chevron-right"></i></span>
+        </a>
+        </li>
 
-        <li> <a class="dropdown-item d-flex justify-content-between align-items-center" href="#"> <span> <i class="bi bi-list-ul "></i></span> Layout Options <span> <i class="ms-5 bi bi-chevron-right"></i></span></a></li>
         <li><hr class="dropdown-divider"></li>
 
-
         <li>
-          <a class="dropdown-item d-flex justify-content-between align-items-center " href="#">
+          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
             <span>
               <i class="bi bi-pencil me-2"></i>
               Fields
             </span>
-            <span class=" text-muted ">5 shown <i class=" bi bi-chevron-right"></i>  </span>
+            <span class=" text-muted ">5 shown <i class="bi bi-chevron-right"></i>  </span>
           </a>
         </li>
 
-        <li>
-          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
-            <span class="d-flex align-items-center">
-              <i class="bi bi-filter me-2"></i>
-              Filter
-            </span>
-            <span class=" text-muted ">None <i class=" bi bi-chevron-right"></i>  </span>
-          </a>
+        <li class="dropdown-item">
+          <div class="dropdown">
+            <button class="btn btn-transparent border-0 dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-filter"></i> Filter
+            </button>
+            <span class="text-muted">None <i class="bi bi-chevron-right"></i> </span>
+
+            <!-- Dropdown Menu -->
+            <ul class="dropdown-menu p-4" aria-labelledby="dropdownMenuButton">
+              <h6 class="fw-bold mb-3 d-flex justify-content-between align-items-center">
+                Filter
+                <span>
+          <button type="button" class="btn btn-close" data-bs-dismiss="dropdown" aria-label="Close"></button>
+        </span>
+              </h6>
+
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Search..." (input)="onSearch($event)" />
+              </div>
+
+              <li><a class="dropdown-item" href="#" (click)="applyFilter('status')"> <i class="bi bi-tag me-2"></i> Status</a></li>
+              <li><a class="dropdown-item" href="#" (click)="applyFilter('tags')"> <i class="bi bi-tags me-2"></i> Tags</a></li>
+              <li><a class="dropdown-item" href="#" (click)="applyFilter('dueDate')"> <i class="bi bi-calendar-check me-2"></i> Due Date</a></li>
+
+              <li><a class="dropdown-item" href="#" (click)="addNestedFilter()"> <i class="bi bi-plus-square me-2"></i> Add Nested Filter</a></li>
+              <li><a class="dropdown-item" href="#" (click)="addFilter()"> <i class="bi bi-plus-circle me-2"></i> Add Filter</a></li>
+            </ul>
+          </div>
         </li>
+
 
         <li>
           <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
@@ -60,7 +83,7 @@
 
         <li class="subtask-container" >
           <a  class="dropdown-item d-flex justify-content-between align-items-center " href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false"
-            (click)="preventRefreshingThePage($event)">
+              (click)="preventRefreshingThePage($event)">
             <span  class="d-flex align-items-center subtask-item"><i class="bi bi-link me-2"></i> Subtasks</span>
             <span class="text-muted ms-5">Collapse <i class="bi bi-chevron-right"></i></span>
           </a>
@@ -103,13 +126,49 @@
 
         </li>
 
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-item">
+          <label class="d-flex justify-content-between align-items-center">
+            <span>Autosave for me</span>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" [(ngModel)]="autosave" role="switch" id="autosaveSwitch">
+            </div>
+          </label>
+        </li>
+        <li class="dropdown-item">
+          <label class="d-flex justify-content-between align-items-center">
+            <span>Pin view</span>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" [(ngModel)]="pinView" role="switch" id="pinViewSwitch">
+            </div>
+          </label>
+        </li>
+        <li class="dropdown-item">
+          <label class="d-flex justify-content-between align-items-center">
+            <span>Private view</span>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" [(ngModel)]="privateView" role="switch" id="privateViewSwitch">
+            </div>
+          </label>
+        </li>
+        <li class="dropdown-item">
+          <label class="d-flex justify-content-between align-items-center">
+            <span>Protect view</span>
+            <div class="form-check form-switch">
+              <input  class="form-check-input" type="checkbox" [(ngModel)]="protectedView" role="switch" id="protectedViewSwitch">
+            </div>
+          </label>
+        </li>
+        <li class="dropdown-item">
+          <label class="d-flex justify-content-between align-items-center">
+            <span>Set as default view</span>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" [(ngModel)]="defaultView" role="switch" id="defaultViewSwitch">
+            </div>
+          </label>
+        </li>
 
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item " href="#"><span> <i class="bi bi-floppy me-2"></i></span>Autosave for me</a></li>
-        <li><a class="dropdown-item" href="#"><span><i class="bi bi-pin-fill me-2"></i></span>Pin view</a></li>
-        <li><a class="dropdown-item" href="#"><span><i class="bi bi-lock me-2"></i></span>Private view</a></li>
-        <li><a class="dropdown-item" href="#"><span><i class="bi bi-shield-fill-check me-2"></i></span>Protect view</a></li>
-        <li><a class="dropdown-item" href="#"><span><i class="bi bi-house-door me-2"></i></span>Set as default view</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="#"><span><i class="bi bi-link-45deg me-2"></i></span>Copy link to view</a></li>
         <li><a class="dropdown-item" href="#"><span><i class="bi bi-star me-2"></i></span>Add to favorites</a></li>
