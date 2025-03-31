@@ -1,6 +1,3 @@
-@import "bootstrap/dist/css/bootstrap.min.css";
-
-
 .nav-tabs .nav-link {
   color: #6c757d;
   font-weight: 500;
@@ -28,4 +25,12 @@ transition: right 0.4s ease-in-out;
 
 .dropdown-menu.open {
   right: 0;
+}
+
+.dropdown-menu-content{
+  display: none;
+}
+
+.dropdown-subtask:hover .dropdown-menu-content {
+  display: block;
 }
