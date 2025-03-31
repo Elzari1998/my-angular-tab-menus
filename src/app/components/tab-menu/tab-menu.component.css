@@ -14,3 +14,15 @@
   border: 1px solid #ddd;
   border-top: none;
 }
+.dropdown-menu {
+  width: 300px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: -320px;
+transition: right 0.4s ease-in-out;
+}
+
+.dropdown-menu.open {
+  right: 0;
+}
