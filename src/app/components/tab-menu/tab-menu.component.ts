@@ -15,4 +15,12 @@ export class TabMenuComponent {
     this.selectedTab = tab;
     this.showLayoutOption = true;
   }
+
+  preventRefreshingThePage(event: Event) {
+    event.preventDefault();
+  }
+
+
+
+
 }

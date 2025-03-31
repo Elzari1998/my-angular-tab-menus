@@ -1,3 +1,6 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+
 .nav-tabs .nav-link {
   color: #6c757d;
   font-weight: 500;
