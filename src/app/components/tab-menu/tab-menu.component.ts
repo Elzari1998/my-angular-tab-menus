@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
 })
 export class TabMenuComponent {
   selectedTab: string = 'dashboard'; // Default tab
-  showOptions = false;
 
   selectTab(tab: string) {
     this.selectedTab = tab;
@@ -18,11 +17,6 @@ export class TabMenuComponent {
 
   preventRefreshingThePage(event: Event) {
     event.preventDefault();
-  }
-  selectOption(option: string, event: Event)   {
-    event.preventDefault()
-    console.log(option)
-    this.showOptions = false;
   }
 
 
