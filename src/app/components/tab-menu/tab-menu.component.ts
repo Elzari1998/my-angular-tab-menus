@@ -19,6 +19,14 @@ export class TabMenuComponent {
     this.showLayoutOption = true;
   }
 
+  preventRefreshingThePage(event: Event) {
+    event.preventDefault();
+  }
+
+
+
+
+
   openFilterModal() {
     const modalElement = document.getElementById('filterModal');
     if (modalElement) {
