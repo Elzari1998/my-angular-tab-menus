@@ -85,6 +85,25 @@
             <span> <i class=" bi bi-chevron-right"></i>  </span>
           </a>
         </li>
+
+        <li class="subtask-container" >
+          <a  class="dropdown-item d-flex justify-content-between align-items-center " href="#"  (click)="preventRefreshingThePage($event)">
+            <span  class="d-flex align-items-center subtask-item"><i class="bi bi-magic me-2"></i> Templates</span>
+            <span class="text-muted ms-5"> <i class="bi bi-chevron-right ms-5"></i></span>
+          </a>
+
+          <div class="options-box">
+            <ul >
+              <li class="px-3 text-muted"></li>
+              <li><a class="dropdown-item active" href="#" (click)="preventRefreshingThePage($event)"  > <i class="bi bi-columns"> Browse Templates</i> </a></li>
+              <li><a class="dropdown-item" href="#" (click)="preventRefreshingThePage($event)" ><i class="bi bi-floppy"> Save as Template </i> </a></li>
+              <li><a class="dropdown-item" href="#" (click)="preventRefreshingThePage($event)" > <i class="bi bi-arrow-repeat">Separate </i></a></li>
+            </ul>
+          </div>
+
+        </li>
+
+
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item " href="#"><span> <i class="bi bi-floppy me-2"></i></span>Autosave for me</a></li>
         <li><a class="dropdown-item" href="#"><span><i class="bi bi-pin-fill me-2"></i></span>Pin view</a></li>
