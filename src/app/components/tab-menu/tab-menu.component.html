@@ -27,7 +27,7 @@
 
 
         <li><a class="dropdown-item " href="#"><span> <i class="bi bi-pencil me-2"></i></span>  Fields </a></li>
-        <li><a class="dropdown-item" href="#"><span> <i class="bi bi-filter me-2"></i></span>Filter </a></li>
+        <li><a class="dropdown-item" href="#" (click)="openFilterModal()"> <span> <i class="bi bi-filter me-2"></i></span>Filter </a></li>
         <li><a class="dropdown-item" href="#"><span> <i class="bi bi-layers me-2"></i></span>Group</a></li>
         <li><a class="dropdown-item" href="#"><span> <i class="bi bi-link me-2"></i></span>Subtasks</a></li>
         <li><hr class="dropdown-divider"></li>
@@ -136,3 +136,30 @@
   <div *ngIf="selectedTab === 'guide'">Getting Started Guide Content</div>
   <div *ngIf="selectedTab === 'list'">List Content</div>
 </div>
+
+<!-- Filter Modal -->
+<div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="filterModalLabel">Filters</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="filters-container">
+          <label for="filterType">Select Filter</label>
+          <select id="filterType" class="form-select">
+            <option value="date">Date</option>
+            <option value="status">Status</option>
+            <option value="priority">Priority</option>
+          </select>
+          <button class="btn btn-outline-primary mt-3">Add Filter</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
