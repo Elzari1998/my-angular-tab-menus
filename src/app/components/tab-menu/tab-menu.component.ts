@@ -10,8 +10,9 @@ import { CommonModule } from '@angular/common';
 })
 export class TabMenuComponent {
   selectedTab: string = 'dashboard'; // Default tab
-
+  showLayoutOption: boolean = false;
   selectTab(tab: string) {
     this.selectedTab = tab;
+    this.showLayoutOption = true;
   }
 }
