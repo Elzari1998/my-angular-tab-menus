@@ -22,20 +22,34 @@ export class TabMenuComponent implements AfterViewInit {
   defaultView: boolean = false;
   selectedOption:string = 'Collapsed'
 
-  isStatusVisible: boolean = false;
-  isTagsVisible: boolean = false;
-  isDueDateVisible: boolean = false;
-
   // Function to set the active tab
   selectTab(tabName: string): void {
     this.selectedTab = tabName;
   }
 
+  optionsList: string[] = ['Status', 'Tags', 'Due Date', 'Priority', 'Add filter'];
+  filteredOptions: string[] = [...this.optionsList];
+  isDropdownVisible = false;
+
   filterOptions(event: Event) {
     const searchValue = (event.target as HTMLInputElement).value.toLowerCase();
     console.log("Filtering options for:", searchValue);
-    // Implement filtering logic based on searchValue
+
+    this.filteredOptions = this.optionsList.filter(option =>
+        option.toLowerCase().includes(searchValue)
+    );
   }
+  showDropdown() {
+    this.isDropdownVisible = true;
+  }
+
+  closeDropdown() {
+    this.isDropdownVisible = false;
+  }
+  clearFilters() {
+    console.log("Filters cleared");
+  }
+
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {

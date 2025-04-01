@@ -23,6 +23,7 @@
           <span> <i class="bi bi-list-ul "></i></span> Layout Options
           <span> <i class="ms-5 bi bi-chevron-right"></i></span>
         </a>
+
         </li>
 
         <li><hr class="dropdown-divider"></li>
@@ -46,11 +47,50 @@
             <span class="text-muted ms-5">None<i class="bi bi-chevron-right"></i></span>
           </a>
 
-          <div class="options-box dropdown-menu-end w-200 px-4"  style="width: 400px; transform: translateX(-6cm);">
-            <ul class="list-styled w-100 ">
-              <li class="px-3 text-muted">Filter </li>
-              <li>
-                <input type="text" class="form-control w-100" placeholder="Select filter..." (input)="filterOptions($event)">
+          <div class="options-box dropdown-menu-end" style="width: 500px; transform: translateX(-8cm);">
+            <ul class="list-styled w-100">
+              <!-- Filter Section -->
+              <li class="px-3 d-flex justify-content-between align-items-center">
+                <span class="text-muted">Filter</span>
+                <!-- Right-aligned Clear All & Saved Filters -->
+                <div class="d-flex ms-auto">
+                  <!-- Clear all button -->
+                  <button class="btn btn-link text-muted me-3" (click)="clearFilters()">Clear all</button>
+
+                  <!-- Saved Filters Dropdown -->
+                  <div class="dropdown">
+                    <button class="btn btn-link dropdown-toggle text-muted" type="button" id="savedFiltersDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                      Saved filters
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="savedFiltersDropdown">
+                      <li><a class="dropdown-item" href="#">Filter 1</a></li>
+                      <li><a class="dropdown-item" href="#">Filter 2</a></li>
+                      <li><a class="dropdown-item" href="#">Filter 3</a></li>
+                      <!-- Add more filters as needed -->
+                    </ul>
+                  </div>
+                </div>
+                </li>
+
+                <li>
+                <input
+                  type="text"
+                  class="form-control w-100"
+                  placeholder="Select filter..."
+                  (focus)="showDropdown()"
+                  (input)="filterOptions($event)"
+                  (blur)="closeDropdown()">
+              </li>
+
+
+              <li *ngIf="isDropdownVisible" class="dropdown-menu show " style="top: 2.2cm; left: 40px; width:100px; height:300px">
+                <ul class="dropdown-menu show w-100 h-100" style="position: absolute; top: 0; left: 0;  min-width: 100px; width: auto;">
+                  <li *ngFor="let option of filteredOptions">
+                    <a class="dropdown-item d-flex justify-content-start align-items-center w-400" href="#" (click)="preventRefreshingThePage($event)">
+                      {{ option }}
+                    </a>
+                  </li>
+                </ul>
               </li>
 
               <li>
