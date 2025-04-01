@@ -19,12 +19,31 @@
           <input type="text" class=" form-control" placeholder="Backlog">
         </div>
 
-        <li><a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
-          <span> <i class="bi bi-list-ul "></i></span> Layout Options
-          <span> <i class="ms-5 bi bi-chevron-right"></i></span>
-        </a>
+        <li class="nav-item dropdown">
+          <button class="btn btn-transparent border-0 dropdown-toggle" type="button"
+                  id="dropdownMenuButton0" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-list-ul"></i> Layout Options
+          </button>
 
+          <ul class="dropdown-menu show p-4" aria-labelledby="dropdownMenuButton0" data-bs-auto-close="outside">
+            <h6 class="fw-bold mb-3 d-flex justify-content-between align-items-center">
+              Layout Options
+              <span>
+        <button type="button" class="btn btn-close" data-bs-dismiss="dropdown" aria-label="Close"></button>
+      </span>
+            </h6>
+
+            <li><a class="dropdown-item" href="#">Filter 1</a></li>
+            <li><a class="dropdown-item" href="#">Filter 2</a></li>
+            <li><a class="dropdown-item" href="#">Filter 3</a></li>
+          </ul>
         </li>
+
+
+
+
+
+
 
         <li><hr class="dropdown-divider"></li>
 
@@ -49,15 +68,15 @@
 
           <div class="options-box dropdown-menu-end" style="width: 500px; transform: translateX(-8cm);">
             <ul class="list-styled w-100">
-              <!-- Filter Section -->
+
               <li class="px-3 d-flex justify-content-between align-items-center">
                 <span class="text-muted">Filter</span>
-                <!-- Right-aligned Clear All & Saved Filters -->
+
                 <div class="d-flex ms-auto">
-                  <!-- Clear all button -->
+
                   <button class="btn btn-link text-muted me-3" (click)="clearFilters()">Clear all</button>
 
-                  <!-- Saved Filters Dropdown -->
+
                   <div class="dropdown">
                     <button class="btn btn-link dropdown-toggle text-muted" type="button" id="savedFiltersDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                       Saved filters

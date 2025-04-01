@@ -73,4 +73,6 @@ export class TabMenuComponent implements AfterViewInit {
     this.selectedOption = option;
   }
 
+
+
 }
