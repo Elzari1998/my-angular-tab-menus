@@ -20,6 +20,7 @@ export class TabMenuComponent implements AfterViewInit {
   privateView: boolean = false;
   protectedView: boolean = false;
   defaultView: boolean = false;
+  selectedOption:string = 'Collapsed'
 
   isStatusVisible: boolean = false;
   isTagsVisible: boolean = false;
@@ -53,5 +54,9 @@ export class TabMenuComponent implements AfterViewInit {
     event.preventDefault();
   }
 
+  selectOption(option: string, event:Event): void {
+    event.preventDefault();
+    this.selectedOption = option;
+  }
 
 }
