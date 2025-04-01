@@ -21,6 +21,21 @@ export class TabMenuComponent implements AfterViewInit {
   protectedView: boolean = false;
   defaultView: boolean = false;
   selectedOption:string = 'Collapsed'
+  activePanel: string = 'homeFields';
+  fieldVisible:boolean = false;
+  fields :{icon: string , name:string, enabled:boolean}[] = [
+    {icon: 'bi-person' , name : 'Assignee', enabled:true},
+    {icon:'bi-caret-down-square', name : 'Phase', enabled:true},
+    {icon:'bi-caret-down-square', name : 'Created By', enabled:true},
+    {icon:'bi-caret-down-square' , name : 'UX - Status', enabled:true},
+    {icon:'bi-caret-down-square', name : 'Development Status', enabled:true},
+    {icon:'bi-caret-down-square', name : 'Overall Status', enabled:true},
+    {icon:'bi-flag', name : 'Priority', enabled:true},
+    {icon:'bi-calendar3', name : 'Due date', enabled:true},
+    {icon:'bi-caret-down-square', name : 'Type', enabled:true},
+    {icon:'bi-star', name : 'Effort', enabled:true},
+    {icon:'bi-hash', name : 'Sequence', enabled:true},
+
 
   // Function to set the active tab
   selectTab(tabName: string): void {
@@ -66,13 +81,12 @@ export class TabMenuComponent implements AfterViewInit {
   // Prevent page refresh on click (if necessary for some dropdown items)
   preventRefreshingThePage(event: Event): void {
     event.preventDefault();
+
   }
 
   selectOption(option: string, event:Event): void {
     event.preventDefault();
     this.selectedOption = option;
   }
-
-
 
 }
