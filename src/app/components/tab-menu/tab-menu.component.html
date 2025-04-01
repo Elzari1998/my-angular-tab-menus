@@ -12,6 +12,7 @@
         <h6 class="fw-bold mb-3 d-flex justify-content-between align-items-center ">Customize View
           <span>
             <button type="button"  class="btn btn-close" data-bs-dismiss="dropdown" aria-label="Close"></button>
+<!--            <i class="bi bi-x"></i>-->
           </span>
         </h6>
 
@@ -60,15 +61,18 @@
           <a  class="dropdown-item d-flex justify-content-between align-items-center " href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false"
             (click)="preventRefreshingThePage($event)">
             <span  class="d-flex align-items-center subtask-item"><i class="bi bi-link me-2"></i> Subtasks</span>
-            <span class="text-muted ms-5">Collapse <i class="bi bi-chevron-right"></i></span>
+            <span class="text-muted ms-5">{{ selectedOption }} <i class="bi bi-chevron-right"></i></span>
           </a>
 
           <div class="options-box">
             <ul >
               <li class="px-3 text-muted">Show subtasks</li>
-              <li><a class="dropdown-item active" href="#" (click)="preventRefreshingThePage($event)" >Collapsed </a></li>
-              <li><a class="dropdown-item" href="#" (click)="preventRefreshingThePage($event)" >Expanded</a></li>
-              <li><a class="dropdown-item" href="#" (click)="preventRefreshingThePage($event)" >Separate</a></li>
+              <li><a class="dropdown-item active" href="#"  [class.active]="selectedOption === 'Collapsed'"
+                     (click)="selectOption('Collapsed', $event)"> Collapsed </a></li>
+              <li><a class="dropdown-item" href="#"  [class.active]="selectedOption === 'Expanded'"
+                     (click)="selectOption('Expanded', $event)" >Expanded</a></li>
+              <li><a class="dropdown-item" href="#" [class.active]="selectedOption === 'Separate'"
+                     (click)="selectOption('Separate', $event)" >Separate</a></li>
             </ul>
           </div>
 

@@ -10,15 +10,21 @@ import { CommonModule } from '@angular/common';
 })
 export class TabMenuComponent {
   selectedTab: string = 'dashboard'; // Default tab
-  // selectedOption: string = 'Collapse';
+  selectedOption: string = 'Collapse';
 
   selectTab(tab: string) {
     this.selectedTab = tab;
   }
 
-  // selectOption(option: string, event: Event) {
-  //   event.preventDefault();
-  //   this.selectedOption = option;
+  selectOption(option: string, event: Event) {
+    event.preventDefault();
+    this.selectedOption = option;
+  }
+
+  // selectTemplateOption(template: string, event: Event) {
+  //   event.preventDefault()
+  //   console.log(this.selectedTemplateOption)
+  //   this.selectedTemplateOption = template;
   // }
 
 
