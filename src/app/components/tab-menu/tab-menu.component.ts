@@ -22,7 +22,8 @@ export class TabMenuComponent implements AfterViewInit {
   defaultView: boolean = false;
   selectedOption:string = 'Collapsed'
   activePanel: string = 'homeFields';
-  fieldVisible:boolean = false;
+  sideBarOpen:boolean = false;
+  // fieldVisible:boolean = false;
   fields :{icon: string , name:string, enabled:boolean}[] = [
     {icon: 'bi-person' , name : 'Assignee', enabled:true},
     {icon:'bi-caret-down-square', name : 'Phase', enabled:true},
@@ -36,12 +37,45 @@ export class TabMenuComponent implements AfterViewInit {
     {icon:'bi-star', name : 'Effort', enabled:true},
     {icon:'bi-hash', name : 'Sequence', enabled:true},
 
+  ]
+  popularFields:{icon:string, name:string, enabled:boolean}[] = [
+    {icon:'bi-chat', name : 'Comments', enabled:false},
+    {icon:'bi-calendar3', name : 'Date created', enabled:false},
+    {icon:'bi-hash', name : 'Pull request', enabled:false},
+  ]
 
+  hidden:{icon:string, name:string, enabled:boolean}[] = [
+    {icon:'bi-chat', name : 'Assigned Comments', enabled:false},
+    {icon:'bi-person', name : 'Created by', enabled:false},
+    {icon:'bi-calendar3', name : 'Date closed', enabled:false},
+    {icon:'bi-calendar3', name : 'Date Updated', enabled:false},
+    {icon:'bi-hash', name : 'Dependencies', enabled:false},
+    {icon:'bi-person', name : 'Latest comment', enabled:false},
+    {icon:'bi-calendar3', name : 'Linked Docs', enabled:false},
+    {icon:'bi-calendar3', name : 'Linked tasks', enabled:false},
+    {icon:'bi-hash', name : 'Lists', enabled:false},
+  ]
+
+  fieldsInWorkspace:{icon:string, name:string, enabled:boolean}[] = [
+    {icon:'bi-chat', name : 'Probability', enabled:false},
+    {icon:'bi-person', name : 'Risk Level', enabled:false},
+    {icon:'bi-calendar3', name : 'Duration(Days)', enabled:false},
+    {icon:'bi-calendar3', name : 'Approver', enabled:false},
+    {icon:'bi-hash', name : 'Project Aspect', enabled:false},
+    {icon:'bi-person', name : 'Description', enabled:false},
+    {icon:'bi-calendar3', name : 'Mitigation cost', enabled:false},
 
   ]
-  isStatusVisible: boolean = false;
-  isTagsVisible: boolean = false;
-  isDueDateVisible: boolean = false;
+
+  creatingNewFieldsItems:{icon:string, name:string, enabled:boolean}[] = [
+    {icon:'bi-chat', name : 'Destination', enabled:false},
+    {icon:'bi-person', name : 'Customer Feedback', enabled:false},
+    {icon:'bi-calendar3', name : 'Tourism Phase', enabled:false},
+    {icon:'bi-calendar3', name : 'Task summary', enabled:false},
+
+  ]
+
+
 
   // Function to set the active tab
   selectTab(tabName: string): void {
@@ -76,10 +110,8 @@ export class TabMenuComponent implements AfterViewInit {
     event.preventDefault();
     this.selectedOption = option;
   }
-  toggleFields(event:Event){
-    event.preventDefault();
-    console.log(this.fieldVisible);
-      this.fieldVisible = !this.fieldVisible;
+  toggleSideBar(){
+    this.sideBarOpen = !this.sideBarOpen;
   }
 
   openPanel(panel: string) {
