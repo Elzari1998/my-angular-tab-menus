@@ -30,20 +30,18 @@ export class TabMenuComponent implements AfterViewInit {
   selectedOption: string = 'Collapsed';
   activePanel: string = 'homeFields';
 
-  sideBarOpen: boolean = false;
-  // fieldVisible:boolean = false;
-  fields: { icon: string, name: string, enabled: boolean }[] = [
-    {icon: 'bi-person', name: 'Assignee', enabled: true},
-    {icon: 'bi-caret-down-square', name: 'Phase', enabled: true},
-    {icon: 'bi-caret-down-square', name: 'Created By', enabled: true},
-    {icon: 'bi-caret-down-square', name: 'UX - Status', enabled: true},
-    {icon: 'bi-caret-down-square', name: 'Development Status', enabled: true},
-    {icon: 'bi-caret-down-square', name: 'Overall Status', enabled: true},
-    {icon: 'bi-flag', name: 'Priority', enabled: true},
-    {icon: 'bi-calendar3', name: 'Due date', enabled: true},
-    {icon: 'bi-caret-down-square', name: 'Type', enabled: true},
-    {icon: 'bi-star', name: 'Effort', enabled: true},
-    {icon: 'bi-hash', name: 'Sequence', enabled: true},
+  fields :{icon: string , name:string, enabled:boolean}[] = [
+    {icon: 'bi-person' , name : 'Assignee', enabled:true},
+    {icon:'bi-caret-down-square', name : 'Phase', enabled:true},
+    {icon:'bi-caret-down-square', name : 'Created By', enabled:true},
+    {icon:'bi-caret-down-square' , name : 'UX - Status', enabled:true},
+    {icon:'bi-caret-down-square', name : 'Development Status', enabled:true},
+    {icon:'bi-caret-down-square', name : 'Overall Status', enabled:true},
+    {icon:'bi-flag', name : 'Priority', enabled:true},
+    {icon:'bi-calendar3', name : 'Due date', enabled:true},
+    {icon:'bi-caret-down-square', name : 'Type', enabled:true},
+    {icon:'bi-star', name : 'Effort', enabled:true},
+    {icon:'bi-hash', name : 'Sequence', enabled:true},
 
   ]
   popularFields: { icon: string, name: string, enabled: boolean }[] = [
@@ -83,25 +81,47 @@ export class TabMenuComponent implements AfterViewInit {
 
   ]
 
-
-  fieldVisible: boolean = false;
-
-  openPanel(panelName: string): void {
-    this.activePanel = panelName;
-  }
-
-
-  layouts: { name: string, enabled: boolean }[] = [
-    {name: 'Show empty statuses', enabled: true},
-    {name: 'Pin Description', enabled: true},
-    {name: 'Wrap Text', enabled: true},
-    {name: 'Task location', enabled: true},
-    {name: 'Task properties', enabled: true},
-    {name: 'Task locations', enabled: true},
-    {name: 'Task properties', enabled: true},
-    {name: 'Subtask parent names', enabled: true},
-
+  layouts: {  name: string, enabled: boolean }[] = [
+    {  name: 'Show empty statuses', enabled: true },
+    {  name: 'Pin Description', enabled: true },
+    { name: 'Wrap Text', enabled: true },
+    { name: 'Task location', enabled: true },
+    {  name: 'Task properties', enabled: true },
+    { name: 'Task locations', enabled: true },
+    { name: 'Task properties', enabled: true },
+    { name: 'Subtask parent names', enabled: true },
   ];
+
+  groupList:{icon:string, name:string}[] =[
+    {icon:' ', name : 'Status' },
+    {icon:' ', name : 'Assignee' },
+    {icon:' ', name : 'Priority' },
+    {icon:' ', name : 'Tags' },
+    {icon:' ', name : 'Due date' },
+    {icon:' ', name : 'Task Type' },
+    {icon:' ', name : 'UX - Status' },
+    {icon:' ', name : 'User stories - Status' },
+  ]
+exportOptionsList  = [
+  {icon:'', name: 'Visible columns'},
+  {icon:'', name: 'Task Names Only'},
+  {icon:'', name: 'All columns'}
+
+]
+  fileFormat = [
+    {icon:'', name: 'CSV'},
+    {icon:'', name: 'Excel'},
+  ]
+  dateFormat = [
+    {icon:'', name: 'Normal'},
+    {icon:'', name: 'ISO'},
+    {icon:'', name: 'POSIX'},
+  ]
+  timeFormat = [
+    {icon:'', name: 'Normal'},
+    {icon:'', name: 'hh:mm'},
+    {icon:'', name: 'hh:mm:ss'},
+  ]
 
   layoutsVisibility: { name: string, enabled: boolean }[] = [
     {name: 'Closed tasks', enabled: true},
@@ -115,6 +135,9 @@ export class TabMenuComponent implements AfterViewInit {
 
 
   ];
+  openPanel(panelName: string): void {
+    this.activePanel = panelName;
+  }
 
   layoutsView2: {icon: string, name: string}[] = [
     {icon:'bi bi-file-earmark me-2' ,name: 'Duplicate view'},
@@ -176,9 +199,9 @@ export class TabMenuComponent implements AfterViewInit {
     this.selectedOption = option;
   }
 
-  toggleSideBar() {
-    this.sideBarOpen = !this.sideBarOpen;
-  }
+  // toggleSideBar() {
+  //   this.sideBarOpen = !this.sideBarOpen;
+  // }
 
   favoriteName: string = '';
 

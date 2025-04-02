@@ -34,7 +34,8 @@ transition: right 0.4s ease-in-out;
 }
 
 .options-box {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
   position: absolute;
   top: 0;
   left: 30%;
@@ -44,7 +45,9 @@ transition: right 0.4s ease-in-out;
   padding: 2px;
   border-radius: 5px;
   z-index: 1000;
-  min-width: 120px;
+  min-width: 100px;
+  transform: translateY(-10px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, visibility 0.5s;
 }
 
 .options-box ul  {
@@ -62,8 +65,10 @@ transition: right 0.4s ease-in-out;
   background-color: #f0f0f0;
 }
 
-.subtask-container:hover .options-box {
-  display: block;
+.subtask-container:hover .options-box  {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 /* --------------------- SUBTASK END -----------------------*/
@@ -79,6 +84,29 @@ ul li{
   max-height: 600px;
   overflow-y: auto;
   transition: right 0.4s ease-in-out;
+}
+
+
+.options-box2 {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.subtask-container:hover .options-box2 {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 
