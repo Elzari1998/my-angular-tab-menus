@@ -84,19 +84,7 @@ export class TabMenuComponent implements AfterViewInit {
     this.activePanel = panelName;
   }
 
-  fields: { icon: string, name: string, enabled: boolean }[] = [
-    { icon: 'bi-person', name: 'Assignee', enabled: true },
-    { icon: 'bi-caret-down-square', name: 'Phase', enabled: true },
-    { icon: 'bi-caret-down-square', name: 'Created By', enabled: true },
-    { icon: 'bi-caret-down-square', name: 'UX - Status', enabled: true },
-    { icon: 'bi-caret-down-square', name: 'Development Status', enabled: true },
-    { icon: 'bi-caret-down-square', name: 'Overall Status', enabled: true },
-    { icon: 'bi-flag', name: 'Priority', enabled: true },
-    { icon: 'bi-calendar3', name: 'Due date', enabled: true },
-    { icon: 'bi-caret-down-square', name: 'Type', enabled: true },
-    { icon: 'bi-star', name: 'Effort', enabled: true },
-    { icon: 'bi-hash', name: 'Sequence', enabled: true }
-  ];
+
 
   layouts: {  name: string, enabled: boolean }[] = [
     {  name: 'Show empty statuses', enabled: true },
@@ -169,8 +157,6 @@ export class TabMenuComponent implements AfterViewInit {
     this.sideBarOpen = !this.sideBarOpen;
   }
 
-  openPanel(panel: string) {
-    this.activePanel = panel;
-  }
+
 
 }
