@@ -12,7 +12,14 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 })
 export class TabMenuComponent implements AfterViewInit {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  }
+  searchQuery: string = '';
+
+  onSearch(): void {
+    console.log('Search initiated for:', this.searchQuery);
+
+  }
 
   selectedTab: string = 'dashboard';  // Default active tab
   autosave: boolean = false;
@@ -37,40 +44,40 @@ export class TabMenuComponent implements AfterViewInit {
     {icon:'bi-hash', name : 'Sequence', enabled:true},
 
   ]
-  popularFields:{icon:string, name:string, enabled:boolean}[] = [
-    {icon:'bi-chat', name : 'Comments', enabled:false},
-    {icon:'bi-calendar3', name : 'Date created', enabled:false},
-    {icon:'bi-hash', name : 'Pull request', enabled:false},
+  popularFields: { icon: string, name: string, enabled: boolean }[] = [
+    {icon: 'bi-chat', name: 'Comments', enabled: false},
+    {icon: 'bi-calendar3', name: 'Date created', enabled: false},
+    {icon: 'bi-hash', name: 'Pull request', enabled: false},
   ]
 
-  hidden:{icon:string, name:string, enabled:boolean}[] = [
-    {icon:'bi-chat', name : 'Assigned Comments', enabled:false},
-    {icon:'bi-person', name : 'Created by', enabled:false},
-    {icon:'bi-calendar3', name : 'Date closed', enabled:false},
-    {icon:'bi-calendar3', name : 'Date Updated', enabled:false},
-    {icon:'bi-hash', name : 'Dependencies', enabled:false},
-    {icon:'bi-person', name : 'Latest comment', enabled:false},
-    {icon:'bi-calendar3', name : 'Linked Docs', enabled:false},
-    {icon:'bi-calendar3', name : 'Linked tasks', enabled:false},
-    {icon:'bi-hash', name : 'Lists', enabled:false},
+  hidden: { icon: string, name: string, enabled: boolean }[] = [
+    {icon: 'bi-chat', name: 'Assigned Comments', enabled: false},
+    {icon: 'bi-person', name: 'Created by', enabled: false},
+    {icon: 'bi-calendar3', name: 'Date closed', enabled: false},
+    {icon: 'bi-calendar3', name: 'Date Updated', enabled: false},
+    {icon: 'bi-hash', name: 'Dependencies', enabled: false},
+    {icon: 'bi-person', name: 'Latest comment', enabled: false},
+    {icon: 'bi-calendar3', name: 'Linked Docs', enabled: false},
+    {icon: 'bi-calendar3', name: 'Linked tasks', enabled: false},
+    {icon: 'bi-hash', name: 'Lists', enabled: false},
   ]
 
-  fieldsInWorkspace:{icon:string, name:string, enabled:boolean}[] = [
-    {icon:'bi-chat', name : 'Probability', enabled:false},
-    {icon:'bi-person', name : 'Risk Level', enabled:false},
-    {icon:'bi-calendar3', name : 'Duration(Days)', enabled:false},
-    {icon:'bi-calendar3', name : 'Approver', enabled:false},
-    {icon:'bi-hash', name : 'Project Aspect', enabled:false},
-    {icon:'bi-person', name : 'Description', enabled:false},
-    {icon:'bi-calendar3', name : 'Mitigation cost', enabled:false},
+  fieldsInWorkspace: { icon: string, name: string, enabled: boolean }[] = [
+    {icon: 'bi-chat', name: 'Probability', enabled: false},
+    {icon: 'bi-person', name: 'Risk Level', enabled: false},
+    {icon: 'bi-calendar3', name: 'Duration(Days)', enabled: false},
+    {icon: 'bi-calendar3', name: 'Approver', enabled: false},
+    {icon: 'bi-hash', name: 'Project Aspect', enabled: false},
+    {icon: 'bi-person', name: 'Description', enabled: false},
+    {icon: 'bi-calendar3', name: 'Mitigation cost', enabled: false},
 
   ]
 
-  creatingNewFieldsItems:{icon:string, name:string, enabled:boolean}[] = [
-    {icon:'bi-chat', name : 'Destination', enabled:false},
-    {icon:'bi-person', name : 'Customer Feedback', enabled:false},
-    {icon:'bi-calendar3', name : 'Tourism Phase', enabled:false},
-    {icon:'bi-calendar3', name : 'Task summary', enabled:false},
+  creatingNewFieldsItems: { icon: string, name: string, enabled: boolean }[] = [
+    {icon: 'bi-chat', name: 'Destination', enabled: false},
+    {icon: 'bi-person', name: 'Customer Feedback', enabled: false},
+    {icon: 'bi-calendar3', name: 'Tourism Phase', enabled: false},
+    {icon: 'bi-calendar3', name: 'Task summary', enabled: false},
 
   ]
 
@@ -116,10 +123,28 @@ exportOptionsList  = [
     {icon:'', name: 'hh:mm:ss'},
   ]
 
+  layoutsVisibility: { name: string, enabled: boolean }[] = [
+    {name: 'Closed tasks', enabled: true},
+    {name: 'Closed subtasks', enabled: true},
+    {name: 'Tasks from other lists', enabled: true},
+
+  ];
+
+  layoutsView: {icon: string, name: string, enabled: boolean }[] = [
+    {icon:'bi-person' ,name: 'Default to Me Mode', enabled: true},
+
+
+  ];
   openPanel(panelName: string): void {
     this.activePanel = panelName;
   }
 
+  layoutsView2: {icon: string, name: string}[] = [
+    {icon:'bi bi-file-earmark me-2' ,name: 'Duplicate view'},
+    {icon:'bi bi-arrow-counterclockwise me-2' ,name: 'Reset view to defaults'},
+
+
+  ];
   // Function to set the active tab
   selectTab(tabName: string): void {
     this.selectedTab = tabName;
@@ -173,6 +198,17 @@ exportOptionsList  = [
     event.preventDefault();
     this.selectedOption = option;
   }
+
+  // toggleSideBar() {
+  //   this.sideBarOpen = !this.sideBarOpen;
+  // }
+
+  favoriteName: string = '';
+
+  saveFavorite() {
+    console.log('Favorite saved:', this.favoriteName);
+  }
+
 
 
 }
