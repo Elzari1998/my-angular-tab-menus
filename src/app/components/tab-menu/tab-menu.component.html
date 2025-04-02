@@ -200,7 +200,12 @@
 
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="#"><span><i class="bi bi-link-45deg me-2"></i></span>Copy link to view</a></li>
-        <li><a class="dropdown-item" href="#"><span><i class="bi bi-star me-2"></i></span>Add to favorites</a></li>
+          <li>
+            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#favoritesModal">
+              <span><i class="bi bi-star me-2"></i></span>Add to favorites
+            </a>
+          </li>
+
         <li><a class="dropdown-item" href="#"><span><i class="bi bi-download me-2"></i></span>Export view</a></li>
         <li><a class="dropdown-item" href="#"><span><i class="bi bi-share me-2"></i></span>Sharing & Permissions</a></li>
 
@@ -286,10 +291,29 @@
 
           </ul>
         </div>
-
-
-
       </div>
+
+      <div class="modal fade" id="favoritesModal" tabindex="-1" aria-labelledby="favoritesModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="favoritesModalLabel">Add to favorites</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <label for="favoriteName" class="form-label">Name</label>
+              <input type="text" class="form-control" id="favoriteName" [(ngModel)]="favoriteName">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" (click)="saveFavorite()">Save favorite</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
   </li>
 
 
