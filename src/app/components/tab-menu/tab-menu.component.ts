@@ -14,6 +14,12 @@ export class TabMenuComponent implements AfterViewInit {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
   }
+  searchQuery: string = '';
+
+  onSearch(): void {
+    console.log('Search initiated for:', this.searchQuery);
+
+  }
 
   selectedTab: string = 'dashboard';  // Default active tab
   autosave: boolean = false;
@@ -97,7 +103,25 @@ export class TabMenuComponent implements AfterViewInit {
 
   ];
 
+  layoutsVisibility: { name: string, enabled: boolean }[] = [
+    {name: 'Closed tasks', enabled: true},
+    {name: 'Closed subtasks', enabled: true},
+    {name: 'Tasks from other lists', enabled: true},
 
+  ];
+
+  layoutsView: {icon: string, name: string, enabled: boolean }[] = [
+    {icon:'bi-person' ,name: 'Default to Me Mode', enabled: true},
+
+
+  ];
+
+  layoutsView2: {icon: string, name: string}[] = [
+    {icon:'bi bi-file-earmark me-2' ,name: 'Duplicate view'},
+    {icon:'bi bi-arrow-counterclockwise me-2' ,name: 'Reset view to defaults'},
+
+
+  ];
   // Function to set the active tab
   selectTab(tabName: string): void {
     this.selectedTab = tabName;
