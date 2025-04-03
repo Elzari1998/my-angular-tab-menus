@@ -109,4 +109,32 @@ ul li{
   transform: translateY(0);
 }
 
+.online-dot{
+  color: green;
+  font-weight: bold;
+  font-size: larger;
+}
+.editBacklog{
+  width: 300px;
+  z-index:1000;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
 
+.editBacklogListIcons{
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  /*display: flex;*/
+
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.add-status{
+  color: lightgray;
+}

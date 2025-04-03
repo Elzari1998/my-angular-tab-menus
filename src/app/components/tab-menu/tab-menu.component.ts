@@ -30,6 +30,7 @@ export class TabMenuComponent implements AfterViewInit {
   selectedOption: string = 'Collapsed';
   activePanel: string = 'homeFields';
 
+
   fields :{icon: string , name:string, enabled:boolean}[] = [
     {icon: 'bi-person' , name : 'Assignee', enabled:true},
     {icon:'bi-caret-down-square', name : 'Phase', enabled:true},
@@ -199,9 +200,6 @@ exportOptionsList  = [
     this.selectedOption = option;
   }
 
-  // toggleSideBar() {
-  //   this.sideBarOpen = !this.sideBarOpen;
-  // }
 
   favoriteName: string = '';
 
@@ -209,6 +207,9 @@ exportOptionsList  = [
     console.log('Favorite saved:', this.favoriteName);
   }
 
+togglePane(){
+
+}
 
 
 }

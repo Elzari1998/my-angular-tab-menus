@@ -1,23 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary"> <!-- Changed bg-light to bg-primary -->
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand text-white" href="#">MyApp</a> <!-- Added text-white to change text color to white -->
+    <a class="navbar-brand text-white" href="#">Logo</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav" >
+      <ul class="navbar-nav mx-auto text-center" >
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#">Home</a> <!-- Added text-white -->
+          <a class="nav-link active text-white" href="#">
+            <i class=" bi bi-calendar4" style="font-size: 24px;"></i>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">About</a> <!-- Added text-white -->
+          <input class="form-control h-75 mt-2"  type="search" placeholder="Search" [(ngModel)]="searchQuery" name="search">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white mt-2" href="#">AI</a>
         </li>
       </ul>
-      <!-- Search Bar -->
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchQuery" name="search">
-        <button class="btn btn-outline-light" type="submit" (click)="onSearch()">Search</button> <!-- Changed btn-outline-success to btn-outline-light -->
-      </form>
+
+      <div class="d-flex align-items-center">
+        <button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#createNewModal">
+          <i class="bi bi-plus-circle"></i>
+          New
+        </button>
+        <button class="btn btn-primary" type="submit" >
+          <i class="bi bi-grid"></i>
+        </button>
+        <button class="btn btn-primary" type="submit" >
+          <i class="bi bi-person-circle" style="height: 20px">
+            <i class="bi bi-dot online-dot"></i>
+          </i>
+        </button>
+
+      </div>
     </div>
   </div>
 </nav>
@@ -55,7 +72,7 @@
         <li><hr class="dropdown-divider"></li>
 
         <li>
-          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" (click)="openPanel('fields')">
+          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" (click)="openPanel('(fields)')">
 
             <span>
               <i class="bi bi-pencil me-2"></i> Fields
@@ -384,6 +401,7 @@
         <button class="btn btn-primary w-100 mt-2" (click)="openPanel('creatingNewField')">Create field</button>
       </div>
 
+
         <div *ngIf="activePanel === 'creatingNewField'" class="sidebar p-4">
           <button class="btn btn-link p-0 mb-2" (click)="openPanel('fields')">
             <i class="bi bi-arrow-left"></i> Create field
@@ -421,9 +439,290 @@
           </div>
         </div>
       </div>
+      <div class="modal fade" id="createNewModal" tabindex="-1" aria-labelledby="createNewModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="width: 600px;">
+            <div class="modal-header">
+              <h6 class="modal-title fs-6" id="createNewModalLabel">
+                <ul class="nav nav-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Task</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="#">Doc</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="#">Reminder</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="#">Chat</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="#">Whiteboard</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="#">Dashboard</a>
+                  </li>
+
+                </ul>
+              </h6>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex gap-2 mb-3">
+                <div class="dropdown col">
+                  <button class="btn btn-outline-secondary w-75" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Personal list
+                  </button>
+                  <ul class="dropdown-menu">
+                    <div class="d-flex justify-content-center">
+                      <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search" name="search">
+                    </div>
+                    <li>
+                      <a class="dropdown-item d-flex justify-content-between" href="#">
+                        <i class="bi bi-person-circle"></i>
+                        Personal List
+                        <i class="bi bi-check2"></i>
+                      </a>
+                    </li>
+                    <hr>
+                    <h6 class="text-muted fs-6">Recents</h6>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Tourism Backlog</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Releases</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Service Desk Backlog</a></li>
+                    <h6 class="text-muted fs-6">Spaces</h6>
+                    <li><a class="dropdown-item" href="#">Tourism Backlog</a></li>
+                  </ul>
+                </div>
+
+                <div class="dropdown col">
+                  <button class="btn btn-outline-secondary w-25" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Task
+                  </button>
+                  <ul class="dropdown-menu">
+                    <div class="d-flex justify-content-center">
+                      <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search" name="search">
+                    </div>
+                    <h6 class="text-muted fs-6">Task Types</h6>
+                    <li>
+                      <a class="dropdown-item d-flex justify-content-between" href="#">
+                        <i class="bi bi-person-circle"></i>
+                        Task
+                        <i class="bi bi-check2"></i>
+                      </a>
+                    </li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Milestone</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Form Response</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Topic</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Update</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <h5 class="text-muted">Task Name</h5>
+
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-file-earmark fs-4"></i>
+                <input type="text" class="form-control w-100" id="createNewModalName" placeholder="Add description">
+              </div>
+
+              <div class="row  g-2 align-items-center">
+                <div class="dropdown col-auto">
+                  <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Backlog
+                  </button>
+                  <ul class="dropdown-menu">
+                    <div class="d-flex justify-content-center">
+                      <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search" name="search">
+                    </div>
+
+                    <div class="d-flex justify-content-between m-2">
+                      <h6 class="text-muted fs-6">Statuses  </h6>
+
+                      <i class="bi bi-gear"  type="submit" data-bs-toggle="modal" data-bs-target="#editBacklogModall"> </i>
+                    </div>
 
 
 
+                    <li>
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle"></i>Backlog<i class="bi bi-check2"></i></a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle"></i>To Do<i class="bi bi-check2"></i></a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle"></i>In Progress<i class="bi bi-check2"></i></a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle"></i>In Review<i class="bi bi-check2"></i></a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle"></i>Ready for dev<i class="bi bi-check2"></i></a>
+                    </li>
+                    <hr>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-check-circle"></i> Done</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown col-auto">
+                  <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Assignee
+                  </button>
+                  <ul class="dropdown-menu">
+                    <div class="d-flex justify-content-center">
+                      <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search or enter email" name="search">
+                    </div>
+
+                    <div class="d-flex justify-content-between m-2">
+                      <h6 class="text-muted fs-6">People  </h6>
+                    </div>
+
+                    <li>
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle"></i>Me</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle"></i>Bhadvaraj</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle"></i>Chantal</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle"></i>Elizabeth</a>
+                    </li>
+
+                    <hr>
+
+                    <div class="d-flex justify-content-between m-2">
+                      <h6 class="text-muted fs-6">Teams</h6>
+                    </div>
+                    <li class="d-flex justify-content-between">
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle"></i>Cagan Tech</a>
+                      <small class="text-muted"> 0 people</small>
+                    </li>
+                  </ul>
+                </div>
+                <div class="dropdown col-auto">
+                  <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Due date
+                  </button>
+                </div>
+                <div class="dropdown col-auto">
+                  <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                     Priority
+                  </button>
+                </div>
+                <div class="dropdown col-auto">
+                  <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Tags
+                  </button>
+                </div>
+                <div class="dropdown col-auto">
+                  <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-three-dots"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" >Create Task </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="editBacklogModall" tabindex="-1" aria-labelledby="editBacklogModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="width: 600px;">
+            <div class="modal-header">
+              <h3 class="modal-title fs-6" id="editBacklogModalLabel">
+                Edit Tourism Backlog Status
+              </h3>
+
+
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div  class="col-4">
+                  <h6 class="text-muted mb-2" > Status type </h6>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1" >
+                      Inherit from space
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Use custom statuses
+                    </label>
+                  </div>
+
+                  <h6 class="text-muted mb-2" > Status type </h6>
+                    <button class="btn btn-transparent border-0 dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                    Overall Board Status
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <input class="form-control h-75 mt-2"  type="search" placeholder="Search" [(ngModel)]="searchQuery" name="search">
+                      <li><a class="dropdown-item" href="#">Scrum</a></li>
+                      <li><a class="dropdown-item" href="#">Content</a></li>
+                      <li><a class="dropdown-item" href="#">Kanban</a></li>
+                      <li><a class="dropdown-item" href="#">Marketing</a></li>
+                      <li><a class="dropdown-item" href="#">
+                        <i class="bi bi-check2"></i>
+                        Overall board status
+                      </a></li>
+
+
+                    </ul>
+                  </div>
+
+
+                <div class="col-8 text-center">
+                  <h6 class="text-muted fs-6 mb-2"> Active </h6>
+
+                  <ul>
+                    <li class="editBacklogListIcons">  BACKLOG</li>
+                    <li class="editBacklogListIcons">TO - DO</li>
+                    <li class="editBacklogListIcons"> IN PROGRESS</li>
+                    <li class="editBacklogListIcons">IN REVIEW</li>
+                    <li class="editBacklogListIcons">READY FOR REVIEW</li>
+                    <li class="editBacklogListIcons add-status btn w-100"   >
+                      <i class="bi bi-plus-circle"></i>
+                      ADD STATUS
+                    </li>
+                  </ul>
+
+                  <h6 class="text-muted fs-6 mb-2"> Done </h6>
+                  <ul>
+                    <li class="editBacklogListIcons add-status btn w-100"   >
+                      <i class="bi bi-plus-circle"></i>
+                      ADD STATUS
+                    </li>
+                  </ul>
+
+                  <h6 class="text-muted fs-6 mb-2"> Closed </h6>
+                  <ul>
+                    <li class="editBacklogListIcons add-status btn w-100"   >
+                      <i class="bi bi-check2"></i>
+                      Done
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" >Save Template </button>
+              <button type="button" class="btn btn-primary" >Apply Changes </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
   </li>
 
