@@ -199,15 +199,13 @@ exportOptionsList  = [
     this.selectedOption = option;
   }
 
-  // toggleSideBar() {
-  //   this.sideBarOpen = !this.sideBarOpen;
-  // }
 
   favoriteName: string = '';
 
   saveFavorite() {
     console.log('Favorite saved:', this.favoriteName);
   }
+
 
 
 
