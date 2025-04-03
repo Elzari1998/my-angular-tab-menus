@@ -312,6 +312,7 @@
                     </label>
                   </div>
                 </li>
+                <button type="submit" class=" btn btn-primary w-100"> Download</button>
               </ul>
             </div>
           </li>
@@ -344,7 +345,7 @@
             </label>
           </li>
 
-          <h6 class="text-muted fs-6 ">Popular </h6>
+          <h6 class="text-muted fs-6 d-flex justify-content-between">Popular </h6>
           <li  *ngFor="let popularField of popularFields; let i=index"  class="d-flex align-items-center justify-content-between mb-2">
             <div class="d-flex align-items-center flex-grow-1">
               <small [class]="popularField.icon" class="me-2"></small>
@@ -357,7 +358,7 @@
             </label>
           </li>
 
-          <h6 class="text-muted fs-6 ">Hidden </h6>
+          <h6 class="text-muted fs-6 d-flex justify-content-between">Hidden </h6>
           <li  *ngFor="let hiddenFields of hidden; let i=index"  class="d-flex align-items-center justify-content-between mb-2">
             <div class="d-flex align-items-center flex-grow-1">
               <small [class]="hiddenFields.icon" class="me-2"></small>
@@ -370,7 +371,7 @@
             </label>
           </li>
 
-          <h6 class="text-muted fs-6 ">Fields in Workspace </h6>
+          <h6 class="text-muted fs-6 d-flex justify-content-between">Fields in Workspace </h6>
           <li  *ngFor="let fieldinWorkspace of fieldsInWorkspace; let i=index"  class="d-flex align-items-center justify-content-between mb-2">
             <div class="d-flex align-items-center flex-grow-1">
               <small [class]="fieldinWorkspace.icon" class="me-2"></small>
@@ -389,7 +390,7 @@
           </button>
           <input type="text" placeholder="Create or search for fields" class="form-control my-2">
 
-          <h6 class="text-muted fs-6">Suggested </h6>
+          <h6 class="text-muted fs-6 d-flex justify-content-between">Suggested </h6>
           <ul>
             <li *ngFor="let creatingNewField of creatingNewFieldsItems; let i = index" class="d-flex align-items-center justify-content-between mb-2">
               <div class="d-flex align-items-center flex-grow-1">
