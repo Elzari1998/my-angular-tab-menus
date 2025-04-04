@@ -470,13 +470,13 @@
             </div>
             <div class="modal-body">
               <div class="d-flex gap-2 mb-3">
-                <div class="dropdown col">
-                  <button class="btn btn-outline-secondary w-75" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="dropdown ">
+                  <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Personal list
                   </button>
                   <ul class="dropdown-menu">
                     <div class="d-flex justify-content-center">
-                      <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search" name="search">
+                      <input class="form-control h-75 mt-2 " type="search" placeholder="Search" name="search">
                     </div>
                     <li>
                       <a class="dropdown-item d-flex justify-content-between" href="#">
@@ -491,12 +491,16 @@
                     <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Releases</a></li>
                     <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Service Desk Backlog</a></li>
                     <h6 class="text-muted fs-6">Spaces</h6>
-                    <li><a class="dropdown-item" href="#">Tourism Backlog</a></li>
+                    <li><a class="dropdown-item" href="#">CLIENT PROJECTS</a></li>
+                    <li><a class="dropdown-item" href="#">CAGAN TECH DEV SPACE</a></li>
+                    <li><a class="dropdown-item" href="#">MARKETING</a></li>
+                    <li><a class="dropdown-item" href="#">OUR PRODUCTS</a></li>
+
                   </ul>
                 </div>
 
-                <div class="dropdown col">
-                  <button class="btn btn-outline-secondary w-25" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="dropdown ">
+                  <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Task
                   </button>
                   <ul class="dropdown-menu">
@@ -519,9 +523,9 @@
                 </div>
               </div>
 
-              <h5 class="text-muted">Task Name</h5>
+              <h5 class="text-muted mb-2">Task Name</h5>
 
-              <div class="d-flex align-items-center gap-2">
+              <div class="d-flex align-items-center gap-2 mb-2">
                 <i class="bi bi-file-earmark fs-4"></i>
                 <input type="text" class="form-control w-100" id="createNewModalName" placeholder="Add description">
               </div>
@@ -541,9 +545,6 @@
 
                       <i class="bi bi-gear"  type="submit" data-bs-toggle="modal" data-bs-target="#editBacklogModall"> </i>
                     </div>
-
-
-
                     <li>
                       <a class="dropdown-item " href="#"><i class="bi bi-person-circle"></i>Backlog<i class="bi bi-check2"></i></a>
                     </li>
@@ -620,11 +621,54 @@
                     <i class="bi bi-three-dots"></i>
                   </button>
                 </div>
+                <div class="mt-3">
+                  <h6 class="text-muted">Custom Fields</h6>
+
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <th scope="row"><i class="bi bi-caret-down-square"></i> UX - Status</th>
+                      <td>Mark</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><i class="bi bi-caret-down-square"></i> User Stories - Status</th>
+                      <td>Mark</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><i class="bi bi-caret-down-square"></i> Development - Status</th>
+                      <td>Mark</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="d-flex gap-2">
+                    <button class="btn btn-outline-secondary" type="button" >
+                      Show custom fields
+                    </button>
+                    <button class="btn btn-outline-secondary" type="button" aria-expanded="false">
+                      <i class="bi bi-plus-circle"> </i>
+                      Create new field
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" >Create Task </button>
+            <div class="modal-footer d-flex justify-content-between ">
+              <button type="button" class="btn btn-outline-light" > <i class="bi bi-magic"></i> Templates </button>
+              <div class="d-flex gap-2">
+                <div class="" >
+                  <i class="bi bi-paperclip" style="height: 50%"></i>
+                  <i class="bi bi-bell" style="height: 50%"> 2 </i>
+                </div>
+
+                <button type="button" class="btn btn-primary" >Create Task </button>
+              </div>
             </div>
           </div>
         </div>
@@ -637,8 +681,6 @@
               <h3 class="modal-title fs-6" id="editBacklogModalLabel">
                 Edit Tourism Backlog Status
               </h3>
-
-
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
