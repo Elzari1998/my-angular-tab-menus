@@ -5,7 +5,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-tab-menu',
-  standalone: true,
   imports: [CommonModule, FormsModule, MatSlideToggleModule],
   templateUrl: './tab-menu.component.html',
   styleUrls: ['./tab-menu.component.css']
@@ -13,7 +12,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 export class TabMenuComponent implements AfterViewInit {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+
   }
+
+
   searchQuery: string = '';
 
   onSearch(): void {

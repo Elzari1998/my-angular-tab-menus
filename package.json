@@ -25,12 +25,12 @@
     "@ng-bootstrap/ng-bootstrap": "^18.0.0",
     "@nguniversal/express-engine": "^7.0.2",
     "@popperjs/core": "^2.11.8",
+    "@syncfusion/ej2-angular-calendars": "^29.1.35",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "ej-angular2": "^20.4.38",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
-    "syncfusion-javascript": "^20.4.38",
     "tslib": "^2.3.0",
     "zone.js": "^0.15.0"
   },
