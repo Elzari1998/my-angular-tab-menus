@@ -626,12 +626,12 @@
 
                   <div class="dropdown-menu p-3">
                     <ul>
-                      <li> <a href="#"> <i class="bi bi-flag red-flag" style="color: red"></i> Urgent </a></li>
-                      <li><a href="#"><i class="bi bi-flag yellow" style="color:Yellow"></i> High</a></li>
-                      <li><a href="#"><i class="bi bi-flag " style="color: blue"></i> Normal</a></li>
-                      <li><a href="#"><i class="bi bi-flag " style="color: dimgray"></i> Low</a></li>
+                      <li><i class="bi bi-flag red-flag" style="color: red"></i> Urgent</li>
+                      <li><i class="bi bi-flag yellow" style="color:Yellow"></i> High</li>
+                      <li><i class="bi bi-flag " style="color: blue"></i> Normal</li>
+                      <li><i class="bi bi-flag " style="color: dimgray"></i> Low</li>
                       <hr>
-                      <li><a href="#"><i class="bi bi-ban"></i> clear </a></li>
+                      <li><i class="bi bi-ban"></i> clear </li>
                     </ul>
                   </div>
                 </div>
@@ -641,6 +641,7 @@
                     <i class="bi bi-tag"></i>
                     Tags
                   </button>
+
                 </div>
 
 
@@ -648,6 +649,16 @@
                   <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-three-dots"></i>
                   </button>
+
+                  <div class="dropdown-menu " style="width: 80%">
+                    <ul>
+                      <li><a href="#" class="dropdown-item"> Dependencies </a></li>
+                      <li><a href="#" class="dropdown-item"> Subtasks </a></li>
+                      <li><a href="#" class="dropdown-item"> <i class="bi bi-list-check"></i> Checklist </a></li>
+
+                    </ul>
+                  </div>
+
                 </div>
                 <div class="mt-3">
                   <h6 class="text-muted">Custom Fields</h6>
@@ -687,8 +698,24 @@
               </div>
             </div>
 
-            <div class="modal-footer d-flex justify-content-between ">
-              <button type="button" class="btn btn-outline-primary" > <i class="bi bi-magic"></i> Templates </button>
+            <div class="modal-footer dropdown d-flex justify-content-between ">
+
+
+
+              <button type="button" class="btn btn-outline-primary"  data-bs-toggle="dropdown" aria-expanded="false" > <i class="bi bi-magic"></i> Templates </button>
+
+              <div class="dropdown-menu ">
+                <ul>
+                  <li class="dropdown-item"><i class="bi bi-magic"></i> Use Template</li>
+                  <li class="dropdown-item"><i class="bi bi-magic"></i> Create instantly from template</li>
+                  <hr>
+                  <li class="dropdown-item"><i class="bi bi-floppy"></i> Save as Template</li>
+                  <li class="dropdown-item"><i class="bi bi-arrow-repeat"></i> Upload Existing Template</li>
+
+
+                </ul>
+              </div>
+
               <div class="d-flex gap-2">
                 <div class=" d-flex gap-3 m-1" >
                   <i class="bi bi-paperclip" style="font-size: 18px"></i>
