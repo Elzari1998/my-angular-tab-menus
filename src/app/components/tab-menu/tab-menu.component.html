@@ -439,6 +439,8 @@
           </div>
         </div>
       </div>
+
+
       <div class="modal fade" id="createNewModal" tabindex="-1" aria-labelledby="createNewModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content" style="width: 600px;">
@@ -446,30 +448,34 @@
               <h6 class="modal-title fs-6" id="createNewModalLabel">
                 <ul class="nav nav-tabs">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Task</a>
+                    <a class="nav-link active" aria-current="page" data-bs-toggle="tab" data-bs-target="#taskTab"  href="#">Task</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">Doc</a>
+                    <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#docTab" href="#">Doc</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">Reminder</a>
+                    <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#reminderTab"  href="#">Reminder</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">Chat</a>
+                    <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#chatTab" href="#">Chat</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">Whiteboard</a>
+                    <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#whiteboardTab" href="#">Whiteboard</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">Dashboard</a>
+                    <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#dashboardTab" href="#">Dashboard</a>
                   </li>
 
                 </ul>
               </h6>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
             <div class="modal-body">
-              <div class="d-flex gap-2 mb-3">
+              <div class="tab-content">
+
+                <!-- Task Tab Content -->
+                <div class="tab-pane fade show active" id="taskTab" role="tabpanel">
                 <div class="dropdown ">
                   <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Personal list
@@ -524,8 +530,6 @@
                     <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Topic</a></li>
                     <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Update</a></li>
                   </ul>
-                </div>
-              </div>
 
               <h5 class="text-muted mb-2">Task Name</h5>
 
@@ -817,10 +821,57 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" >Save Template </button>
               <button type="button" class="btn btn-primary" >Apply Changes </button>
+</div>
             </div>
           </div>
+      </div>
+
+
+
+
+
+            <!-- Docs Tab -->
+            <div class="tab-pane fade text-start" id="docTab" role="tabpanel">
+              <input type="text" class="form-control form-control-sm mb-2 text-start" placeholder="Name this Doc...">
+              <button class="btn btn-outline-primary btn-sm w-100 mb-2 text-start">Start writing</button>
+              <button class="btn btn-outline-secondary btn-sm w-100 mb-2 text-start">Write with AI</button>
+              <h6 class="mt-3 text-start">Add new:</h6>
+              <button class="btn btn-light btn-sm w-100 text-start">Table</button>
+              <button class="btn btn-light btn-sm w-100 mt-2 text-start">Column</button>
+              <button class="btn btn-light btn-sm w-100 mt-2 text-start">ClickUp List</button>
+            </div>
+
+
+
+            <!-- Reminder Tab Content -->
+      <div class="tab-pane fade" id="reminderTab">
+        <h5 class="text-muted mb-2">Reminder</h5>
+        <input type="datetime-local" class="form-control">
+      </div>
+
+      <!-- Chat Tab Content -->
+      <div class="tab-pane fade" id="chatTab">
+        <h5 class="text-muted mb-2">Chat</h5>
+        <textarea class="form-control" rows="3" placeholder="Type a message..."></textarea>
+      </div>
+
+      <!-- Whiteboard Tab Content -->
+      <div class="tab-pane fade" id="whiteboardTab">
+        <h5 class="text-muted mb-2">Whiteboard</h5>
+        <p>Coming Soon...</p>
+      </div>
+
+      <!-- Dashboard Tab Content -->
+      <div class="tab-pane fade" id="dashboardTab">
+        <h5 class="text-muted mb-2">Dashboard</h5>
+        <p>Overview of tasks and progress.</p>
+      </div>
         </div>
       </div>
+      </div>
+
+
+
 
   </li>
 
