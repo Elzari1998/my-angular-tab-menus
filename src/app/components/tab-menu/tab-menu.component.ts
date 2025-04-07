@@ -6,10 +6,11 @@ import {LayoutOptionsComponent} from '../layout-options/layout-options.component
 import {FieldsComponent} from '../fields/fields.component';
 import {FilterComponent} from '../filter/filter.component';
 import {GroupsComponent} from '../groups/groups.component';
+import {SubtasksComponent} from '../subtasks/subtasks.component';
 
 @Component({
   selector: 'app-tab-menu',
-  imports: [CommonModule, FormsModule, MatSlideToggleModule, LayoutOptionsComponent, FieldsComponent, FilterComponent, GroupsComponent],
+  imports: [CommonModule, FormsModule, MatSlideToggleModule, LayoutOptionsComponent, FieldsComponent, FilterComponent, GroupsComponent, SubtasksComponent],
   templateUrl: './tab-menu.component.html',
   styleUrls: ['./tab-menu.component.css']
 })
@@ -25,7 +26,6 @@ export class TabMenuComponent implements AfterViewInit {
   privateView = false;
   protectedView = false;
   defaultView = false;
-  selectedOption = 'Collapsed';
   activePanel = 'homeFields';
   favoriteName = '';
 
@@ -112,10 +112,7 @@ export class TabMenuComponent implements AfterViewInit {
     this.selectedTab = tabName;
   }
 
-  selectOption(option: string, event: Event): void {
-    event.preventDefault();
-    this.selectedOption = option;
-  }
+
 
   preventRefreshingThePage(event: Event): void {
     event.preventDefault();

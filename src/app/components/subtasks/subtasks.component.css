@@ -1,0 +1,7 @@
+.subtask-container:hover .options-box2 {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+

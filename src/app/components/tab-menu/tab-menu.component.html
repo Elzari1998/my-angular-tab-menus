@@ -98,26 +98,27 @@
 
           <app-groups></app-groups>
 
+          <app-subtasks></app-subtasks>
 
-        <li class="subtask-container">
-          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-             (click)="preventRefreshingThePage($event)">
-            <span class="d-flex align-items-center subtask-item"><i class="bi bi-link me-2"></i> Subtasks</span>
-            <span class="text-muted ms-5">{{ selectedOption }} <i class="bi bi-chevron-right"></i></span>
-          </a>
+<!--        <li class="subtask-container">-->
+<!--          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"-->
+<!--             (click)="preventRefreshingThePage($event)">-->
+<!--            <span class="d-flex align-items-center subtask-item"><i class="bi bi-link me-2"></i> Subtasks</span>-->
+<!--            <span class="text-muted ms-5">{{ selectedOption }} <i class="bi bi-chevron-right"></i></span>-->
+<!--          </a>-->
 
-          <div class="options-box">
-            <ul>
-              <li class="px-3 text-muted">Show subtasks</li>
-              <li><a class="dropdown-item active" href="#" [class.active]="selectedOption === 'Collapsed'"
-                     (click)="selectOption('Collapsed', $event)"> Collapsed </a></li>
-              <li><a class="dropdown-item" href="#" [class.active]="selectedOption === 'Expanded'"
-                     (click)="selectOption('Expanded', $event)" >Expanded</a></li>
-              <li><a class="dropdown-item" href="#" [class.active]="selectedOption === 'Separate'"
-                     (click)="selectOption('Separate', $event)" >Separate</a></li>
-            </ul>
-          </div>
-        </li>
+<!--          <div class="options-box">-->
+<!--            <ul>-->
+<!--              <li class="px-3 text-muted">Show subtasks</li>-->
+<!--              <li><a class="dropdown-item active" href="#" [class.active]="selectedOption === 'Collapsed'"-->
+<!--                     (click)="selectOption('Collapsed', $event)"> Collapsed </a></li>-->
+<!--              <li><a class="dropdown-item" href="#" [class.active]="selectedOption === 'Expanded'"-->
+<!--                     (click)="selectOption('Expanded', $event)" >Expanded</a></li>-->
+<!--              <li><a class="dropdown-item" href="#" [class.active]="selectedOption === 'Separate'"-->
+<!--                     (click)="selectOption('Separate', $event)" >Separate</a></li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </li>-->
 
         <li class="subtask-container">
           <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" (click)="preventRefreshingThePage($event)">
