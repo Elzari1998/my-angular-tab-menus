@@ -7,10 +7,12 @@ import {FieldsComponent} from '../fields/fields.component';
 import {FilterComponent} from '../filter/filter.component';
 import {GroupsComponent} from '../groups/groups.component';
 import {SubtasksComponent} from '../subtasks/subtasks.component';
+import {TemplatesComponent} from '../templates/templates.component';
 
 @Component({
   selector: 'app-tab-menu',
-  imports: [CommonModule, FormsModule, MatSlideToggleModule, LayoutOptionsComponent, FieldsComponent, FilterComponent, GroupsComponent, SubtasksComponent],
+  imports: [CommonModule, FormsModule, MatSlideToggleModule, LayoutOptionsComponent,
+    FieldsComponent, FilterComponent, GroupsComponent, SubtasksComponent, TemplatesComponent],
   templateUrl: './tab-menu.component.html',
   styleUrls: ['./tab-menu.component.css']
 })
