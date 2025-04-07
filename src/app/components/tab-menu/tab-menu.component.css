@@ -1,4 +1,4 @@
- nav-tabs .nav-link {
+nav-tabs .nav-link {
   color: #6c757d;
   font-weight: 500;
 }
@@ -9,11 +9,11 @@
   border-bottom: 2px solid black;
 }
 
-.tab-content {
+/* .tab-content {
   padding: 10px;
   border: 1px solid #ddd;
   border-top: none;
-}
+} */
 .dropdown-menu {
   width: 300px;
   max-height: 100vh;
@@ -138,3 +138,23 @@ ul li{
 .add-status{
   color: lightgray;
 }
+/* remidner */
+/* .modal-body {
+  overflow-y: auto;  
+  max-height: 80vh; 
+}
+
+.tab-content {
+  padding-top: 10px;
+}
+
+.tab-pane {
+  display: block;
+  padding: 15px;
+}
+
+.reminder-tab-container {
+  display: block;
+  padding: 20px;
+  overflow-y: auto;
+} */
