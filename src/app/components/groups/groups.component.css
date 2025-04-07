@@ -1,0 +1,29 @@
+.subtask-container {
+  position: relative;
+}
+
+.options-box {
+  position: absolute;
+  bottom: 100%;
+  left: -500px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.subtask-container:hover .options-box {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+ul li{
+  list-style-type: none;
+}

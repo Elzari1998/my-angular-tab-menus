@@ -5,10 +5,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {LayoutOptionsComponent} from '../layout-options/layout-options.component';
 import {FieldsComponent} from '../fields/fields.component';
 import {FilterComponent} from '../filter/filter.component';
+import {GroupsComponent} from '../groups/groups.component';
 
 @Component({
   selector: 'app-tab-menu',
-  imports: [CommonModule, FormsModule, MatSlideToggleModule, LayoutOptionsComponent, FieldsComponent, FilterComponent],
+  imports: [CommonModule, FormsModule, MatSlideToggleModule, LayoutOptionsComponent, FieldsComponent, FilterComponent, GroupsComponent],
   templateUrl: './tab-menu.component.html',
   styleUrls: ['./tab-menu.component.css']
 })
@@ -28,16 +29,7 @@ export class TabMenuComponent implements AfterViewInit {
   activePanel = 'homeFields';
   favoriteName = '';
 
-  groupList = [
-    { icon: ' ', name: 'Status' },
-    { icon: ' ', name: 'Assignee' },
-    { icon: ' ', name: 'Priority' },
-    { icon: ' ', name: 'Tags' },
-    { icon: ' ', name: 'Due date' },
-    { icon: ' ', name: 'Task Type' },
-    { icon: ' ', name: 'UX - Status' },
-    { icon: ' ', name: 'User stories - Status' }
-  ];
+
 
   exportOptionsList = [
     { icon: '', name: 'Visible columns' },
@@ -85,7 +77,7 @@ export class TabMenuComponent implements AfterViewInit {
 
   optionsList: string[] = ['Status', 'Tags', 'Due Date', 'Priority', 'Add filter'];
   filteredOptions: string[] = [...this.optionsList];
-  isDropdownVisible = false;
+  // isDropdownVisible = false;
 
   addTable() {
     const modalContent = document.getElementById("modalContent");
@@ -133,27 +125,27 @@ export class TabMenuComponent implements AfterViewInit {
     console.log('Favorite saved:', this.favoriteName);
   }
 
-  filterOptions(event: Event): void {
-    const searchValue = (event.target as HTMLInputElement).value.toLowerCase();
-    this.filteredOptions = this.optionsList.filter(option =>
-      option.toLowerCase().includes(searchValue)
-    );
-    console.log("Filtering options for:", searchValue);
-  }
+  // filterOptions(event: Event): void {
+  //   const searchValue = (event.target as HTMLInputElement).value.toLowerCase();
+  //   this.filteredOptions = this.optionsList.filter(option =>
+  //     option.toLowerCase().includes(searchValue)
+  //   );
+  //   console.log("Filtering options for:", searchValue);
+  // }
 
-  togglePane(): void {
-    this.filteredOptions = this.optionsList.filter(option =>
-      option.toLowerCase().includes(this.searchQuery.toLowerCase())
-    );
-  }
+  // togglePane(): void {
+  //   this.filteredOptions = this.optionsList.filter(option =>
+  //     option.toLowerCase().includes(this.searchQuery.toLowerCase())
+  //   );
+  // }
 
-  showDropdown(): void {
-    this.isDropdownVisible = true;
-  }
-
-  closeDropdown(): void {
-    this.isDropdownVisible = false;
-  }
+  // showDropdown(): void {
+  //   this.isDropdownVisible = true;
+  // }
+  //
+  // closeDropdown(): void {
+  //   this.isDropdownVisible = false;
+  // }
 
   resizeTextarea(event: any): void {
     const textarea = event.target;
