@@ -15,6 +15,26 @@ export class TabMenuComponent implements AfterViewInit {
 
   }
 
+  addTable() {
+    const modalContent = document.getElementById("modalContent");
+    if (modalContent) {
+      modalContent.innerHTML = `
+        <button class="btn btn-light btn-sm w-100 text-start">+</button>
+        <table class="table table-bordered mt-2">
+          <tr>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+        </table>
+      `;
+    }
+  }
 
   searchQuery: string = '';
 
@@ -177,6 +197,7 @@ exportOptionsList  = [
   clearFilters() {
     console.log("Filters cleared");
   }
+
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
