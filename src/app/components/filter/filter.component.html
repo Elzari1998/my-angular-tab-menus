@@ -1,0 +1,58 @@
+
+<div class="dropdown-container p-3 bg-white shadow border rounded" style="width: 500px; position: absolute; right: 0;">
+  <ul class=" " >
+
+    <li class="px-3 d-flex justify-content-between align-items-center">
+      <span class="text-muted">Filter</span>
+
+      <div class="d-flex ms-auto">
+        <button class="btn btn-link text-muted me-3" (click)="clearFilters()">Clear all</button>
+
+        <div class="dropdown">
+          <button class="btn btn-link dropdown-toggle text-muted" type="button" id="savedFiltersDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            Saved filters
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="savedFiltersDropdown">
+            <li><a class="dropdown-item" href="#">Filter 1</a></li>
+            <li><a class="dropdown-item" href="#">Filter 2</a></li>
+            <li><a class="dropdown-item" href="#">Filter 3</a></li>
+          </ul>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <input
+        type="text"
+        class="form-control w-100 position-relative"
+        placeholder="Select filter..."
+        (focus)="showDropdown()"
+        (input)="filterOptions($event)"
+        (blur)="closeDropdown()">
+    </li>
+
+    <li *ngIf="isDropdownVisible" class="dropdown-menu show position-absolute bg-white border shadow mt-1 w-100" style="z-index: 10;">
+      <ul class="dropdown-menu show w-100 h-100" style="position: absolute; top: 0; left: 0;  min-width: 100px; width: auto;">
+        <li *ngFor="let option of filteredOptions">
+          <a class="dropdown-item d-flex justify-content-start align-items-center w-400" href="#" (click)="preventRefreshingThePage($event)">
+            {{ option }}
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <a class="dropdown-item d-flex justify-content-between align-items-left w-100" href="#" (click)="preventRefreshingThePage($event)">
+        <i class="bi bi-plus-circle ms-2"></i>
+        Nested filter
+      </a>
+    </li>
+
+    <li>
+      <a class="dropdown-item d-flex justify-content-between align-items-left w-100" href="#" (click)="preventRefreshingThePage($event)">
+        <i class="bi bi-plus-circle ms-2"></i>
+        Add filter
+      </a>
+    </li>
+  </ul>
+</div>
