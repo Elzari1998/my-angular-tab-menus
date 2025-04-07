@@ -17,6 +17,75 @@ export class TabMenuComponent implements AfterViewInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
 
   }
+  searchQuery: string = '';
+  selectedTab: string = 'dashboard';
+  autosave = false;
+  pinView = false;
+  privateView = false;
+  protectedView = false;
+  defaultView = false;
+  selectedOption = 'Collapsed';
+  activePanel = 'homeFields';
+  favoriteName = '';
+
+  groupList = [
+    { icon: ' ', name: 'Status' },
+    { icon: ' ', name: 'Assignee' },
+    { icon: ' ', name: 'Priority' },
+    { icon: ' ', name: 'Tags' },
+    { icon: ' ', name: 'Due date' },
+    { icon: ' ', name: 'Task Type' },
+    { icon: ' ', name: 'UX - Status' },
+    { icon: ' ', name: 'User stories - Status' }
+  ];
+
+  exportOptionsList = [
+    { icon: '', name: 'Visible columns' },
+    { icon: '', name: 'Task Names Only' },
+    { icon: '', name: 'All columns' }
+  ];
+
+  fileFormat = [
+    { icon: '', name: 'CSV' },
+    { icon: '', name: 'Excel' }
+  ];
+
+  dateFormat = [
+    { icon: '', name: 'Normal' },
+    { icon: '', name: 'ISO' },
+    { icon: '', name: 'POSIX' }
+  ];
+
+  timeFormat = [
+    { icon: '', name: 'Normal' },
+    { icon: '', name: 'hh:mm' },
+    { icon: '', name: 'hh:mm:ss' }
+  ];
+
+  users = [
+    { id: '1', name: 'John Doe' },
+    { id: '2', name: 'Jane Smith' },
+    { id: '3', name: 'Alice Johnson' }
+  ];
+
+  notifications = [
+    { id: '1', name: 'On due date' },
+    { id: '2', name: '10 minutes before' },
+    { id: '3', name: '1 hour before' },
+    { id: '4', name: 'Custom' },
+    { id: '5', name: 'Dont notify' }
+  ];
+
+  reminder = {
+    description: '',
+    time: '',
+    assignedUser: '',
+    notification: ''
+  };
+
+  optionsList: string[] = ['Status', 'Tags', 'Due Date', 'Priority', 'Add filter'];
+  filteredOptions: string[] = [...this.optionsList];
+  isDropdownVisible = false;
 
   addTable() {
     const modalContent = document.getElementById("modalContent");
@@ -39,80 +108,17 @@ export class TabMenuComponent implements AfterViewInit {
     }
   }
 
-  searchQuery: string = '';
-
   onSearch(): void {
     console.log('Search initiated for:', this.searchQuery);
-
   }
-
-  selectedTab: string = 'dashboard';  // Default active tab
-  autosave: boolean = false;
-  pinView: boolean = false;
-  privateView: boolean = false;
-  protectedView: boolean = false;
-  defaultView: boolean = false;
-  selectedOption: string = 'Collapsed';
-  activePanel: string = 'homeFields';
-
-  groupList:{icon:string, name:string}[] =[
-    {icon:' ', name : 'Status' },
-    {icon:' ', name : 'Assignee' },
-    {icon:' ', name : 'Priority' },
-    {icon:' ', name : 'Tags' },
-    {icon:' ', name : 'Due date' },
-    {icon:' ', name : 'Task Type' },
-    {icon:' ', name : 'UX - Status' },
-    {icon:' ', name : 'User stories - Status' },
-  ]
-exportOptionsList  = [
-  {icon:'', name: 'Visible columns'},
-  {icon:'', name: 'Task Names Only'},
-  {icon:'', name: 'All columns'}
-
-]
-  fileFormat = [
-    {icon:'', name: 'CSV'},
-    {icon:'', name: 'Excel'},
-  ]
-  dateFormat = [
-    {icon:'', name: 'Normal'},
-    {icon:'', name: 'ISO'},
-    {icon:'', name: 'POSIX'},
-  ]
-  timeFormat = [
-    {icon:'', name: 'Normal'},
-    {icon:'', name: 'hh:mm'},
-    {icon:'', name: 'hh:mm:ss'},
-  ]
-
 
   openPanel(panelName: string): void {
     this.activePanel = panelName;
   }
 
-
-  // Function to set the active tab
   selectTab(tabName: string): void {
     this.selectedTab = tabName;
   }
-
-  ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      const dropdown = document.querySelector('.options-box') as HTMLElement;
-      if (dropdown) {
-        const dropdownRect = dropdown.getBoundingClientRect();
-        const windowWidth = window.innerWidth;
-
-        if (dropdownRect.right > windowWidth) {
-          dropdown.style.left = `${windowWidth - dropdownRect.width}px`;
-        }
-      }
-    }
-  }
-
-
-
 
   selectOption(option: string, event: Event): void {
     event.preventDefault();
@@ -123,38 +129,53 @@ exportOptionsList  = [
     event.preventDefault();
   }
 
-  favoriteName: string = '';
-
-  saveFavorite() {
+  saveFavorite(): void {
     console.log('Favorite saved:', this.favoriteName);
   }
 
-
-
-  optionsList: string[] = ['Status', 'Tags', 'Due Date', 'Priority', 'Add filter'];
-  filteredOptions: string[] = [...this.optionsList];
-  isDropdownVisible = false;
-
-  clearFilters() {
-    console.log("Filters cleared");
-  }
-
-  filterOptions(event: Event) {
+  filterOptions(event: Event): void {
     const searchValue = (event.target as HTMLInputElement).value.toLowerCase();
-    console.log("Filtering options for:", searchValue);
-
     this.filteredOptions = this.optionsList.filter(option =>
       option.toLowerCase().includes(searchValue)
     );
+    console.log("Filtering options for:", searchValue);
   }
 
-  showDropdown() {
+  togglePane(): void {
+    this.filteredOptions = this.optionsList.filter(option =>
+      option.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+  }
+
+  showDropdown(): void {
     this.isDropdownVisible = true;
   }
 
-  closeDropdown() {
+  closeDropdown(): void {
     this.isDropdownVisible = false;
   }
 
+  resizeTextarea(event: any): void {
+    const textarea = event.target;
+    textarea.style.height = 'auto';
+    textarea.style.height = (textarea.scrollHeight) + 'px';
+  }
 
+  saveReminder(): void {
+    console.log(this.reminder);
+    // Logic to save reminder
+  }
+
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      const dropdown = document.querySelector('.options-box') as HTMLElement;
+      if (dropdown) {
+        const dropdownRect = dropdown.getBoundingClientRect();
+        const windowWidth = window.innerWidth;
+        if (dropdownRect.right > windowWidth) {
+          dropdown.style.left = `${windowWidth - dropdownRect.width}px`;
+        }
+      }
+    }
+  }
 }
