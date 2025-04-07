@@ -80,22 +80,7 @@
           </a>
         </li>
 
-        <li class="subtask-container w-100">
-          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" role="button"
-             data-bs-toggle="dropdown" aria-expanded="false" (click)="preventRefreshingThePage($event)">
-              <span class="d-flex align-items-center subtask-item">
-                <i class="bi bi-funnel me-2"></i> Filter
-              </span>
-            <span class="text-muted ms-5">None<i class="bi bi-chevron-right"></i></span>
-          </a>
-
-          <div class=" options-box">
-            <app-filter> </app-filter>
-          </div>
-
-        </li>
-
-
+          <app-filter> </app-filter>
           <app-groups></app-groups>
           <app-subtasks></app-subtasks>
           <app-templates></app-templates>
@@ -167,6 +152,7 @@
           </li>
 
 
+
           <li class="subtask-container">
             <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                (click)="preventRefreshingThePage($event)">
@@ -227,23 +213,24 @@
 
       </div>
 
-      <div class="modal fade" id="favoritesModal" tabindex="-1" aria-labelledby="favoritesModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="favoritesModalLabel">Add to favorites</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <label for="favoriteName" class="form-label">Name</label>
-              <input type="text" class="form-control" id="favoriteName" [(ngModel)]="favoriteName">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" (click)="saveFavorite()">Save favorite</button>
-            </div>
-          </div>
-        </div>
-      </div>
+
+<!--      <div class="modal fade" id="favoritesModal" tabindex="-1" aria-labelledby="favoritesModalLabel" aria-hidden="true">-->
+<!--        <div class="modal-dialog">-->
+<!--          <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--              <h5 class="modal-title" id="favoritesModalLabel">Add to favorites</h5>-->
+<!--              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--              <label for="favoriteName" class="form-label">Name</label>-->
+<!--              <input type="text" class="form-control" id="favoriteName" [(ngModel)]="favoriteName">-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--              <button type="button" class="btn btn-primary" (click)="saveFavorite()">Save favorite</button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <div class="modal fade" id="createNewModal" tabindex="-1" aria-labelledby="createNewModalLabel" aria-hidden="true">
         <div class="modal-dialog">
