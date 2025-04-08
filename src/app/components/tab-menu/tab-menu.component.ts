@@ -81,26 +81,6 @@ export class TabMenuComponent implements AfterViewInit {
   filteredOptions: string[] = [...this.optionsList];
   // isDropdownVisible = false;
 
-  addTable() {
-    const modalContent = document.getElementById("modalContent");
-    if (modalContent) {
-      modalContent.innerHTML = `
-        <button class="btn btn-light btn-sm w-100 text-start">+</button>
-        <table class="table table-bordered mt-2">
-          <tr>
-            <td contenteditable="true"></td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true"></td>
-          </tr>
-          <tr>
-            <td contenteditable="true"></td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true"></td>
-          </tr>
-        </table>
-      `;
-    }
-  }
 
   onSearch(): void {
     console.log('Search initiated for:', this.searchQuery);
@@ -124,33 +104,7 @@ export class TabMenuComponent implements AfterViewInit {
     console.log('Favorite saved:', this.favoriteName);
   }
 
-  // filterOptions(event: Event): void {
-  //   const searchValue = (event.target as HTMLInputElement).value.toLowerCase();
-  //   this.filteredOptions = this.optionsList.filter(option =>
-  //     option.toLowerCase().includes(searchValue)
-  //   );
-  //   console.log("Filtering options for:", searchValue);
-  // }
 
-  // togglePane(): void {
-  //   this.filteredOptions = this.optionsList.filter(option =>
-  //     option.toLowerCase().includes(this.searchQuery.toLowerCase())
-  //   );
-  // }
-
-  // showDropdown(): void {
-  //   this.isDropdownVisible = true;
-  // }
-  //
-  // closeDropdown(): void {
-  //   this.isDropdownVisible = false;
-  // }
-
-  resizeTextarea(event: any): void {
-    const textarea = event.target;
-    textarea.style.height = 'auto';
-    textarea.style.height = (textarea.scrollHeight) + 'px';
-  }
 
   saveReminder(): void {
     console.log(this.reminder);
@@ -168,5 +122,9 @@ export class TabMenuComponent implements AfterViewInit {
         }
       }
     }
+  }
+
+  resizeTextarea($event: Event) {
+    
   }
 }

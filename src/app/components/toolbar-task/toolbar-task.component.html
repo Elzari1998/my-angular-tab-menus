@@ -1,0 +1,349 @@
+<div class="tab-pane fade show active" id="taskTab" role="tabpanel">
+  <div class="dropdown ">
+    <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Personal list
+    </button>
+    <ul class="dropdown-menu">
+      <div class="d-flex justify-content-center">
+        <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search" name="search">
+      </div>
+      <li>
+        <a class="dropdown-item d-flex justify-content-between" href="#">
+          <i class="bi bi-person-circle"></i>
+          Personal List
+          <i class="bi bi-check2"></i>
+        </a>
+      </li>
+      <hr>
+      <div class="m-2">
+        <h6 class="text-muted fs-6">Recents</h6>
+        <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Tourism Backlog</a></li>
+        <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Releases</a></li>
+        <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Service Desk Backlog</a></li>
+        <h6 class="text-muted fs-6">Spaces</h6>
+        <li><a class="dropdown-item" href="#">CLIENT PROJECTS</a></li>
+        <li><a class="dropdown-item" href="#">CAGAN TECH DEV SPACE</a></li>
+        <li><a class="dropdown-item" href="#">MARKETING</a></li>
+        <li><a class="dropdown-item" href="#">OUR PRODUCTS</a></li>
+
+      </div>
+
+    </ul>
+  </div>
+
+  <div class="dropdown ">
+    <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Task
+    </button>
+    <ul class="dropdown-menu">
+      <div class="d-flex justify-content-center">
+        <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search" name="search">
+      </div>
+
+      <h6 class="text-muted fs-6 m-2 ">Task Types</h6>
+      <li>
+        <a class="dropdown-item d-flex justify-content-between" href="#">
+          <i class="bi bi-person-circle"></i>
+          Task
+          <i class="bi bi-check2"></i>
+        </a>
+      </li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Milestone</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Form Response</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Topic</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Update</a></li>
+    </ul>
+
+    <h5 class="text-muted mb-2">Task Name</h5>
+
+    <div class="d-flex align-items-center gap-2 mb-2">
+      <i class="bi bi-file-earmark fs-4"></i>
+      <input type="text" class="form-control w-100" id="createNewModalName" placeholder="Add description">
+    </div>
+
+    <div class="row  g-2 align-items-center">
+      <div class="dropdown col-auto">
+        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Backlog
+        </button>
+        <ul class="dropdown-menu">
+          <div class="d-flex justify-content-center">
+            <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search" name="search">
+          </div>
+
+          <div class="d-flex justify-content-between m-2">
+            <h6 class="text-muted fs-6">Statuses  </h6>
+
+            <i class="bi bi-gear"  type="submit" data-bs-toggle="modal" data-bs-target="#editBacklogModall"> </i>
+          </div>
+          <li>
+            <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: #6c757d"></i>Backlog</a>
+          </li>
+          <li>
+            <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: blue"></i>To Do</a>
+          </li>
+          <li>
+            <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: blue"></i>In Progress</a>
+          </li>
+          <li>
+            <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: gold"></i>In Review</a>
+          </li>
+          <li>
+            <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: cyan"></i>Ready for dev</a>
+          </li>
+          <hr>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-check-circle" style="color: green"></i> Done</a></li>
+        </ul>
+      </div>
+      <div class="dropdown col-auto">
+        <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-people"></i>
+          Assignee
+        </button>
+        <ul class="dropdown-menu">
+          <div class="d-flex justify-content-center">
+            <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search or enter email" name="search">
+          </div>
+
+          <div class="d-flex justify-content-between m-2">
+            <h6 class="text-muted fs-6">People  </h6>
+          </div>
+
+          <li class="d-flex g-2">
+            <a class="dropdown-item gap-2" href="#"><i class="bi bi-person-circle me-2"></i>Me</a>
+          </li>
+          <li class="d-flex g-2">
+            <a class="dropdown-item gap-2" href="#"><i class="bi bi-person-circle me-2"></i>Bhadvaraj</a>
+          </li>
+          <li class="d-flex g-2">
+            <a class="dropdown-item gap-2" href="#"><i class="bi bi-person-circle me-2"></i>Chantal</a>
+          </li>
+          <li class="d-flex g-2">
+            <a class="dropdown-item gap-2" href="#"><i class="bi bi-person-circle me-2"></i>Elizabeth</a>
+          </li>
+
+          <hr>
+
+          <div class="d-flex justify-content-between m-2">
+            <h6 class="text-muted fs-6">Teams</h6>
+          </div>
+          <li class="d-flex justify-content-between">
+            <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2"></i>Cagan Tech</a>
+            <h6 class="text-muted mt-2" style="width: 40%;"> 0 people</h6>
+          </li>
+        </ul>
+      </div>
+
+      <div class="dropdown col-auto">
+        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown">
+          <i class="bi bi-calendar"></i> Due date
+        </button>
+
+        <div class="dropdown-menu p-3">
+          <input type="date" class="form-control">
+        </div>
+      </div>
+
+
+      <div class="dropdown col-auto">
+        <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-flag"></i>
+          Priority
+        </button>
+
+        <div class="dropdown-menu p-3">
+          <ul>
+            <li><i class="bi bi-flag red-flag" style="color: red"></i> Urgent</li>
+            <li><i class="bi bi-flag yellow" style="color:Yellow"></i> High</li>
+            <li><i class="bi bi-flag " style="color: blue"></i> Normal</li>
+            <li><i class="bi bi-flag " style="color: dimgray"></i> Low</li>
+            <hr>
+            <li><i class="bi bi-ban"></i> clear </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dropdown col-auto">
+        <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-tag"></i>
+          Tags
+        </button>
+
+      </div>
+
+
+      <div class="dropdown col-auto">
+        <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-three-dots"></i>
+        </button>
+
+        <div class="dropdown-menu " style="width: 80%">
+          <ul>
+            <li><a href="#" class="dropdown-item"> Dependencies </a></li>
+            <li><a href="#" class="dropdown-item"> Subtasks </a></li>
+            <li><a href="#" class="dropdown-item"> <i class="bi bi-list-check"></i> Checklist </a></li>
+
+          </ul>
+        </div>
+
+      </div>
+      <div class="mt-3">
+        <h6 class="text-muted">Custom Fields</h6>
+
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row"><i class="bi bi-caret-down-square"></i> UX - Status</th>
+            <td>To - do</td>
+          </tr>
+          <tr>
+            <th scope="row"><i class="bi bi-caret-down-square"></i> User Stories - Status</th>
+            <td> - </td>
+          </tr>
+          <tr>
+            <th scope="row"><i class="bi bi-caret-down-square"></i> Development - Status</th>
+            <td> - </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-secondary" type="button" >
+            Show custom fields
+          </button>
+          <button class="btn btn-outline-secondary" type="button" aria-expanded="false">
+            <i class="bi bi-plus-circle"> </i>
+            Create new field
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer dropdown d-flex justify-content-between ">
+
+
+
+    <button type="button" class="btn btn-outline-primary"  data-bs-toggle="dropdown" aria-expanded="false" > <i class="bi bi-magic"></i> Templates </button>
+
+    <div class="dropdown-menu ">
+      <ul>
+        <li class="dropdown-item"><i class="bi bi-magic"></i> Use Template</li>
+        <li class="dropdown-item"><i class="bi bi-magic"></i> Create instantly from template</li>
+        <hr>
+        <li class="dropdown-item"><i class="bi bi-floppy"></i> Save as Template</li>
+        <li class="dropdown-item"><i class="bi bi-arrow-repeat"></i> Upload Existing Template</li>
+
+
+      </ul>
+    </div>
+
+    <div class="d-flex gap-2">
+      <div class=" d-flex gap-3 m-1" >
+        <i class="bi bi-paperclip" style="font-size: 18px"></i>
+        <i class="bi bi-bell" style="font-size: 18px"> 2 </i>
+      </div>
+
+      <button type="button" class="btn btn-primary" >Create Task </button>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="editBacklogModall" tabindex="-1" aria-labelledby="editBacklogModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width: 600px;">
+      <div class="modal-header">
+        <h3 class="modal-title fs-6" id="editBacklogModalLabel">
+          Edit Tourism Backlog Status
+        </h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div  class="col-4">
+            <h6 class="text-muted mb-2" > Status type </h6>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1" >
+                Inherit from space
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Use custom statuses
+              </label>
+            </div>
+
+            <h6 class="text-muted mb-2" > Status type </h6>
+            <button class="btn btn-transparent border-0 dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+              Overall Board Status
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <input class="form-control h-75 mt-2"  type="search" placeholder="Search" [(ngModel)]="searchQuery" name="search">
+              <li><a class="dropdown-item" href="#">Scrum</a></li>
+              <li><a class="dropdown-item" href="#">Content</a></li>
+              <li><a class="dropdown-item" href="#">Kanban</a></li>
+              <li><a class="dropdown-item" href="#">Marketing</a></li>
+              <li><a class="dropdown-item" href="#">
+                <i class="bi bi-check2"></i>
+                Overall board status
+              </a></li>
+
+
+            </ul>
+          </div>
+
+
+          <div class="col-8 text-center">
+            <h6 class="text-muted fs-6 mb-2"> Active </h6>
+
+            <ul>
+              <li class="editBacklogListIcons">  BACKLOG</li>
+              <li class="editBacklogListIcons">TO - DO</li>
+              <li class="editBacklogListIcons"> IN PROGRESS</li>
+              <li class="editBacklogListIcons">IN REVIEW</li>
+              <li class="editBacklogListIcons">READY FOR REVIEW</li>
+              <li class="editBacklogListIcons add-status btn w-100"   >
+                <i class="bi bi-plus-circle"></i>
+                ADD STATUS
+              </li>
+            </ul>
+
+            <h6 class="text-muted fs-6 mb-2"> Done </h6>
+            <ul>
+              <li class="editBacklogListIcons add-status btn w-100"   >
+                <i class="bi bi-plus-circle"></i>
+                ADD STATUS
+              </li>
+            </ul>
+
+            <h6 class="text-muted fs-6 mb-2"> Closed </h6>
+            <ul>
+              <li class="editBacklogListIcons add-status btn w-100"   >
+                <i class="bi bi-check2"></i>
+                Done
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" >Save Template </button>
+        <button type="button" class="btn btn-primary" >Apply Changes </button>
+      </div>
+    </div>
+  </div>
+</div>
