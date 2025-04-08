@@ -1,0 +1,75 @@
+
+<div class="sidebar p-4" >
+
+  <button class="btn btn-link p-0 mb-2" (click)="goBack()">
+    <i class="bi bi-arrow-left"></i> Layout options
+  </button>
+
+  <h6 class="text-muted fs-6 d-flex justify-content-between">
+    <span type="button"> Page Layout</span>
+  </h6>
+
+  <ul>
+    <li *ngFor="let layout of layouts; let i = index" class="d-flex align-items-center justify-content-between mb-2">
+      <i class="bi bi-grip-vertical text-muted me-2"></i>
+      <div class="d-flex align-items-center flex-grow-1">
+        <span class="flex-grow-1">{{ layout.name }}</span>
+      </div>
+
+      <label class="d-flex align-items-center">
+        <div class="form-check form-switch ">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="layout.enabled" [id]="'fieldSwitch' + i">
+        </div>
+      </label>
+    </li>
+  </ul>
+  <h6 class="text-muted fs-6 d-flex justify-content-between">
+    <span type="button">Task visibility</span>
+  </h6>
+
+  <ul>
+    <li *ngFor="let layoutVisibility of layoutsVisibility; let i = index" class="d-flex align-items-center justify-content-between mb-2">
+      <i class="bi bi-grip-vertical text-muted me-2"></i>
+      <div class="d-flex align-items-center flex-grow-1">
+        <span class="flex-grow-1">{{ layoutVisibility.name }}</span>
+      </div>
+
+      <label class="d-flex align-items-center">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="layoutVisibility.enabled" [id]="'fieldSwitch' + i">
+        </div>
+      </label>
+    </li>
+  </ul>
+
+  <h6 class="text-muted fs-6 d-flex justify-content-between">
+    <span type="button">View Settings</span>
+  </h6>
+
+  <ul>
+    <li *ngFor="let layoutView of layoutsView; let i = index" class="d-flex align-items-center justify-content-between mb-2">
+      <i class="bi bi-grip-vertical text-muted me-2"></i>
+      <div class="d-flex align-items-center flex-grow-1">
+        <small [class]="layoutView.icon" class="me-2"></small>
+        <span class="flex-grow-1">{{ layoutView.name }}</span>
+      </div>
+
+      <label class="d-flex align-items-center">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="layoutView.enabled" [id]="'fieldSwitch' + i">
+        </div>
+      </label>
+    </li>
+  </ul>
+
+  <ul> <!-- Added missing <ul> for layoutsView2 -->
+    <li *ngFor="let layoutView2 of layoutsView2; let i = index" class="d-flex align-items-center justify-content-between mb-2">
+      <i class="bi bi-grip-vertical text-muted me-2"></i>
+      <div class="d-flex align-items-center flex-grow-1">
+        <small [class]="layoutView2.icon" class="me-2"></small>
+        <span class="flex-grow-1">{{ layoutView2.name }}</span>
+      </div>
+    </li>
+  </ul>
+
+</div>

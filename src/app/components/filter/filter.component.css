@@ -1,0 +1,37 @@
+.subtask-container {
+  position: relative;
+  cursor: pointer;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.options-box {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: -500px;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  border-radius: 5px;
+  z-index: 1000;
+  min-width: 300px;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+.filter-list{
+  height: 200px;
+  overflow-y: auto;
+  z-index: 2000;
+}
+
+.subtask-container:hover .options-box {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+

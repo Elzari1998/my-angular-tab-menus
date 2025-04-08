@@ -4,7 +4,7 @@
       <a class="nav-link" (click)="selectTab('dashboard')"  [class.active]="selectedTab === 'dashboard'">
         <i class="bi bi-grid"></i> Dashboard
       </a>
-      <div *ngIf="selectedTab === 'dashboard'" class="dropdown position-absolute top-2 end-0 p-2" style="top: 1.4cm;" >
+      <div *ngIf="selectedTab === 'dashboard'" class="dropdown position-absolute top-2 end-0 p-2" style="top: 1.7cm;" >
         <button class="btn btn-transparent border-0 dropdown-toggle" type="button" id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false">
           <i class="bi bi-gear"></i> Customize
@@ -41,156 +41,26 @@
           </a>
         </li>
 
-        <li class="subtask-container w-100">
-          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" role="button"
-             data-bs-toggle="dropdown" aria-expanded="false" (click)="preventRefreshingThePage($event)">
-              <span class="d-flex align-items-center subtask-item">
-                <i class="bi bi-funnel me-2"></i> Filter
-              </span>
-            <span class="text-muted ms-5">None<i class="bi bi-chevron-right"></i></span>
-          </a>
+          <app-filter> </app-filter>
+          <app-groups></app-groups>
+          <app-subtasks></app-subtasks>
+          <app-templates></app-templates>
 
-          <div class="options-box dropdown-menu-end" style="width: 500px; transform: translateX(-15cm);">
-            <ul class="list-styled w-100">
+<!--        <li class="subtask-container">-->
+<!--          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" (click)="preventRefreshingThePage($event)">-->
+<!--            <span class="d-flex align-items-center subtask-item"><i class="bi bi-magic me-2"></i> Templates</span>-->
+<!--            <span class="text-muted ms-5"><i class="bi bi-chevron-right ms-5"></i></span>-->
+<!--          </a>-->
 
-              <li class="px-3 d-flex justify-content-between align-items-center">
-                <span class="text-muted">Filter</span>
-
-                <div class="d-flex ms-auto">
-
-                  <button class="btn btn-link text-muted me-3" (click)="clearFilters()">Clear all</button>
-
-                  <div class="dropdown">
-                    <button class="btn btn-link dropdown-toggle text-muted" type="button" id="savedFiltersDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                      Saved filters
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="savedFiltersDropdown">
-                      <li><a class="dropdown-item" href="#">Filter 1</a></li>
-                      <li><a class="dropdown-item" href="#">Filter 2</a></li>
-                      <li><a class="dropdown-item" href="#">Filter 3</a></li>
-                      <!-- Add more filters as needed -->
-                    </ul>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <input
-                  type="text"
-                  class="form-control w-100"
-                  placeholder="Select filter..."
-                  (focus)="showDropdown()"
-                  (input)="filterOptions($event)"
-                  (blur)="closeDropdown()">
-              </li>
-
-              <li *ngIf="isDropdownVisible" class="dropdown-menu show " style="top: 2.2cm; left: 40px; width:100px; height:300px">
-                <ul class="dropdown-menu show w-100 h-100" style="position: absolute; top: 0; left: 0;  min-width: 100px; width: auto;">
-                  <li *ngFor="let option of filteredOptions">
-                    <a class="dropdown-item d-flex justify-content-start align-items-center w-400" href="#" (click)="preventRefreshingThePage($event)">
-                      {{ option }}
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li>
-                <a class="dropdown-item d-flex justify-content-between align-items-left w-100" href="#" (click)="preventRefreshingThePage($event)">
-                  <i class="bi bi-plus-circle ms-2"></i>
-                  Nested filter
-                </a>
-              </li>
-
-              <li>
-                <a class="dropdown-item d-flex justify-content-between align-items-left w-100" href="#" (click)="preventRefreshingThePage($event)">
-                  <i class="bi bi-plus-circle ms-2"></i>
-                  Add filter
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="subtask-container w-100" >
-          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
-            <span class="d-flex align-items-center">
-              <i class="bi bi-layers me-2"></i>
-              Group
-            </span>
-            <span class="text-muted">Type <i class="bi bi-chevron-right"></i></span>
-          </a>
-          <div class="options-box dropdown-menu-end" style="width: 500px; transform: translateX(-15cm);">
-            <ul class="list-styled w-100">
-
-              <li class="px-3 d-flex justify-content-between align-items-center">
-                <span class="text-muted">Group by</span>
-              </li>
-
-              <li class="d-flex justify-content-between align-content-center">
-                 <span class="input-group-text w-50">
-                  <i class="bi bi-search"></i>
-                   <input  type="text" class="form-control " placeholder="Status" (focus)="showDropdown()"  (input)="filterOptions($event)" (blur)="closeDropdown()">
-                </span>
-                <span class="input-group-text w-50">
-                <i class="bi bi-filter"></i>
-                <select class="form-control" >
-                  <option value="asc">Ascending</option>
-                  <option value="desc">Descending</option>
-                </select>
-              </span>
-
-
-              <li *ngIf="isDropdownVisible" class="dropdown-menu show " style="top: 2.2cm; left: 40px; width:200px; height:300px; overflow-y: scroll">
-                <ul class="dropdown-menu show w-100" style="position: absolute; top: 0; left: 0;  min-width: 100px; width: auto;">
-                  <li *ngFor="let option of groupList">
-                    <a class="dropdown-item d-flex justify-content-start align-items-center w-400" href="#" (click)="preventRefreshingThePage($event)">
-                      {{ option.name }}
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-
-            </ul>
-          </div>
-
-        </li>
-
-        <li class="subtask-container">
-          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-             (click)="preventRefreshingThePage($event)">
-            <span class="d-flex align-items-center subtask-item"><i class="bi bi-link me-2"></i> Subtasks</span>
-            <span class="text-muted ms-5">{{ selectedOption }} <i class="bi bi-chevron-right"></i></span>
-          </a>
-
-          <div class="options-box">
-            <ul>
-              <li class="px-3 text-muted">Show subtasks</li>
-              <li><a class="dropdown-item active" href="#" [class.active]="selectedOption === 'Collapsed'"
-                     (click)="selectOption('Collapsed', $event)"> Collapsed </a></li>
-              <li><a class="dropdown-item" href="#" [class.active]="selectedOption === 'Expanded'"
-                     (click)="selectOption('Expanded', $event)" >Expanded</a></li>
-              <li><a class="dropdown-item" href="#" [class.active]="selectedOption === 'Separate'"
-                     (click)="selectOption('Separate', $event)" >Separate</a></li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="subtask-container">
-          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" (click)="preventRefreshingThePage($event)">
-            <span class="d-flex align-items-center subtask-item"><i class="bi bi-magic me-2"></i> Templates</span>
-            <span class="text-muted ms-5"><i class="bi bi-chevron-right ms-5"></i></span>
-          </a>
-
-          <div class="options-box w-100">
-            <ul>
-              <li class="px-3 text-muted"></li>
-              <li><a class="dropdown-item active" href="#" (click)="preventRefreshingThePage($event)"><i class="bi bi-columns"> Browse Templates</i></a></li>
-              <li><a class="dropdown-item" href="#" (click)="preventRefreshingThePage($event)"><i class="bi bi-floppy"> Save as Template</i></a></li>
-              <li><a class="dropdown-item" href="#" (click)="preventRefreshingThePage($event)"><i class="bi bi-arrow-repeat">Upload Existing Template</i></a></li>
-            </ul>
-          </div>
-        </li>
+<!--          <div class="options-box w-100">-->
+<!--            <ul>-->
+<!--              <li class="px-3 text-muted"></li>-->
+<!--              <li><a class="dropdown-item active" href="#" (click)="preventRefreshingThePage($event)"><i class="bi bi-columns"> Browse Templates</i></a></li>-->
+<!--              <li><a class="dropdown-item" href="#" (click)="preventRefreshingThePage($event)"><i class="bi bi-floppy"> Save as Template</i></a></li>-->
+<!--              <li><a class="dropdown-item" href="#" (click)="preventRefreshingThePage($event)"><i class="bi bi-arrow-repeat">Upload Existing Template</i></a></li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </li>-->
 
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-item">
@@ -243,6 +113,7 @@
           </li>
 
 
+
           <li class="subtask-container">
             <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                (click)="preventRefreshingThePage($event)">
@@ -293,195 +164,573 @@
               </ul>
             </div>
           </li>
-
-
         <li><a class="dropdown-item" href="#"><span><i class="bi bi-share me-2"></i></span>Sharing & Permissions</a></li>
 
       </ul>
-        <div *ngIf="activePanel === 'fields'" class="sidebar p-4" >
-        <button class="btn btn-link p-0 mb-2" (click)="openPanel('main')">
-          <i class="bi bi-arrow-left"></i> Fields
-        </button>
 
-        <input type="text" placeholder="Create or search for fields" class="form-control my-2">
-        <h6 class="text-muted fs-6 d-flex justify-content-between">Shown <span class="" type="button"> Hide all</span></h6>
+        <div *ngIf="activePanel === 'fields'" class="sidebar" style="position: absolute; right: 0; max-width: 350px;">
+          <app-fields (panelChange)="openPanel($event)"> </app-fields>
+        </div>
 
-        <ul>
-          <li *ngFor="let field of fields; let i = index" class="d-flex align-items-center justify-content-between mb-2">
-            <i class="bi bi-grip-vertical text-muted me-2"></i>
-            <div class="d-flex align-items-center flex-grow-1">
-              <small [class]="field.icon" class="me-2"></small>
-              <span class="flex-grow-1">{{ field.name }}</span>
-            </div>
-
-
-            <label class="d-flex align-items-center">
-              <div class="form-check form-switch ">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="field.enabled" [id]="'fieldSwitch' + i">
-              </div>
-            </label>
-          </li>
-
-          <h6 class="text-muted fs-6 d-flex justify-content-between">Popular </h6>
-          <li  *ngFor="let popularField of popularFields; let i=index"  class="d-flex align-items-center justify-content-between mb-2">
-            <div class="d-flex align-items-center flex-grow-1">
-              <small [class]="popularField.icon" class="me-2"></small>
-              <span class="flex-grow-1">{{ popularField.name }}</span>
-            </div>
-            <label class="d-flex align-items-center">
-              <div class="form-check form-switch ">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="popularField.enabled" [id]="'popularFieldSwitch' + i">
-              </div>
-            </label>
-          </li>
-
-          <h6 class="text-muted fs-6 d-flex justify-content-between">Hidden </h6>
-          <li  *ngFor="let hiddenFields of hidden; let i=index"  class="d-flex align-items-center justify-content-between mb-2">
-            <div class="d-flex align-items-center flex-grow-1">
-              <small [class]="hiddenFields.icon" class="me-2"></small>
-              <span class="flex-grow-1">{{ hiddenFields.name }}</span>
-            </div>
-            <label class="d-flex align-items-center">
-              <div class="form-check form-switch ">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="hiddenFields.enabled" [id]="'hiddenFieldsSwitch' + i">
-              </div>
-            </label>
-          </li>
-
-          <h6 class="text-muted fs-6 d-flex justify-content-between">Fields in Workspace </h6>
-          <li  *ngFor="let fieldinWorkspace of fieldsInWorkspace; let i=index"  class="d-flex align-items-center justify-content-between mb-2">
-            <div class="d-flex align-items-center flex-grow-1">
-              <small [class]="fieldinWorkspace.icon" class="me-2"></small>
-              <span class="flex-grow-1">{{ fieldinWorkspace.name }}</span>
-              <span><button class="btn btn-primary"> add</button> </span>
-            </div>
-          </li>
-        </ul>
-
-        <button class="btn btn-primary w-100 mt-2" (click)="openPanel('creatingNewField')">Create field</button>
       </div>
 
 
-        <div *ngIf="activePanel === 'creatingNewField'" class="sidebar p-4">
-          <button class="btn btn-link p-0 mb-2" (click)="openPanel('fields')">
-            <i class="bi bi-arrow-left"></i> Create field
-          </button>
-          <input type="text" placeholder="Create or search for fields" class="form-control my-2">
+<!--      <div class="modal fade" id="favoritesModal" tabindex="-1" aria-labelledby="favoritesModalLabel" aria-hidden="true">-->
+<!--        <div class="modal-dialog">-->
+<!--          <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--              <h5 class="modal-title" id="favoritesModalLabel">Add to favorites</h5>-->
+<!--              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--              <label for="favoriteName" class="form-label">Name</label>-->
+<!--              <input type="text" class="form-control" id="favoriteName" [(ngModel)]="favoriteName">-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--              <button type="button" class="btn btn-primary" (click)="saveFavorite()">Save favorite</button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-          <h6 class="text-muted fs-6 d-flex justify-content-between">Suggested </h6>
-          <ul>
-            <li *ngFor="let creatingNewField of creatingNewFieldsItems; let i = index" class="d-flex align-items-center justify-content-between mb-2">
-              <div class="d-flex align-items-center flex-grow-1">
-                <small [class]="creatingNewField.icon" class="me-2"></small>
-                <span class="flex-grow-1">{{ creatingNewField.name }}</span>
-                <hr>
+      <div class="modal fade" id="createNewModal" tabindex="-1" aria-labelledby="createNewModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="width: 600px;">
+            <div class="modal-header">
+              <h6 class="modal-title fs-6" id="createNewModalLabel">
+                <ul class="nav nav-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" data-bs-toggle="tab" data-bs-target="#taskTab"  href="#">Task</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#docTab" href="#">Doc</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#reminderTab"  href="#">Reminder</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#chatTab" href="#">Chat</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#whiteboardTab" href="#">Whiteboard</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#dashboardTab" href="#">Dashboard</a>
+                  </li>
+
+                </ul>
+              </h6>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+              <div class="tab-content">
+
+                <div class="tab-pane fade show active" id="taskTab" role="tabpanel">
+                <div class="dropdown ">
+                  <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Personal list
+                  </button>
+                  <ul class="dropdown-menu">
+                    <div class="d-flex justify-content-center">
+                      <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search" name="search">
+                    </div>
+                    <li>
+                      <a class="dropdown-item d-flex justify-content-between" href="#">
+                        <i class="bi bi-person-circle"></i>
+                        Personal List
+                        <i class="bi bi-check2"></i>
+                      </a>
+                    </li>
+                    <hr>
+                    <div class="m-2">
+                      <h6 class="text-muted fs-6">Recents</h6>
+                      <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Tourism Backlog</a></li>
+                      <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Releases</a></li>
+                      <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Service Desk Backlog</a></li>
+                      <h6 class="text-muted fs-6">Spaces</h6>
+                      <li><a class="dropdown-item" href="#">CLIENT PROJECTS</a></li>
+                      <li><a class="dropdown-item" href="#">CAGAN TECH DEV SPACE</a></li>
+                      <li><a class="dropdown-item" href="#">MARKETING</a></li>
+                      <li><a class="dropdown-item" href="#">OUR PRODUCTS</a></li>
+                    </div>
+                  </ul>
+                </div>
+
+                <div class="dropdown ">
+                  <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Task
+                  </button>
+                  <ul class="dropdown-menu">
+                    <div class="d-flex justify-content-center">
+                      <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search" name="search">
+                    </div>
+
+                    <h6 class="text-muted fs-6 m-2 ">Task Types</h6>
+                    <li>
+                      <a class="dropdown-item d-flex justify-content-between" href="#">
+                        <i class="bi bi-person-circle"></i>
+                        Task
+                        <i class="bi bi-check2"></i>
+                      </a>
+                    </li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Milestone</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Form Response</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Topic</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Update</a></li>
+                  </ul>
+
+              <h5 class="text-muted mb-2">Task Name</h5>
+
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="bi bi-file-earmark fs-4"></i>
+                <input type="text" class="form-control w-100" id="createNewModalName" placeholder="Add description">
               </div>
-            </li>
 
-          </ul>
+              <div class="row  g-2 align-items-center">
+                <div class="dropdown col-auto">
+                  <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Backlog
+                  </button>
+                  <ul class="dropdown-menu">
+                    <div class="d-flex justify-content-center">
+                      <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search" name="search">
+                    </div>
+
+                    <div class="d-flex justify-content-between m-2">
+                      <h6 class="text-muted fs-6">Statuses  </h6>
+
+                      <i class="bi bi-gear"  type="submit" data-bs-toggle="modal" data-bs-target="#editBacklogModall"> </i>
+                    </div>
+                    <li>
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: #6c757d"></i>Backlog</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: blue"></i>To Do</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: blue"></i>In Progress</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: gold"></i>In Review</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: cyan"></i>Ready for dev</a>
+                    </li>
+                    <hr>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-check-circle" style="color: green"></i> Done</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown col-auto">
+                  <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-people"></i>
+                    Assignee
+                  </button>
+                  <ul class="dropdown-menu">
+                    <div class="d-flex justify-content-center">
+                      <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search or enter email" name="search">
+                    </div>
+
+                    <div class="d-flex justify-content-between m-2">
+                      <h6 class="text-muted fs-6">People  </h6>
+                    </div>
+
+                    <li class="d-flex g-2">
+                      <a class="dropdown-item gap-2" href="#"><i class="bi bi-person-circle me-2"></i>Me</a>
+                    </li>
+                    <li class="d-flex g-2">
+                      <a class="dropdown-item gap-2" href="#"><i class="bi bi-person-circle me-2"></i>Bhadvaraj</a>
+                    </li>
+                    <li class="d-flex g-2">
+                      <a class="dropdown-item gap-2" href="#"><i class="bi bi-person-circle me-2"></i>Chantal</a>
+                    </li>
+                    <li class="d-flex g-2">
+                      <a class="dropdown-item gap-2" href="#"><i class="bi bi-person-circle me-2"></i>Elizabeth</a>
+                    </li>
+
+                    <hr>
+
+                    <div class="d-flex justify-content-between m-2">
+                      <h6 class="text-muted fs-6">Teams</h6>
+                    </div>
+                    <li class="d-flex justify-content-between">
+                      <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2"></i>Cagan Tech</a>
+                      <h6 class="text-muted mt-2" style="width: 40%;"> 0 people</h6>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="dropdown col-auto">
+                  <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown">
+                    <i class="bi bi-calendar"></i> Due date
+                  </button>
+
+                  <div class="dropdown-menu p-3">
+                    <input type="date" class="form-control">
+                  </div>
+                </div>
+
+
+                <div class="dropdown col-auto">
+                  <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-flag"></i>
+                     Priority
+                  </button>
+
+                  <div class="dropdown-menu p-3">
+                    <ul>
+                      <li><i class="bi bi-flag red-flag" style="color: red"></i> Urgent</li>
+                      <li><i class="bi bi-flag yellow" style="color:Yellow"></i> High</li>
+                      <li><i class="bi bi-flag " style="color: blue"></i> Normal</li>
+                      <li><i class="bi bi-flag " style="color: dimgray"></i> Low</li>
+                      <hr>
+                      <li><i class="bi bi-ban"></i> clear </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="dropdown col-auto">
+                  <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-tag"></i>
+                    Tags
+                  </button>
+
+                </div>
+
+
+                <div class="dropdown col-auto">
+                  <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-three-dots"></i>
+                  </button>
+
+                  <div class="dropdown-menu " style="width: 80%">
+                    <ul>
+                      <li><a href="#" class="dropdown-item"> Dependencies </a></li>
+                      <li><a href="#" class="dropdown-item"> Subtasks </a></li>
+                      <li><a href="#" class="dropdown-item"> <i class="bi bi-list-check"></i> Checklist </a></li>
+
+                    </ul>
+                  </div>
+
+                </div>
+                <div class="mt-3">
+                  <h6 class="text-muted">Custom Fields</h6>
+
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <th scope="row"><i class="bi bi-caret-down-square"></i> UX - Status</th>
+                      <td>To - do</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><i class="bi bi-caret-down-square"></i> User Stories - Status</th>
+                      <td> - </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><i class="bi bi-caret-down-square"></i> Development - Status</th>
+                      <td> - </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="d-flex gap-2">
+                    <button class="btn btn-outline-secondary" type="button" >
+                      Show custom fields
+                    </button>
+                    <button class="btn btn-outline-secondary" type="button" aria-expanded="false">
+                      <i class="bi bi-plus-circle"> </i>
+                      Create new field
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer dropdown d-flex justify-content-between ">
+
+
+
+              <button type="button" class="btn btn-outline-primary"  data-bs-toggle="dropdown" aria-expanded="false" > <i class="bi bi-magic"></i> Templates </button>
+
+              <div class="dropdown-menu ">
+                <ul>
+                  <li class="dropdown-item"><i class="bi bi-magic"></i> Use Template</li>
+                  <li class="dropdown-item"><i class="bi bi-magic"></i> Create instantly from template</li>
+                  <hr>
+                  <li class="dropdown-item"><i class="bi bi-floppy"></i> Save as Template</li>
+                  <li class="dropdown-item"><i class="bi bi-arrow-repeat"></i> Upload Existing Template</li>
+
+
+                </ul>
+              </div>
+
+              <div class="d-flex gap-2">
+                <div class=" d-flex gap-3 m-1" >
+                  <i class="bi bi-paperclip" style="font-size: 18px"></i>
+                  <i class="bi bi-bell" style="font-size: 18px"> 2 </i>
+                </div>
+
+                <button type="button" class="btn btn-primary" >Create Task </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="modal fade" id="favoritesModal" tabindex="-1" aria-labelledby="favoritesModalLabel" aria-hidden="true">
+
+      <div class="modal fade" id="editBacklogModall" tabindex="-1" aria-labelledby="editBacklogModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
+          <div class="modal-content" style="width: 600px;">
             <div class="modal-header">
-              <h5 class="modal-title" id="favoritesModalLabel">Add to favorites</h5>
+              <h3 class="modal-title fs-6" id="editBacklogModalLabel">
+                Edit Tourism Backlog Status
+              </h3>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <label for="favoriteName" class="form-label">Name</label>
-              <input type="text" class="form-control" id="favoriteName" [(ngModel)]="favoriteName">
+              <div class="row">
+                <div  class="col-4">
+                  <h6 class="text-muted mb-2" > Status type </h6>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1" >
+                      Inherit from space
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Use custom statuses
+                    </label>
+                  </div>
+
+                  <h6 class="text-muted mb-2" > Status type </h6>
+                    <button class="btn btn-transparent border-0 dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                    Overall Board Status
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <input class="form-control h-75 mt-2"  type="search" placeholder="Search" [(ngModel)]="searchQuery" name="search">
+                      <li><a class="dropdown-item" href="#">Scrum</a></li>
+                      <li><a class="dropdown-item" href="#">Content</a></li>
+                      <li><a class="dropdown-item" href="#">Kanban</a></li>
+                      <li><a class="dropdown-item" href="#">Marketing</a></li>
+                      <li><a class="dropdown-item" href="#">
+                        <i class="bi bi-check2"></i>
+                        Overall board status
+                      </a></li>
+
+
+                    </ul>
+                  </div>
+
+
+                <div class="col-8 text-center">
+                  <h6 class="text-muted fs-6 mb-2"> Active </h6>
+
+                  <ul>
+                    <li class="editBacklogListIcons">  BACKLOG</li>
+                    <li class="editBacklogListIcons">TO - DO</li>
+                    <li class="editBacklogListIcons"> IN PROGRESS</li>
+                    <li class="editBacklogListIcons">IN REVIEW</li>
+                    <li class="editBacklogListIcons">READY FOR REVIEW</li>
+                    <li class="editBacklogListIcons add-status btn w-100"   >
+                      <i class="bi bi-plus-circle"></i>
+                      ADD STATUS
+                    </li>
+                  </ul>
+
+                  <h6 class="text-muted fs-6 mb-2"> Done </h6>
+                  <ul>
+                    <li class="editBacklogListIcons add-status btn w-100"   >
+                      <i class="bi bi-plus-circle"></i>
+                      ADD STATUS
+                    </li>
+                  </ul>
+
+                  <h6 class="text-muted fs-6 mb-2"> Closed </h6>
+                  <ul>
+                    <li class="editBacklogListIcons add-status btn w-100"   >
+                      <i class="bi bi-check2"></i>
+                      Done
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+
             </div>
+
+
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" (click)="saveFavorite()">Save favorite</button>
+              <button type="button" class="btn btn-primary" >Save Template </button>
+              <button type="button" class="btn btn-primary" >Apply Changes </button>
+</div>
             </div>
           </div>
-        </div>
       </div>
 
 
 
-    <div *ngIf="activePanel === 'layouts'" class="sidebar p-4"
-         style="position: absolute; right: 0; top: 2cm; max-width: 300px;">
 
-      <button class="btn btn-link p-0 mb-2" (click)="openPanel('main')">
-        <i class="bi bi-arrow-left"></i> Layout options
-      </button>
 
-      <h6 class="text-muted fs-6 d-flex justify-content-between">
-        <span type="button"> Page Layout</span>
-      </h6>
+            <!-- Docs Tab -->
+            <div class="tab-pane fade text-start" id="docTab" role="tabpanel">
 
-      <ul>
-        <li *ngFor="let layout of layouts; let i = index" class="d-flex align-items-center justify-content-between mb-2">
-          <i class="bi bi-grip-vertical text-muted me-2"></i>
-          <div class="d-flex align-items-center flex-grow-1">
-            <span class="flex-grow-1">{{ layout.name }}</span>
-          </div>
+              <div class="dropdown ">
+                <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-list"></i>
+                    My docs
 
-        <label class="d-flex align-items-center">
-          <div class="form-check form-switch ">
-            <input class="form-check-input" type="checkbox" [(ngModel)]="layout.enabled" [id]="'fieldSwitch' + i">
-          </div>
-        </label>
-      </li>
-    </ul>
-<h6 class="text-muted fs-6 d-flex justify-content-between">
-        <span type="button">Task visibility</span>
-      </h6>
+                </button>
+                <ul class="dropdown-menu">
+                  <div class="d-flex justify-content-center">
+                    <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search" name="search">
+                  </div>
+                  <li>
+                    <a class="dropdown-item d-flex justify-content-between" href="#">
+                      <i class="bi bi-grid-fill"></i>
+                   Workspace
+                      <i class="bi bi-check2"></i>
+                    </a>
+                  </li>
+                  <hr>
+                  <div class="m-2">
+                    <h6 class="text-muted fs-6">Spaces</h6>
+                    <li><a class="dropdown-item" href="#">CLIENT PROJECTS</a></li>
+                    <li><a class="dropdown-item" href="#">CAGAN TECH DEV SPACE</a></li>
+                    <li><a class="dropdown-item" href="#">MARKETING</a></li>
+                    <li><a class="dropdown-item" href="#">OUR PRODUCTS</a></li>
+                    <li><a class="dropdown-item" href="#">Business Development</a></li>
+                    <li><a class="dropdown-item" href="#">Service Desk</a></li>
+                    <li><a class="dropdown-item" href="#">Employee Onboarding</a></li>
 
-      <ul>
-        <li *ngFor="let layoutVisibility of layoutsVisibility; let i = index" class="d-flex align-items-center justify-content-between mb-2">
-          <i class="bi bi-grip-vertical text-muted me-2"></i>
-          <div class="d-flex align-items-center flex-grow-1">
-            <span class="flex-grow-1">{{ layoutVisibility.name }}</span>
-          </div>
+                  </div>
 
-          <label class="d-flex align-items-center">
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" [(ngModel)]="layoutVisibility.enabled" [id]="'fieldSwitch' + i">
+                </ul>
+              </div>
+              <hr>
+
+              <input type="text" class="form-control form-control-sm mb-2 text-start" placeholder="Name this Doc...">
+
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="bi bi-file-earmark fs-4"></i>
+                <input type="text" class="form-control w-100" id="createDocName" placeholder="Add description">
+              </div>
+
+              <h6 class="mt-3 text-start">Add new:</h6>
+              <button class="btn btn-light btn-sm w-100 text-start" id="addTableBtn">
+                <i class="bi bi-table me-2"></i> Table
+              </button>
+
+              <div class="modal fade" id="docModal" tabindex="-1" aria-labelledby="docModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="docModalLabel">Doc</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modalContent">
+                      <input type="text" class="form-control form-control-sm mb-2 bg-transparent border border-secondary" placeholder="Name this Doc...">
+                      <button class="btn btn-outline-primary btn-sm w-100">Start writing</button>
+                      <button class="btn btn-outline-secondary btn-sm w-100 mt-2">Write with AI</button>
+                      <h6 class="mt-3">Add new:</h6>
+                      <button class="btn btn-light btn-sm w-100 text-start" id="addTableBtn2">Table</button>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Create Doc</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <button class="btn btn-light btn-sm w-100 mt-2 text-start">
+                <i class="bi bi-layout-three-columns me-2"></i> Column
+              </button>
+
+              <button class="btn btn-light btn-sm w-100 mt-2 text-start">
+                <i class="bi bi-list-task me-2"></i> ClickUp List
+              </button>
             </div>
-          </label>
-        </li>
-      </ul>
+            <!-- issue with gaps  -->
+            <!-- Reminder Tab Content -->
+            <div class="tab-pane fade" id="reminderTab" role="tabpanel">
+              <h5 class="text-muted mb-2">Reminder</h5>
 
-      <h6 class="text-muted fs-6 d-flex justify-content-between">
-        <span type="button">View Settings</span>
-      </h6>
+              <!-- Dynamic Textbox (Textarea) -->
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" class="form-control" rows="3" [(ngModel)]="reminder.description" (input)="resizeTextarea($event)" placeholder="Enter description..."></textarea>
+              </div>
 
-      <ul>
-        <li *ngFor="let layoutView of layoutsView; let i = index" class="d-flex align-items-center justify-content-between mb-2">
-          <i class="bi bi-grip-vertical text-muted me-2"></i>
-          <div class="d-flex align-items-center flex-grow-1">
-            <small [class]="layoutView.icon" class="me-2"></small>
-            <span class="flex-grow-1">{{ layoutView.name }}</span>
-          </div>
+              <!-- Time Picker -->
+              <div class="form-group">
+                <label for="reminderTime">Set Reminder Time</label>
+                <input type="time" id="reminderTime" class="form-control" [(ngModel)]="reminder.time">
+              </div>
 
-          <label class="d-flex align-items-center">
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" [(ngModel)]="layoutView.enabled" [id]="'fieldSwitch' + i">
+              <!-- Assign Users Dropdown -->
+              <div class="form-group">
+                <label for="assignedUser">Assign User</label>
+                <select id="assignedUser" class="form-control" [(ngModel)]="reminder.assignedUser">
+                  <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+                </select>
+              </div>
+
+              <!-- Notification Dropdown -->
+              <div class="form-group">
+                <label for="notification">Notification</label>
+                <select id="notification" class="form-control" [(ngModel)]="reminder.notification">
+                  <option *ngFor="let notification of notifications" [value]="notification.id">{{ notification.name }}</option>
+                </select>
+              </div>
+
+              <!-- Submit Button -->
+              <button class="btn btn-primary" (click)="saveReminder()">Save Reminder</button>
             </div>
-          </label>
-        </li>
-      </ul>
-
-      <ul> <!-- Added missing <ul> for layoutsView2 -->
-        <li *ngFor="let layoutView2 of layoutsView2; let i = index" class="d-flex align-items-center justify-content-between mb-2">
-          <i class="bi bi-grip-vertical text-muted me-2"></i>
-          <div class="d-flex align-items-center flex-grow-1">
-            <small [class]="layoutView2.icon" class="me-2"></small>
-            <span class="flex-grow-1">{{ layoutView2.name }}</span>
-          </div>
-        </li>
-      </ul>
-
-    </div>
 
 
+      <!-- Chat Tab Content -->
+      <div class="tab-pane fade" id="chatTab">
+        <h5 class="text-muted mb-2">Chat</h5>
+        <textarea class="form-control" rows="3" placeholder="Type a message..."></textarea>
+      </div>
+
+      <!-- Whiteboard Tab Content -->
+      <div class="tab-pane fade" id="whiteboardTab">
+        <h5 class="text-muted mb-2">Whiteboard</h5>
+        <p>Coming Soon...</p>
+      </div>
+
+      <!-- Dashboard Tab Content -->
+      <div class="tab-pane fade" id="dashboardTab">
+        <h5 class="text-muted mb-2">Dashboard</h5>
+        <p>Overview of tasks and progress.</p>
+      </div>
+        </div>
+      </div>
+      </div>
+
+  </li>
 
 
-    <li class="nav-item">
+  <div *ngIf="activePanel === 'layouts'" style="position: absolute; right: 0; max-width: 350px;">
+    <app-layout-options (panelChange)="openPanel($event)" > </app-layout-options>
+  </div>
+
+
+
+
+
+
+  <li class="nav-item">
     <a class="nav-link" (click)="selectTab('backlog')" [class.active]="selectedTab === 'backlog'">
       <i class="bi bi-list"></i> Backlog
     </a>
