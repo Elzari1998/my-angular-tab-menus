@@ -9,7 +9,7 @@ import {FormsModule} from '@angular/forms';
 
   ],
   templateUrl: './toolbar-task.component.html',
-  styleUrl: './toolbar-task.component.css'
+  // styleUrl: './toolbar-task.component.css'
 })
 export class ToolbarTaskComponent {
 

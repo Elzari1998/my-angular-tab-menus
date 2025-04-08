@@ -6,14 +6,13 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './toolbar-doc.component.html',
-  styleUrls: ['./toolbar-doc.component.css']
+  styleUrls: ['./toolbar-doc.component.css'],
 })
 export class ToolbarDocComponent implements AfterViewInit {
-
   @ViewChild('modalBody', { static: false }) modalBody!: ElementRef;
 
   ngAfterViewInit() {
-    document.querySelectorAll('.nav-link').forEach(tab => {
+    document.querySelectorAll('.nav-link').forEach((tab) => {
       tab.addEventListener('click', () => {
         if (this.modalBody) {
           this.modalBody.nativeElement.scrollTop = 0;
