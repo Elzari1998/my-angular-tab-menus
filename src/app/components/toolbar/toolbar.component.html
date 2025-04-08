@@ -5,15 +5,15 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav" >
-      <ul class="navbar-nav mx-auto text-center" >
+    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
+      <ul class="navbar-nav mx-auto text-center">
         <li class="nav-item">
           <a class="nav-link active text-white" href="#">
-            <i class=" bi bi-calendar4" style="font-size: 24px;"></i>
+            <i class="bi bi-calendar4" style="font-size: 24px;"></i>
           </a>
         </li>
         <li class="nav-item">
-          <input class="form-control h-75 mt-2"  type="search" placeholder="Search" [(ngModel)]="searchQuery" name="search">
+          <input class="form-control h-75 mt-2" type="search" placeholder="Search" [(ngModel)]="searchQuery" name="search">
         </li>
         <li class="nav-item">
           <a class="nav-link text-white mt-2" href="#">AI</a>
@@ -22,79 +22,21 @@
 
       <div class="d-flex align-items-center">
         <button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#createNewModal">
-          <i class="bi bi-plus-circle"></i>
-          New
+          <i class="bi bi-plus-circle"></i> New
         </button>
-        <button class="btn btn-primary" type="submit" >
+        <button class="btn btn-primary" type="submit">
           <i class="bi bi-grid"></i>
         </button>
-        <button class="btn btn-primary" type="submit" >
+        <button class="btn btn-primary" type="submit">
           <i class="bi bi-person-circle" style="height: 20px">
             <i class="bi bi-dot online-dot"></i>
           </i>
         </button>
-
       </div>
     </div>
   </div>
 </nav>
 
-<!-- modal -->
-<div class="modal fade" id="createNewModal" tabindex="-1" aria-labelledby="createNewModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" style="width: 600px;">
-      <div class="modal-header">
-        <h6 class="modal-title fs-6" id="createNewModalLabel">
-          <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" data-bs-toggle="tab" data-bs-target="#taskTab"  href="#">Task</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#docTab" href="#">Doc</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#reminderTab"  href="#">Reminder</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#chatTab" href="#">Chat</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#whiteboardTab" href="#">Whiteboard</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" data-bs-toggle="tab" data-bs-target="#dashboardTab" href="#">Dashboard</a>
-            </li>
-
-          </ul>
-        </h6>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <div class="modal-body">
-        <div class="tab-content">
-
-          <!-- Task Tab Content -->
-          <app-toolbar-task></app-toolbar-task>
-
-      <!-- Docs Tab -->
-          <app-toolbar-doc></app-toolbar-doc>
-
-      <!-- Reminder Tab Content -->
-          <app-toolbar-reminder></app-toolbar-reminder>
-
-      <!-- Chat Tab Content -->
-          <app-toolbar-chat></app-toolbar-chat>
-
-      <!-- Whiteboard Tab Content -->
-          <app-toolbar-whiteboard></app-toolbar-whiteboard>
-
-      <!-- Dashboard Tab Content -->
-          <app-toolbar-dashboard></app-toolbar-dashboard>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
+<!-- The New Button-->
+<app-toolbar-NewButton></app-toolbar-NewButton>
 
