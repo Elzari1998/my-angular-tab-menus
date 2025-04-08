@@ -40,4 +40,11 @@ export class ToolbarReminderComponent {
     textarea.style.height = 'auto';
     textarea.style.height = textarea.scrollHeight + 'px';
   }
+  getUserName(id: string): string | undefined {
+    return this.users.find(user => user.id === id)?.name;
+  }
+
+  getNotificationName(id: string): string | undefined {
+    return this.notifications.find(notif => notif.id === id)?.name;
+  }
 }
