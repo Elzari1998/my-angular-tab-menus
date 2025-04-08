@@ -1,0 +1,65 @@
+[33m0581c4d[m[33m ([m[1;36mHEAD -> [m[1;32mcomponent-breakdown[m[33m)[m tab menu changes
+[33me0dd8b2[m to-do - add to favorites
+[33m9ceb1fd[m templates completed
+[33m93917e5[m completed the subtasks
+[33m10625c8[m subtasks completed
+[33m7c313db[m done with group
+[33mc35a34a[m updating my component-breakdown branch with master's branch changes
+[33m1defa5a[m completed layout options, fields,filter
+[33m11c654e[m Add reminder functionality with dynamic form inputs in the tab menu
+[33md3697e9[m Edit Docs Tab
+[33m605bf90[m Fixing add new tabs, started docs tab
+[33md136a62[m Merge pull request #15 from Elzari1998/toolbar-new-feature
+[33m2d04e04[m[33m ([m[1;31morigin/toolbar-new-feature[m[33m)[m jusst added the items inside the dropdown template -- fotter in thetask section
+[33mb11c684[m Merge pull request #14 from Elzari1998/toolbar-new-feature
+[33m9b1159b[m due date with syncfusion was a war, the configurations, erors coz of version 19 angular and it support lower versions , had sissues with global something, yerr!!
+[33mad04a31[m Merge pull request #13 from Elzari1998/toolbar-new-feature
+[33m1aa21e7[m adding few fixes
+[33m8234ba7[m Merge pull request #12 from Elzari1998/toolbar-new-feature
+[33m0449920[m added the table, aligned items well
+[33mcf135dc[m completing tasks
+[33mf8b7e47[m toolbar additional features
+[33m075872a[m[33m ([m[1;31morigin/toolbar-feature[m[33m, [m[1;32mtoolbar-feature[m[33m)[m last night changes
+[33m343a398[m[33m ([m[1;31morigin/toolbar-fewature[m[33m, [m[1;32mtoolbar-fewature[m[33m)[m adding the backlog settings
+[33m2d3369d[m fixed the dashboard content displaying at a right place
+[33m147e7c5[m[33m ([m[1;31morigin/groups[m[33m, [m[1;32mgroups[m[33m)[m fixed the dashboard content displaying at a right place
+[33mc9453af[m added a button
+[33m9b02518[m Merge pull request #9 from Elzari1998/groups
+[33m267b5a8[m merged locally and works fine
+[33m8acf5f7[m Add to favorites popup and start of toolbar
+[33mbad5898[m done with export option view
+[33m3e844bd[m Add to favorites popup
+[33mcff20b3[m added missing fields
+[33m20b3dc6[m Changes
+[33m62e2a92[m Merge remote-tracking branch 'origin/master'
+[33mbc28e7c[m Merge pull request #8 from Elzari1998/customize-field-feature
+[33m4e212b9[m Merge branch 'master' into customize-field-feature
+[33m5a8b3b7[m Editing Layout Options
+[33m2903580[m[33m ([m[1;31morigin/customize-field-feature[m[33m, [m[1;32mcustomize-field-feature[m[33m)[m added create new items
+[33meb7ff9f[m Editing Layout Options
+[33mfdb29fd[m Merge remote-tracking branch 'origin/master'
+[33m4ad437b[m Merge pull request #7 from Elzari1998/customize-field-feature
+[33m0a72cb7[m Editing Layout
+[33m20118e0[m added the fields section, still have to do popular,hidden and fields in the workspace
+[33mec899eb[m Filter Popup
+[33mfe3f80b[m Merge pull request #6 from Elzari1998/customize-field-feature
+[33m8a381de[m few changes made
+[33m30d2a35[m Filter Popup
+[33m402a0c4[m Filter Popup
+[33m0f4d317[m Merge remote-tracking branch 'origin/master'
+[33m4e751bf[m Merge pull request #5 from Elzari1998/customize-feature
+[33m4e5eeb1[m added templates
+[33m8107435[m Merge pull request #4 from Elzari1998/customize-feature
+[33m64644ad[m added some required drop down
+[33m54fc9e6[m made few changes
+[33m74c0153[m Merge pull request #3 from Elzari1998/customize-feature
+[33m0bf2422[m added style to subtasks
+[33m8732ac6[m fixed the subtasks
+[33mdcffc02[m Merge remote-tracking branch 'origin/master'
+[33m946f47e[m Filter Popup
+[33m54f52f6[m Merge pull request #2 from Elzari1998/customize-feature
+[33m33c4ee2[m added spacing to the first option items, currently busy with subtasks
+[33m461f689[m Merge pull request #1 from Elzari1998/customize-feature
+[33md2fc7fb[m added the list, icons
+[33m443dfd4[m Initial commit with basic structure
+[33maf9986c[m initial commit
