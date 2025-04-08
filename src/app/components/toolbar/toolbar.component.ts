@@ -5,6 +5,7 @@ import {ToolbarReminderComponent} from "../toolbar-reminder/toolbar-reminder.com
 import {ToolbarChatComponent} from "../toolbar-chat/toolbar-chat.component";
 import {ToolbarDocComponent} from "../toolbar-doc/toolbar-doc.component";
 import {ToolbarWhiteboardComponent} from "../toolbar-whiteboard/toolbar-whiteboard.components";
+import {ToolbarDashboardComponent} from "../toolbar-dashboard/toolbar-dashboard.component";
 
 @Component({
   selector: 'app-toolbar',
@@ -19,7 +20,8 @@ import {ToolbarWhiteboardComponent} from "../toolbar-whiteboard/toolbar-whiteboa
     ToolbarDocComponent,
     ToolbarWhiteboardComponent,
     ToolbarDocComponent,
-    ToolbarWhiteboardComponent
+    ToolbarWhiteboardComponent,
+    ToolbarDashboardComponent
   ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.css'
