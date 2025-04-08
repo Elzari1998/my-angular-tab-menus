@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgForOf} from '@angular/common';
+import {ToolbarTaskComponent} from "../toolbar-task/toolbar-task.component";
 
 @Component({
   selector: 'app-toolbar',
   imports: [
     FormsModule,
-    NgForOf
+    NgForOf,
+    ToolbarTaskComponent
   ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.css'
 })
+
 export class ToolbarComponent {
   addTable() {
     const modalContent = document.getElementById("modalContent");
@@ -33,12 +36,7 @@ export class ToolbarComponent {
     }
   }
 
-  searchQuery: string = '';
 
-  onSearch(): void {
-    console.log('Search initiated for:', this.searchQuery);
-
-  }
   reminder = {
     description: '',
     time: '',
