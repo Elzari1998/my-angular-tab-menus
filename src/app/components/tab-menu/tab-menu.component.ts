@@ -8,11 +8,12 @@ import {FilterComponent} from '../filter/filter.component';
 import {GroupsComponent} from '../groups/groups.component';
 import {SubtasksComponent} from '../subtasks/subtasks.component';
 import {TemplatesComponent} from '../templates/templates.component';
+import {AddToFavoritesComponent} from '../add-to-favorites/add-to-favorites.component';
 
 @Component({
   selector: 'app-tab-menu',
   imports: [CommonModule, FormsModule, MatSlideToggleModule, LayoutOptionsComponent,
-    FieldsComponent, FilterComponent, GroupsComponent, SubtasksComponent, TemplatesComponent],
+    FieldsComponent, FilterComponent, GroupsComponent, SubtasksComponent, TemplatesComponent,AddToFavoritesComponent],
   templateUrl: './tab-menu.component.html',
   styleUrls: ['./tab-menu.component.css']
 })
@@ -29,7 +30,7 @@ export class TabMenuComponent implements AfterViewInit {
   protectedView = false;
   defaultView = false;
   activePanel = 'homeFields';
-  favoriteName = '';
+  // favoriteName = '';
 
 
 
@@ -100,9 +101,9 @@ export class TabMenuComponent implements AfterViewInit {
     event.preventDefault();
   }
 
-  saveFavorite(): void {
-    console.log('Favorite saved:', this.favoriteName);
-  }
+  // saveFavorite(): void {
+  //   console.log('Favorite saved:', this.favoriteName);
+  // }
 
 
 
@@ -125,6 +126,6 @@ export class TabMenuComponent implements AfterViewInit {
   }
 
   resizeTextarea($event: Event) {
-    
+
   }
 }

@@ -174,23 +174,7 @@
         </div>
       </div>
 
-      <div class="modal fade" id="favoritesModal" tabindex="-1" aria-labelledby="favoritesModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="favoritesModalLabel">Add to favorites</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <label for="favoriteName" class="form-label">Name</label>
-              <input type="text" class="form-control" id="favoriteName" [(ngModel)]="favoriteName">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" (click)="saveFavorite()">Save favorite</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-add-to-favorites> </app-add-to-favorites>
 
       <div class="modal fade" id="createNewModal" tabindex="-1" aria-labelledby="createNewModalLabel" aria-hidden="true">
         <div class="modal-dialog">
