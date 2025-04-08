@@ -34,12 +34,14 @@ export class ToolbarNewButtonComponent {
   @ViewChild('modalContent', {static: false}) modalContent!: ElementRef;
 
   ngAfterViewInit() {
-    document.querySelectorAll('.nav-link').forEach(tab => {
-      tab.addEventListener('click', () => {
-        if (this.modalContent) {
-          this.modalContent.nativeElement.scrollTop = 0;
-        }
+    if (typeof document !== 'undefined') {
+      document.querySelectorAll('.nav-link').forEach(tab => {
+        tab.addEventListener('click', () => {
+          if (this.modalContent) {
+            this.modalContent.nativeElement.scrollTop = 0;
+          }
+        });
       });
-    });
+    }
   }
 }

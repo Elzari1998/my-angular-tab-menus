@@ -12,12 +12,14 @@ export class ToolbarDocComponent implements AfterViewInit {
   @ViewChild('modalBody', { static: false }) modalBody!: ElementRef;
 
   ngAfterViewInit() {
-    document.querySelectorAll('.nav-link').forEach((tab) => {
-      tab.addEventListener('click', () => {
-        if (this.modalBody) {
-          this.modalBody.nativeElement.scrollTop = 0;
-        }
+    if (typeof document !== 'undefined') {
+      document.querySelectorAll('.nav-link').forEach((tab) => {
+        tab.addEventListener('click', () => {
+          if (this.modalBody) {
+            this.modalBody.nativeElement.scrollTop = 0;
+          }
+        });
       });
-    });
+    }
   }
 }
