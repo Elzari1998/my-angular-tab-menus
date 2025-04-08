@@ -3,6 +3,7 @@ import {FormsModule} from '@angular/forms';
 import {ToolbarTaskComponent} from "../toolbar-task/toolbar-task.component";
 import {ToolbarDocComponent} from "../toolbar-doc/toolbar-doc.component";
 import {ToolbarReminderComponent} from "../toolbar-reminder/toolbar-reminder.component";
+import {ToolbarChatComponent} from "../toolbar-chat/toolbar-chat.component";
 
 @Component({
   selector: 'app-toolbar',
@@ -11,7 +12,8 @@ import {ToolbarReminderComponent} from "../toolbar-reminder/toolbar-reminder.com
     FormsModule,
     ToolbarTaskComponent,
     ToolbarDocComponent,
-    ToolbarReminderComponent
+    ToolbarReminderComponent,
+    ToolbarChatComponent
   ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.css'
