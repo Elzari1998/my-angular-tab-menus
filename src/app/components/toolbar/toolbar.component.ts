@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {ToolbarTaskComponent} from "../toolbar-task/toolbar-task.component";
 import {ToolbarReminderComponent} from "../toolbar-reminder/toolbar-reminder.component";
@@ -28,8 +28,16 @@ import {ToolbarDashboardComponent} from "../toolbar-dashboard/toolbar-dashboard.
 })
 
 export class ToolbarComponent {
+  @ViewChild('modalContent', {static: false}) modalContent!: ElementRef;
   searchQuery: any;
 
-
-
+  ngAfterViewInit() {
+    document.querySelectorAll('.nav-link').forEach(tab => {
+      tab.addEventListener('click', () => {
+        if (this.modalContent) {
+          this.modalContent.nativeElement.scrollTop = 0;
+        }
+      });
+    });
+  }
 }

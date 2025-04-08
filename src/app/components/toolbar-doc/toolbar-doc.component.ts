@@ -1,16 +1,24 @@
-import { Component } from '@angular/core';
-import {FormsModule} from '@angular/forms';
-
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-toolbar-doc',
-  imports: [
-    FormsModule,
-
-  ],
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './toolbar-doc.component.html',
-  styleUrl: './toolbar-doc.component.css'
+  styleUrls: ['./toolbar-doc.component.css']
 })
+export class ToolbarDocComponent implements AfterViewInit {
 
-  export class ToolbarDocComponent {
+  @ViewChild('modalBody', { static: false }) modalBody!: ElementRef;
+
+  ngAfterViewInit() {
+    document.querySelectorAll('.nav-link').forEach(tab => {
+      tab.addEventListener('click', () => {
+        if (this.modalBody) {
+          this.modalBody.nativeElement.scrollTop = 0;
+        }
+      });
+    });
   }
+}
