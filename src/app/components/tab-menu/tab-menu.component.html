@@ -32,7 +32,7 @@
         <li><hr class="dropdown-divider"></li>
 
         <li>
-          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" (click)="openPanel('(fields)')">
+          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" (click)="openPanel('fields')">
 
             <span>
               <i class="bi bi-pencil me-2"></i> Fields
@@ -45,6 +45,7 @@
           <app-groups></app-groups>
           <app-subtasks></app-subtasks>
           <app-templates></app-templates>
+
 
 <!--        <li class="subtask-container">-->
 <!--          <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" (click)="preventRefreshingThePage($event)">-->
@@ -113,85 +114,18 @@
           </li>
 
 
+          <app-export-view> </app-export-view>
 
-          <li class="subtask-container">
-            <a class="dropdown-item d-flex justify-content-between align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-               (click)="preventRefreshingThePage($event)">
-              <span>
-                <i class="bi bi-download me-2"></i>
-              </span>Export View
-            </a>
-
-            <div class="options-box2 w-100">
-              <ul>
-                <li class="px-3 text-muted">What to export</li>
-                <li *ngFor="let exportOption of exportOptionsList">
-                  <div class="form-check" >
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"  checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                      {{ exportOption.name }}
-                    </label>
-                  </div>
-                </li>
-                <li class="px-3 text-muted">File format</li>
-                <li *ngFor="let fileFormatOption of fileFormat">
-                  <div class="form-check" >
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"  >
-                    <label class="form-check-label" for="exampleRadios1">
-                      {{ fileFormatOption.name }}
-                    </label>
-                  </div>
-                </li>
-                <li class="px-3 text-muted">Date Format</li>
-                <li *ngFor="let dateFormatOption of dateFormat">
-                  <div class="form-check" >
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"  >
-                    <label class="form-check-label" for="exampleRadios1">
-                      {{ dateFormatOption.name }}
-                    </label>
-                  </div>
-                </li>
-                <li class="px-3 text-muted">Time Format</li>
-                <li *ngFor="let timeFormatOption of timeFormat">
-                  <div class="form-check" >
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4"  >
-                    <label class="form-check-label" for="exampleRadios1">
-                      {{ timeFormatOption.name }}
-                    </label>
-                  </div>
-                </li>
-                <button type="submit" class=" btn btn-primary w-100"> Download</button>
-              </ul>
-            </div>
-          </li>
         <li><a class="dropdown-item" href="#"><span><i class="bi bi-share me-2"></i></span>Sharing & Permissions</a></li>
 
       </ul>
 
         <div *ngIf="activePanel === 'fields'" class="sidebar" style="position: absolute; right: 0; max-width: 350px;">
-          <app-fields (panelChange)="openPanel($event)"> </app-fields>
+          <app-fields (panelChange)="openPanel($event)"></app-fields>
         </div>
-
       </div>
 
-
-<!--      <div class="modal fade" id="favoritesModal" tabindex="-1" aria-labelledby="favoritesModalLabel" aria-hidden="true">-->
-<!--        <div class="modal-dialog">-->
-<!--          <div class="modal-content">-->
-<!--            <div class="modal-header">-->
-<!--              <h5 class="modal-title" id="favoritesModalLabel">Add to favorites</h5>-->
-<!--              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--            </div>-->
-<!--            <div class="modal-body">-->
-<!--              <label for="favoriteName" class="form-label">Name</label>-->
-<!--              <input type="text" class="form-control" id="favoriteName" [(ngModel)]="favoriteName">-->
-<!--            </div>-->
-<!--            <div class="modal-footer">-->
-<!--              <button type="button" class="btn btn-primary" (click)="saveFavorite()">Save favorite</button>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+      <app-add-to-favorites> </app-add-to-favorites>
 
       <div class="modal fade" id="createNewModal" tabindex="-1" aria-labelledby="createNewModalLabel" aria-hidden="true">
         <div class="modal-dialog">
