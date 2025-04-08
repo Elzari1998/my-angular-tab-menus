@@ -72,49 +72,18 @@
 
       <div class="modal-body">
         <div class="tab-content">
-
+  <div class="tab-pane fade show active" id="taskTab" role="tabpanel">
           <!-- Task Tab Content -->
           <app-toolbar-task></app-toolbar-task>
-
+  </div>
       <!-- Docs Tab -->
+          <div class="tab-pane fade e" id="docTab" role="tabpanel">
           <app-toolbar-doc></app-toolbar-doc>
-
+          </div>
       <!-- Reminder Tab Content -->
-      <div class="tab-pane fade" id="reminderTab" role="tabpanel">
-        <h5 class="text-muted mb-2">Reminder</h5>
-
-        <!-- Dynamic Textbox (Textarea) -->
-        <div class="form-group">
-          <label for="description">Description</label>
-          <textarea id="description" class="form-control" rows="3" [(ngModel)]="reminder.description" (input)="resizeTextarea($event)" placeholder="Enter description..."></textarea>
-        </div>
-
-        <!-- Time Picker -->
-        <div class="form-group">
-          <label for="reminderTime">Set Reminder Time</label>
-          <input type="time" id="reminderTime" class="form-control" [(ngModel)]="reminder.time">
-        </div>
-
-        <!-- Assign Users Dropdown -->
-        <div class="form-group">
-          <label for="assignedUser">Assign User</label>
-          <select id="assignedUser" class="form-control" [(ngModel)]="reminder.assignedUser">
-            <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
-          </select>
-        </div>
-
-        <!-- Notification Dropdown -->
-        <div class="form-group">
-          <label for="notification">Notification</label>
-          <select id="notification" class="form-control" [(ngModel)]="reminder.notification">
-            <option *ngFor="let notification of notifications" [value]="notification.id">{{ notification.name }}</option>
-          </select>
-        </div>
-
-        <!-- Submit Button -->
-        <button class="btn btn-primary" (click)="saveReminder()">Save Reminder</button>
-      </div>
-
+            <div class="tab-pane fade " id="reminderTab" role="tabpanel">
+     <app-toolbar-reminder></app-toolbar-reminder>
+            </div>
 
       <!-- Chat Tab Content -->
       <div class="tab-pane fade" id="chatTab">
