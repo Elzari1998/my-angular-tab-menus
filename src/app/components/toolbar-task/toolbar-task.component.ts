@@ -8,8 +8,8 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
 
   ],
-  templateUrl: './toolbar.component.html',
-  styleUrl: './toolbar.component.css'
+  templateUrl: './toolbar-task.component.html',
+  styleUrl: './toolbar-task.component.css'
 })
 export class ToolbarTaskComponent {
 
