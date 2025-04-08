@@ -32,7 +32,6 @@ export class TabMenuComponent implements AfterViewInit {
   protectedView = false;
   defaultView = false;
   activePanel = 'homeFields';
-  // favoriteName = '';
 
 
 
@@ -73,17 +72,6 @@ export class TabMenuComponent implements AfterViewInit {
   selectTab(tabName: string): void {
     this.selectedTab = tabName;
   }
-
-
-
-  // preventRefreshingThePage(event: Event): void {
-  //   event.preventDefault();
-  // }
-
-  // saveFavorite(): void {
-  //   console.log('Favorite saved:', this.favoriteName);
-  // }
-
 
 
   saveReminder(): void {
