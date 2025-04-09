@@ -71,6 +71,7 @@ export class FieldsComponent {
   }
 
   openPanel(panelName: string): void {
+    console.log('Clicked!!')
     this.activePanel = panelName;
   }
 

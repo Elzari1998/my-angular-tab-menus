@@ -12,5 +12,10 @@ import {CommonModule} from '@angular/common';
 })
 export class AddToFavoritesComponent {
 
+  favoriteName = '';
+
+  saveFavorite(): void {
+    console.log('Favorite saved:', this.favoriteName);
+  }
 
 }

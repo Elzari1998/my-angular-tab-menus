@@ -8,11 +8,14 @@ import {FilterComponent} from '../filter/filter.component';
 import {GroupsComponent} from '../groups/groups.component';
 import {SubtasksComponent} from '../subtasks/subtasks.component';
 import {TemplatesComponent} from '../templates/templates.component';
+import {AddToFavoritesComponent} from '../add-to-favorites/add-to-favorites.component';
+import {ExportViewComponent} from '../export-view/export-view.component';
 
 @Component({
   selector: 'app-tab-menu',
   imports: [CommonModule, FormsModule, MatSlideToggleModule, LayoutOptionsComponent,
-    FieldsComponent, FilterComponent, GroupsComponent, SubtasksComponent, TemplatesComponent],
+    FieldsComponent, FilterComponent, GroupsComponent, SubtasksComponent, TemplatesComponent,
+    AddToFavoritesComponent, ExportViewComponent],
   templateUrl: './tab-menu.component.html',
   styleUrls: ['./tab-menu.component.css']
 })
@@ -29,32 +32,8 @@ export class TabMenuComponent implements AfterViewInit {
   protectedView = false;
   defaultView = false;
   activePanel = 'homeFields';
-  favoriteName = '';
 
 
-
-  exportOptionsList = [
-    { icon: '', name: 'Visible columns' },
-    { icon: '', name: 'Task Names Only' },
-    { icon: '', name: 'All columns' }
-  ];
-
-  fileFormat = [
-    { icon: '', name: 'CSV' },
-    { icon: '', name: 'Excel' }
-  ];
-
-  dateFormat = [
-    { icon: '', name: 'Normal' },
-    { icon: '', name: 'ISO' },
-    { icon: '', name: 'POSIX' }
-  ];
-
-  timeFormat = [
-    { icon: '', name: 'Normal' },
-    { icon: '', name: 'hh:mm' },
-    { icon: '', name: 'hh:mm:ss' }
-  ];
 
   users = [
     { id: '1', name: 'John Doe' },
@@ -92,17 +71,6 @@ export class TabMenuComponent implements AfterViewInit {
   selectTab(tabName: string): void {
     this.selectedTab = tabName;
   }
-
-
-
-  preventRefreshingThePage(event: Event): void {
-    event.preventDefault();
-  }
-
-  saveFavorite(): void {
-    console.log('Favorite saved:', this.favoriteName);
-  }
-
 
 
   saveReminder(): void {
