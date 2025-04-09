@@ -58,7 +58,6 @@ export class TabMenuComponent implements AfterViewInit {
 
   optionsList: string[] = ['Status', 'Tags', 'Due Date', 'Priority', 'Add filter'];
   filteredOptions: string[] = [...this.optionsList];
-  // isDropdownVisible = false;
 
 
   onSearch(): void {

@@ -13,4 +13,10 @@ import {FormsModule} from '@angular/forms';
 })
 
 export class ToolbarDashboardComponent {
+  reminder = {
+    description: '',
+    time: '',
+    assignedUser: '',
+    notification: '',
+  };
 }

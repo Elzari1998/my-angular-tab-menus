@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-filter',
-    imports: [
-        CommonModule
-    ],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './filter.component.html',
   styleUrl: './filter.component.css'
 })
 export class FilterComponent {
-  optionsList: string[] = ['Status', 'Tags', 'Due Date', 'Priority', 'Add filter'];
+  optionsList: string[] = ['Status', 'Tags', 'Due Date', 'Priority', 'Assignee', 'Archived', 'Assigned comments', 'Created by', 'Date closed',
+    'Date created', 'Date updated', 'Date done', 'Dependency', 'Duration', 'Location', 'Recurring', 'Start date', 'Status is closed',
+  'Time estimate', 'Time tracked','Sprint Points','Watcher', 'Milestone', 'Custom Fields','Task type','Last status change', 'Custom Relationships'];
   filteredOptions: string[] = [...this.optionsList];
   isDropdownVisible = false;
 
