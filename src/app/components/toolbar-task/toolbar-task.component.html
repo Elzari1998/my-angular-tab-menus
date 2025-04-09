@@ -74,7 +74,7 @@
           <div class="d-flex justify-content-between m-2">
             <h6 class="text-muted fs-6">Statuses  </h6>
 
-            <i class="bi bi-gear"   (click)="openModal()"> </i>
+            <i class="bi bi-gear"> </i>
           </div>
           <li>
             <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: #6c757d"></i>Backlog</a>
@@ -212,16 +212,46 @@
           </tr>
           </tbody>
         </table>
-        <div class="d-flex gap-2">
-          <button class="btn btn-outline-secondary" type="button" >
+
+        <div class="d-flex gap-2 dropup ">
+          <button class="btn btn-outline-secondary "  type="button" >
             Show custom fields
           </button>
-          <button class="btn btn-outline-secondary" type="button" aria-expanded="false">
+
+          <button class="btn btn-outline-secondary" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-plus-circle"> </i>
             Create new field
           </button>
+
+          <div class="dropdown-menu shadow rounded overflow-auto" style="max-height: 400px;" aria-labelledby="dropdownMenuButton" >
+
+            <div class=" d-flex justify-content-center mb-2">
+              <input type="text" class="form-control form-control-sm w-75 " placeholder=" Search..." />
+            </div>
+            <div class="small text-muted border-bottom mb-1 pb-1">AI Fields</div>
+
+              <div><a href="#" class="dropdown-item ">Categorize</a></div>
+              <div><a href="#" class="dropdown-item ">Summary</a></div>
+              <div><a href="#" class="dropdown-item ">Custom autofill with AI</a></div>
+              <hr>
+            <div class="small text-muted border-bottom mb-1 pb-1"> All </div>
+
+            <div><a href="#" class="dropdown-item ">Dropdown</a></div>
+              <div><a href="#" class="dropdown-item ">Text</a></div>
+              <div><a href="#" class="dropdown-item ">Date</a></div>
+              <div><a href="#" class="dropdown-item ">Text area</a></div>
+              <div><a href="#" class="dropdown-item ">Number</a></div>
+              <div><a href="#" class="dropdown-item ">Label</a></div>
+              <div><a href="#" class="dropdown-item ">Checkbox</a></div>
+              <div><a href="#" class="dropdown-item ">Money</a></div>
+              <div><a href="#" class="dropdown-item ">Website</a></div>
+
+
+          </div>
         </div>
+
       </div>
+
     </div>
   </div>
 
@@ -233,20 +263,54 @@
 
     <div class="dropdown-menu ">
       <ul>
-        <li class="dropdown-item"><i class="bi bi-magic"></i> Use Template</li>
+        <li>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropTemplate">
+            Launch static backdrop modal
+          </button>
+
+        </li>
         <li class="dropdown-item"><i class="bi bi-magic"></i> Create instantly from template</li>
         <hr>
         <li class="dropdown-item"><i class="bi bi-floppy"></i> Save as Template</li>
         <li class="dropdown-item"><i class="bi bi-arrow-repeat"></i> Upload Existing Template</li>
-
 
       </ul>
     </div>
 
     <div class="d-flex gap-2">
       <div class=" d-flex gap-3 m-1" >
-        <i class="bi bi-paperclip" style="font-size: 18px"></i>
-        <i class="bi bi-bell" style="font-size: 18px"> 2 </i>
+        <div class="dropup">
+          <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-paperclip" style="font-size: 18px;"></i>
+          </button>
+
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"><i class="bi bi-dropbox"></i> Dropbox</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-cloud"></i> OneDrive/SharePoint</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-box"></i> Box</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-google"></i> Google Drive</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-text"></i> New Google Doc</a></li>
+          </ul>
+        </div>
+
+
+        <div class="dropup mt-2">
+          <i class="bi bi-bell " style="font-size: 18px" data-bs-toggle="dropdown" aria-expanded="false"> 2 </i>
+
+          <ul class="dropdown-menu">
+            <div class=" d-flex justify-content-center mb-2">
+              <input type="text" class="form-control form-control-sm w-75 " placeholder=" Search..." />
+            </div>
+            <div class="small text-muted border-bottom mb-1 pb-1">People</div>
+
+            <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> Me</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> Bhadvaraj</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> Chantal </a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> Elizabeth</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> Hastika</a></li>
+
+          </ul>
+        </div>
       </div>
 
       <button type="button" class="btn btn-primary" >Create Task </button>
@@ -256,7 +320,7 @@
 
 
 
-<div class="modal fade" #myModal id="editBacklogModal" tabindex="-1" aria-labelledby="editBacklogModalLabel" aria-hidden="true">
+<div class="modal fade" id="editBacklogModal" tabindex="-1" aria-labelledby="editBacklogModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content" style="width: 600px;">
       <div class="modal-header">

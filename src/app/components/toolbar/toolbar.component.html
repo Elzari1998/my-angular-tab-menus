@@ -40,3 +40,54 @@
 <!-- The New Button-->
 <app-toolbar-NewButton></app-toolbar-NewButton>
 
+
+
+<div class="modal fade" id="staticBackdropTemplate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" style="margin:0;">
+    <div class="modal-content mt-5"  style="width: 100vw;">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 col-4" id="staticBackdropLabel">
+          <img src="" alt="Logo" />
+          Template Center
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex">
+          <div class="col-3 pe-3 border-end">
+            <h6>Workspace Templates <span>1</span></h6>
+            <h6>ClickUp Templates <span>145</span></h6>
+            <div class="text-muted mb-2">Template Types</div>
+
+            <div *ngFor="let templateType of TemplateType" class="form-check mb-2">
+              <input type="checkbox" class="form-check-input" name="template-type" >
+              <label class="form-check-label" >
+                {{ templateType.name }}
+              </label>
+            </div>
+          </div>
+
+          <div class="col-9 ps-3">
+            <div class="d-flex gap-2 mb-3">
+              <input class="form-control w-50" type="search" placeholder="Search" name="search">
+              <button type="button" class="btn btn-outline-dark">Use Cases</button>
+              <button type="button" class="btn btn-outline-dark">Tags</button>
+              <button type="button" class="btn btn-outline-dark">Created by</button>
+            </div>
+
+          </div>
+          <h4>Templates from your Workspace</h4>
+
+          <h5>Task</h5>
+
+        </div>
+      </div>
+
+
+      <div class="modal-footer mt-5">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
