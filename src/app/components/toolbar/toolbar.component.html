@@ -44,7 +44,7 @@
 
 <div class="modal fade" id="staticBackdropTemplate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" style="margin:0;">
-    <div class="modal-content mt-3"  style="width: 100vw;">
+    <div class="modal-content mt-3"  style="width: 100vw; height: 95vh;" >
       <div class="modal-header">
         <h1 class="modal-title fs-5 col-4" id="staticBackdropLabel">
           <img src="" alt="Logo" />
@@ -52,11 +52,22 @@
         </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" >
         <div class="d-flex">
           <div class="col-3 pe-3 border-end">
-            <h6>Workspace Templates <span>1</span></h6>
-            <h6>ClickUp Templates <span>145</span></h6>
+            <ul class="list-unstyled">
+              <div type="button" class="d-flex justify-content-between align-items-center px-2 py-2 rounded text-primary" style="cursor: pointer;">
+                <span>Workspace Templates</span>
+                <span class="badge bg-light text-muted border">1</span>
+              </div>
+              <li>
+                <div class="d-flex justify-content-between align-items-center px-2 py-2 rounded text-dark" style="cursor: pointer;">
+                  <span>ClickUp Templates</span>
+                  <span class="badge bg-light text-muted border">145</span>
+                </div>
+              </li>
+
+            </ul>
             <div class="text-muted mb-2">Template Types</div>
 
             <div *ngFor="let templateType of TemplateType" class="form-check mb-2">
@@ -65,14 +76,59 @@
                 {{ templateType.name }}
               </label>
             </div>
+            <div class="text-muted mb-2">Complexity </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="template-type">
+                <label class="form-check-lable"> Beginner</label>
+              </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" name="template-type">
+              <label class="form-check-lable"> Intermediate </label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" name="template-type">
+              <label class="form-check-lable"> Advanced </label>
+            </div>
           </div>
 
-          <div class="col-9 ps-3">
+          <div class="col-9 ps-3" style="overflow-y: auto; height: calc(95vh - 210px);">
             <div class="d-flex gap-2 mb-3">
               <input class="form-control w-50" type="search" placeholder="Search" name="search">
-              <button type="button" class="btn btn-outline-dark">Use Cases</button>
-              <button type="button" class="btn btn-outline-dark">Tags</button>
-              <button type="button" class="btn btn-outline-dark">Created by</button>
+              <div class="dropdown">
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false">Use Cases</button>
+                <ul class="dropdown-menu rounded" style="height: 150px">
+                  <li>
+                    <input type="search" class="form-control" placeholder="search" name="search" >
+                  </li>
+                  <hr>
+                  <input type="checkbox" class="form-check-input" name="checkbox">
+                  <label>Unselect All</label>
+                </ul>
+              </div>
+
+              <div class="dropdown">
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false">Tags</button>
+                <ul class="dropdown-menu rounded " style="height: 250px">
+                  <li>
+                    <input type="search" class="form-control" placeholder="search" name="search" >
+                  </li>
+                </ul>
+              </div>
+
+              <div class="dropdown">
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false">Created by</button>
+
+                <ul class="dropdown-menu" style="width: 250px">
+                  <input type="text" class="form-control" placeholder="search or enter email" name="search">
+                  <hr>
+                  <div class="dropdown-item"><i class="bi bi-person-circle"> </i>  Me </div>
+                  <div class="dropdown-item"><i class="bi bi-person-circle"> </i> Bhadvaraj </div>
+                  <div class="dropdown-item"><i class="bi bi-person-circle"> </i> Chantal </div>
+                  <div class="dropdown-item"><i class="bi bi-person-circle"> </i> Elizabeth </div>
+                  <div class="dropdown-item"><i class="bi bi-person-circle"> </i> Hastika </div>
+
+                </ul>
+              </div>
             </div>
 
 
@@ -159,7 +215,12 @@
 
 
             <div class="row">
-              <h6 class="text-muted ">Other</h6>
+
+              <div class="d-flex justify-content-between align-items-center mt-2">
+                <h6 class="mb-0">Others</h6>
+                <a href="#" class="text-decoration-none">See 34 more</a>
+              </div>
+
               <div class="row row-cols-3 g-3">
                 <div class="col">
                   <div class="card" >
@@ -226,9 +287,8 @@
       </div>
 
 
-      <div class="modal-footer mt-5">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+      <div class="modal-footer mt-2 d-flex justify-content-between">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Activity Log</button>
       </div>
     </div>
   </div>
