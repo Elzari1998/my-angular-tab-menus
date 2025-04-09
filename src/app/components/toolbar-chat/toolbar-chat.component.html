@@ -48,11 +48,30 @@
 
 <!-- Description input -->
 <textarea class="form-control" rows="3" placeholder="Add message"></textarea>
-
+<!-- Line between Attachments and Create Button -->
+<hr class="my-3">
 <div class="d-flex justify-content-between align-items-center mt-3">
   <div class="form-check form-switch">
     <input class="form-check-input" type="checkbox" id="privateToggle">
     <label class="form-check-label" for="privateToggle">Private</label>
   </div>
-  <button class="btn btn-primary">Create Chat</button>
+
+  <div class="d-flex">
+    <!-- Notification Bell Icon Button with dropdown -->
+    <div class="dropdown">
+      <button class="btn btn-no-border ms-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-bell"></i>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="bellDropdownButton">
+        <!-- Loop through users and generate a list item for each -->
+        <li *ngFor="let user of users">
+          <a class="dropdown-item" href="#" (click)="selectUser(user.id)">{{ user.name }}</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Create Chat Button -->
+    <button class="btn btn-primary ms-2">Create Chat</button>
+  </div>
 </div>
+
+
