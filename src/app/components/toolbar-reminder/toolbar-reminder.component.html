@@ -1,34 +1,49 @@
-<div class="tab-pane fade show active" id="reminderTab" role="tabpanel">
-  <h5 class="text-muted mb-2">Reminder</h5>
+<div class="tab-pane fade show active p-3" id="reminderTab" role="tabpanel">
+  <!-- Description input -->
+  <input type="text" class="form-control mb-3" placeholder="Reminder name or type '/' for commands" [(ngModel)]="reminder.description">
 
-  <!-- Dynamic Textbox (Textarea) -->
-  <div class="form-group">
-    <label for="description">Description</label>
-    <textarea id="description" class="form-control" rows="3" [(ngModel)]="reminder.description" (input)="resizeTextarea($event)" placeholder="Enter description..."></textarea>
+  <!-- Dropdown buttons -->
+  <div class="d-flex gap-2 mb-3">
+    <!-- Date dropdown -->
+    <div class="dropdown">
+      <button class="btn btn-light border dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        {{ reminder.time || 'Today' }}
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" (click)="reminder.time = 'Today'">Today</a></li>
+        <li><a class="dropdown-item" (click)="reminder.time = 'Tomorrow'">Tomorrow</a></li>
+        <li><a class="dropdown-item" (click)="reminder.time = 'Pick a date'">Pick a date</a></li>
+      </ul>
+    </div>
+
+    <!-- Assigned user dropdown -->
+    <div class="dropdown">
+      <button class="btn btn-light border dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        {{ getUserName(reminder.assignedUser) || 'For me' }}
+      </button>
+      <ul class="dropdown-menu">
+        <li *ngFor="let user of users">
+          <a class="dropdown-item" (click)="reminder.assignedUser = user.id">{{ user.name }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Notification dropdown -->
+    <div class="dropdown">
+      <button class="btn btn-light border dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        {{ getNotificationName(reminder.notification) || 'Notify me' }}
+      </button>
+      <ul class="dropdown-menu">
+        <li *ngFor="let notification of notifications">
+          <a class="dropdown-item" (click)="reminder.notification = notification.id">{{ notification.name }}</a>
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <!-- Time Picker -->
-  <div class="form-group">
-    <label for="reminderTime">Set Reminder Time</label>
-    <input type="time" id="reminderTime" class="form-control" [(ngModel)]="reminder.time">
+  <!-- Attachment and Create Button -->
+  <div class="d-flex justify-content-between align-items-center mt-3">
+    <i class="bi bi-paperclip"></i>
+    <button class="btn btn-primary" (click)="saveReminder()">Create Reminder</button>
   </div>
-
-  <!-- Assign Users Dropdown -->
-  <div class="form-group">
-    <label for="assignedUser">Assign User</label>
-    <select id="assignedUser" class="form-control" [(ngModel)]="reminder.assignedUser">
-      <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
-    </select>
-  </div>
-
-  <!-- Notification Dropdown -->
-  <div class="form-group">
-    <label for="notification">Notification</label>
-    <select id="notification" class="form-control" [(ngModel)]="reminder.notification">
-      <option *ngFor="let notification of notifications" [value]="notification.id">{{ notification.name }}</option>
-    </select>
-  </div>
-
-  <!-- Submit Button -->
-  <button class="btn btn-primary" (click)="saveReminder()">Save Reminder</button>
 </div>
