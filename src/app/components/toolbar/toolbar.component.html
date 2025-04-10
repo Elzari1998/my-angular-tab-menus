@@ -95,7 +95,7 @@
             <div class="d-flex gap-2 mb-3">
               <input class="form-control w-50" type="search" placeholder="Search" name="search">
               <div class="dropdown">
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false">Use Cases</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-briefcase"></i> Use Cases</button>
                 <ul class="dropdown-menu rounded" style="height: 150px">
                   <li>
                     <input type="search" class="form-control" placeholder="search" name="search" >
@@ -107,7 +107,7 @@
               </div>
 
               <div class="dropdown">
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false">Tags</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-tag"></i>Tags</button>
                 <ul class="dropdown-menu rounded " style="height: 250px">
                   <li>
                     <input type="search" class="form-control" placeholder="search" name="search" >
@@ -116,7 +116,7 @@
               </div>
 
               <div class="dropdown">
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false">Created by</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person"></i> Created by</button>
 
                 <ul class="dropdown-menu" style="width: 250px">
                   <input type="text" class="form-control" placeholder="search or enter email" name="search">
@@ -287,9 +287,65 @@
       </div>
 
 
-      <div class="modal-footer mt-2 d-flex justify-content-between">
-        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Activity Log</button>
+      <div class="modal-footer d-flex justify-content-start">
+        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdropActivityLog">Activity Log</button>
       </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="staticBackdropActivityLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropActivityLogLabel" aria-hidden="true">
+  <div class="modal-dialog" style="margin:0;">
+    <div class="modal-content mt-3"  style="width: 100vw; height: 95vh;" >
+      <div class="modal-header">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <div data-bs-toggle="modal" data-bs-target="#staticBackdropTemplate" class="d-flex align-items-center">
+            <i class="bi bi-arrow-left me-2"></i>
+            <span>Back</span>
+          </div>
+          <h5 class="mb-0 text-center flex-grow-1">Activity Log</h5>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+
+      <div class="modal-body" >
+        <div class="container">
+          <div class="row d-flex justify-content-end">
+            <input type="text" name="filterActivity" class="form-control w-25 m-4" placeholder="filter activity">
+          </div>
+
+
+          <div class="row">
+            <table class="table table-hover text-muted">
+              <thead>
+              <tr>
+                <th scope="col"> Template Name </th>
+                <th scope="col"> Event </th>
+                <th scope="col"> Location</th>
+                <th scope="col"> Date & Time</th>
+                <th scope="col"> Status</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
