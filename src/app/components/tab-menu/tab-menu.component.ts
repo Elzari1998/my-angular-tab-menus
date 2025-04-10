@@ -78,6 +78,8 @@ export class TabMenuComponent implements AfterViewInit {
     // Logic to save reminder
   }
 
+
+
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       const dropdown = document.querySelector('.options-box') as HTMLElement;
