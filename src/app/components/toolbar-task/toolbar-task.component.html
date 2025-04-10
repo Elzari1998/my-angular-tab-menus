@@ -1,58 +1,60 @@
 <div class="tab-pane fade show active" id="taskTab" role="tabpanel">
-  <div class="dropdown ">
-    <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Personal list
-    </button>
-    <ul class="dropdown-menu">
-      <div class="d-flex justify-content-center">
-        <input class="form-control h-75 mt-2 w-75 " type="search" placeholder="Search" name="search">
-      </div>
-      <li>
-        <a class="dropdown-item d-flex justify-content-between" href="#">
-          <i class="bi bi-person-circle "></i>
-          Personal List
-          <i class="bi bi-check2"></i>
-        </a>
-      </li>
-      <hr>
-      <div class="m-2">
-        <h6 class="text-muted fs-6">Recents</h6>
-        <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Tourism Backlog</a></li>
-        <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Releases</a></li>
-        <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Service Desk Backlog</a></li>
-        <h6 class="text-muted fs-6">Spaces</h6>
-        <li><a class="dropdown-item" href="#">CLIENT PROJECTS</a></li>
-        <li><a class="dropdown-item" href="#">CAGAN TECH DEV SPACE</a></li>
-        <li><a class="dropdown-item" href="#">MARKETING</a></li>
-        <li><a class="dropdown-item" href="#">OUR PRODUCTS</a></li>
 
-      </div>
+  <div class="d-flex gap-2 mb-3">
+    <div class="dropdown">
+      <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown">Personal list</button>
+      <ul class="dropdown-menu">
+        <div class="d-flex justify-content-center">
+          <input class="form-control h-75 mt-2 w-75 " type="search" placeholder="Search" name="search">
+        </div>
+        <li>
+          <a class="dropdown-item d-flex justify-content-between" href="#">
+            <i class="bi bi-person-circle "></i>
+            Personal List
+            <i class="bi bi-check2"></i>
+          </a>
+        </li>
+        <hr>
+        <div class="m-2">
+          <h6 class="text-muted fs-6">Recents</h6>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Tourism Backlog</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Releases</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Service Desk Backlog</a></li>
+          <h6 class="text-muted fs-6">Spaces</h6>
+          <li><a class="dropdown-item" href="#">CLIENT PROJECTS</a></li>
+          <li><a class="dropdown-item" href="#">CAGAN TECH DEV SPACE</a></li>
+          <li><a class="dropdown-item" href="#">MARKETING</a></li>
+          <li><a class="dropdown-item" href="#">OUR PRODUCTS</a></li>
 
-    </ul>
+        </div>
+
+      </ul>
+
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown">Task</button>
+      <ul class="dropdown-menu">
+        <div class="d-flex justify-content-center">
+          <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search" name="search">
+        </div>
+
+        <h6 class="text-muted fs-6 m-2 ">Task Types</h6>
+        <li>
+          <a class="dropdown-item d-flex justify-content-between" href="#">
+            <i class="bi bi-person-circle"></i>
+            Task
+            <i class="bi bi-check2"></i>
+          </a>
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Milestone</a></li>
+        <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Form Response</a></li>
+        <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Topic</a></li>
+        <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Update</a></li>
+      </ul>
+
+    </div>
   </div>
 
-  <div class="dropdown ">
-    <button class="btn btn-outline-secondary mt-3 " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Task
-    </button>
-    <ul class="dropdown-menu">
-      <div class="d-flex justify-content-center">
-        <input class="form-control h-75 mt-2 w-75" type="search" placeholder="Search" name="search">
-      </div>
-
-      <h6 class="text-muted fs-6 m-2 ">Task Types</h6>
-      <li>
-        <a class="dropdown-item d-flex justify-content-between" href="#">
-          <i class="bi bi-person-circle"></i>
-          Task
-          <i class="bi bi-check2"></i>
-        </a>
-      </li>
-      <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Milestone</a></li>
-      <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Form Response</a></li>
-      <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Topic</a></li>
-      <li><a class="dropdown-item" href="#"><i class="bi bi-list"></i> Update</a></li>
-    </ul>
 
     <h5 class="text-muted mb-2">Task Name</h5>
 
@@ -74,7 +76,7 @@
           <div class="d-flex justify-content-between m-2">
             <h6 class="text-muted fs-6">Statuses  </h6>
 
-            <i class="bi bi-gear"  type="submit" data-bs-toggle="modal" data-bs-target="#editBacklogModal"> </i>
+            <i class="bi bi-gear"> </i>
           </div>
           <li>
             <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: #6c757d"></i>Backlog</a>
@@ -152,7 +154,7 @@
         </button>
 
         <div class="dropdown-menu p-3">
-          <ul>
+          <ul class="list-unstyled">
             <li><i class="bi bi-flag red-flag" style="color: red"></i> Urgent</li>
             <li><i class="bi bi-flag yellow" style="color:Yellow"></i> High</li>
             <li><i class="bi bi-flag " style="color: blue"></i> Normal</li>
@@ -169,6 +171,30 @@
           Tags
         </button>
 
+        <ul class="dropdown-menu" style="width: 250px; height: 250px; overflow-y: auto">
+          <input type="text"  class="form-control" name="search" placeholder="search" >
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 text-bg-info" >#3cx</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 text-bg-info">#anglo</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 orange-300">#c-care</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 orange-300">#estateagent</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 orange-300">#leadl3930</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 orange-300">#project-mgt</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 orange-300">#servicedesk</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 orange-300">#simplhr</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 orange-300">#ticketingsaas</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 orange-300">#ticketingsystem</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 text-bg-info">#ux</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 text-bg-info">#busdev</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 text-bg-info">#calendar</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 text-bg-info">#clock in/out</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 text-bg-info">#comms channels</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 text-bg-info">#crm admin</span></a></li>
+          <li><a class="dropdown-item " href="#"><span class=" rounded-2  border-1 text-bg-info">#dashboard</span></a></li>
+
+
+
+        </ul>
+
       </div>
 
 
@@ -178,7 +204,7 @@
         </button>
 
         <div class="dropdown-menu " style="width: 80%">
-          <ul>
+          <ul class="list-unstyled">
             <li><a href="#" class="dropdown-item"> Dependencies </a></li>
             <li><a href="#" class="dropdown-item"> Subtasks </a></li>
             <li><a href="#" class="dropdown-item"> <i class="bi bi-list-check"></i> Checklist </a></li>
@@ -212,45 +238,101 @@
           </tr>
           </tbody>
         </table>
-        <div class="d-flex gap-2">
-          <button class="btn btn-outline-secondary" type="button" >
+
+        <div class="d-flex gap-2 dropup ">
+          <button class="btn btn-outline-secondary "  type="button" >
             Show custom fields
           </button>
-          <button class="btn btn-outline-secondary" type="button" aria-expanded="false">
+
+          <button class="btn btn-outline-secondary" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-plus-circle"> </i>
             Create new field
           </button>
+
+          <div class="dropdown-menu shadow rounded overflow-auto" style="max-height: 400px;" aria-labelledby="dropdownMenuButton" >
+
+            <div class=" d-flex justify-content-center mb-2">
+              <input type="text" class="form-control form-control-sm w-75 " placeholder=" Search..." />
+            </div>
+            <div class="small text-muted border-bottom mb-1 pb-1">AI Fields</div>
+
+              <div><a href="#" class="dropdown-item ">Categorize</a></div>
+              <div><a href="#" class="dropdown-item ">Summary</a></div>
+              <div><a href="#" class="dropdown-item ">Custom autofill with AI</a></div>
+              <hr>
+            <div class="small text-muted border-bottom mb-1 pb-1"> All </div>
+
+            <div><a href="#" class="dropdown-item ">Dropdown</a></div>
+              <div><a href="#" class="dropdown-item ">Text</a></div>
+              <div><a href="#" class="dropdown-item ">Date</a></div>
+              <div><a href="#" class="dropdown-item ">Text area</a></div>
+              <div><a href="#" class="dropdown-item ">Number</a></div>
+              <div><a href="#" class="dropdown-item ">Label</a></div>
+              <div><a href="#" class="dropdown-item ">Checkbox</a></div>
+              <div><a href="#" class="dropdown-item ">Money</a></div>
+              <div><a href="#" class="dropdown-item ">Website</a></div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="modal-footer dropdown d-flex justify-content-between ">
-
-
-
-    <button type="button" class="btn btn-outline-primary"  data-bs-toggle="dropdown" aria-expanded="false" > <i class="bi bi-magic"></i> Templates </button>
-
-    <div class="dropdown-menu ">
-      <ul>
-        <li class="dropdown-item"><i class="bi bi-magic"></i> Use Template</li>
-        <li class="dropdown-item"><i class="bi bi-magic"></i> Create instantly from template</li>
-        <hr>
-        <li class="dropdown-item"><i class="bi bi-floppy"></i> Save as Template</li>
-        <li class="dropdown-item"><i class="bi bi-arrow-repeat"></i> Upload Existing Template</li>
-
-
-      </ul>
-    </div>
-
-    <div class="d-flex gap-2">
-      <div class=" d-flex gap-3 m-1" >
-        <i class="bi bi-paperclip" style="font-size: 18px"></i>
-        <i class="bi bi-bell" style="font-size: 18px"> 2 </i>
       </div>
 
-      <button type="button" class="btn btn-primary" >Create Task </button>
     </div>
+
+
+  <div class="modal-footer d-flex justify-content-between align-items-center">
+
+    <div class="dropdown">
+      <button type="button" class="btn btn-outline-primary me-5" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-magic"></i> Templates
+      </button>
+      <div class="dropdown-menu">
+        <ul class="list-unstyled mb-0 px-2">
+          <li class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdropTemplate">
+            <i class="bi bi-magic"></i> Use Template
+          </li>
+          <li class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdropTemplate">
+            <i class="bi bi-magic"></i> Create instantly from template
+          </li>
+          <hr>
+          <li class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdropSaveTemplate" ><i class="bi bi-floppy"></i> Save as Template</li>
+          <li class="dropdown-item " data-bs-toggle="modal" data-bs-target="#staticBackdropUploadExisting" ><i class="bi bi-arrow-repeat"></i> Upload Existing Template</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center gap-3">
+
+      <div class="dropup">
+        <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-paperclip" style="font-size: 18px;"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#"><i class="bi bi-dropbox"></i> Dropbox</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-cloud"></i> OneDrive/SharePoint</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-box"></i> Box</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-google"></i> Google Drive</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-text"></i> New Google Doc</a></li>
+        </ul>
+      </div>
+
+      <div class="dropup">
+        <i class="bi bi-bell" style="font-size: 18px;" data-bs-toggle="dropdown" aria-expanded="false"> 2 </i>
+        <ul class="dropdown-menu p-2" style="min-width: 250px;">
+          <div class="d-flex justify-content-center mb-2">
+            <input type="text" class="form-control form-control-sm w-75" placeholder="Search..." />
+          </div>
+          <div class="small text-muted border-bottom mb-1 pb-1">People</div>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> Me</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> Bhadvaraj</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> Chantal</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> Elizabeth</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> Hastika</a></li>
+        </ul>
+      </div>
+
+      <button type="button" class="btn btn-primary">Create Task</button>
+    </div>
+
   </div>
 </div>
 

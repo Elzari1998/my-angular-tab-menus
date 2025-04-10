@@ -91,6 +91,9 @@ export class TabMenuComponent implements AfterViewInit {
     }
   }
 
+
+
+
   resizeTextarea($event: Event) {
 
   }
