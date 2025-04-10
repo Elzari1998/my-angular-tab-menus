@@ -1,6 +1,7 @@
 <div class="tab-pane fade show active p-3" id="reminderTab" role="tabpanel">
   <!-- Description input -->
-  <input type="text" class="form-control mb-3" placeholder="Reminder name or type '/' for commands" [(ngModel)]="reminder.description">
+  <input type="text" class="form-control mb-3" placeholder="Reminder name or type '/' for commands"
+         [(ngModel)]="reminder.description">
 
   <!-- Dropdown buttons -->
   <div class="d-flex gap-2 mb-3">
@@ -40,11 +41,21 @@
       </ul>
     </div>
   </div>
-  <!-- Line between Attachments and Create Button -->
+  <!-- Attachments Section (hidden by default) -->
+  <div *ngIf="showAttachments">
+    <label class=" mt-2">Attachments</label>
+    <!-- Description input for attachments -->
+    <input type="text" class="form-control mb-3 mt-2" placeholder="Drag and drop files to attach or browse ">
+  </div>
+  <!-- Line between content and Attachments , Create Button -->
   <hr class="my-3">
-  <!-- Attachment and Create Button -->
-  <div class="d-flex justify-content-between align-items-center mt-3">
-    <i class="bi bi-paperclip"></i>
+  <!-- Attachment and Create Button on the right side -->
+  <div class="d-flex gap-2 align-items-center mt-3 ms-auto" style="max-width: fit-content;">
+    <!-- Attachment Icon (Trigger for toggling attachments visibility) -->
+    <button class="btn btn-no-border ms-2" type="button" (click)="toggleAttachments()">
+      <i class="bi bi-paperclip"></i>
+    </button>
+    <!-- Create Reminder Button -->
     <button class="btn btn-primary" (click)="saveReminder()">Create Reminder</button>
   </div>
 </div>

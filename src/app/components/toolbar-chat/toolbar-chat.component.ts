@@ -15,7 +15,6 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class ToolbarChatComponent {
-// List of users
   users = [
     { id: '1', name: 'John Doe' },
     { id: '2', name: 'Jane Smith' },
@@ -24,6 +23,20 @@ export class ToolbarChatComponent {
 
   // Selected user
   selectedUserId: string | null = null;
+
+  // Search query
+  searchQuery: string = '';
+
+  // Filtered list of users
+  filteredUsers: Array<{ id: string, name: string }> = [...this.users];
+  // List of users
+
+  // Method to filter users based on search query
+  filterUsers(): void {
+    this.filteredUsers = this.users.filter(user =>
+      user.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+  }
 
   // Method to handle user selection
   selectUser(userId: string): void {

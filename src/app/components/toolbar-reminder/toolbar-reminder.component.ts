@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './toolbar-reminder.component.css',
 })
 export class ToolbarReminderComponent {
+
   users = [
     { id: '1', name: 'John Doe' },
     { id: '2', name: 'Jane Smith' },
@@ -23,6 +24,7 @@ export class ToolbarReminderComponent {
     { id: '4', name: 'Custom' },
     { id: '5', name: 'Dont notify' },
   ];
+
   reminder = {
     description: '',
     time: '',
@@ -30,8 +32,21 @@ export class ToolbarReminderComponent {
     notification: '',
   };
 
+  // Variable to track the visibility of attachments input and label
+  showAttachments = false;
+
   searchQuery: any;
+
+  // Toggle the visibility of the attachments section
+  toggleAttachments(): void {
+    this.showAttachments = !this.showAttachments;
+  }
+
   saveReminder(): void {
+    if (!this.reminder.description || !this.reminder.time) {
+      alert("Please provide both a description and a time.");
+      return;
+    }
     console.log(this.reminder);
   }
 
@@ -40,6 +55,7 @@ export class ToolbarReminderComponent {
     textarea.style.height = 'auto';
     textarea.style.height = textarea.scrollHeight + 'px';
   }
+
   getUserName(id: string): string | undefined {
     return this.users.find(user => user.id === id)?.name;
   }

@@ -4,10 +4,10 @@
     Workspace
     <i class="bi bi-chevron-down ms-2"></i>
   </button>
-  <ul class="dropdown-menu">
+  <ul class="dropdown-menu" style="width: 300px">
     <div class="d-flex justify-content-center">
       <!-- Updated Search Bar Styles -->
-      <div class="input-group w-100 mt-3">
+      <div class="input-group w-100 mt-3 px-3">
         <span class="input-group-text" id="basic-addon1">
           <i class="bi bi-search"></i>
         </span>
@@ -19,23 +19,26 @@
         >
       </div>
     </div>
+    <!-- Line between Attachments and Create Button -->
+    <hr class="my-2">
     <li>
-      <a class="dropdown-item d-flex justify-content-between" href="#">
+      <a class="dropdown-item d-flex justify-content-between mt-3" href="#">
         <i class="bi bi-grid-fill"></i>
         Workspace
         <i class="bi bi-check2"></i>
       </a>
     </li>
-    <hr>
+
     <div class="m-2">
-      <h6 class="text-muted fs-6">Spaces</h6>
-      <li><a class="dropdown-item" href="#">CLIENT PROJECTS</a></li>
-      <li><a class="dropdown-item" href="#">CAGAN TECH DEV SPACE</a></li>
-      <li><a class="dropdown-item" href="#">MARKETING</a></li>
-      <li><a class="dropdown-item" href="#">OUR PRODUCTS</a></li>
-      <li><a class="dropdown-item" href="#">Business Development</a></li>
-      <li><a class="dropdown-item" href="#">Service Desk</a></li>
-      <li><a class="dropdown-item" href="#">Employee Onboarding</a></li>
+      <!-- Added mt-3 for the gap -->
+      <h6 class="text-muted fs-6 ">Spaces</h6>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-circle-fill text-primary"></i> CLIENT PROJECTS</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-circle-fill text-danger"></i> CAGAN TECH DEV SPACE</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-circle-fill text-warning"></i> MARKETING</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-circle-fill text-success"></i> OUR PRODUCTS</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-circle-fill text-info"></i> Business Development</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-circle-fill text-secondary"></i> Service Desk</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-circle-fill text-dark"></i> Employee Onboarding</a></li>
 
     </div>
 
@@ -62,9 +65,23 @@
       <button class="btn btn-no-border ms-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi bi-bell"></i>
       </button>
-      <ul class="dropdown-menu" aria-labelledby="bellDropdownButton">
-        <!-- Loop through users and generate a list item for each -->
-        <li *ngFor="let user of users">
+      <ul class="dropdown-menu" style="width: 300px;">
+        <!-- Search Bar Above User List -->
+        <div class="input-group p-2">
+           <span class="input-group-text">
+        <i class="bi bi-search"></i>
+      </span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search or enter email..."
+            [(ngModel)]="searchQuery"
+            (input)="filterUsers()"
+          />
+        </div>
+
+        <!-- Loop through filtered users -->
+        <li *ngFor="let user of filteredUsers">
           <a class="dropdown-item" href="#" (click)="selectUser(user.id)">{{ user.name }}</a>
         </li>
       </ul>
