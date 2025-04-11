@@ -101,6 +101,13 @@ export class FilterComponent {
     ],
 
     Recurring: ['Is recurring', 'Is not recurring'],
+
+    StartDate: ['Last', 'Next', 'Next year', 'This year', 'Last year', 'Last week', 'Exact Date', 'Before Date', 'After Date',
+      'Date Range', 'Any Date', 'No Date'],
+
+    TimeEstimate: ['Is set', 'Is not set', 'Greater than', 'Equal to'],
+
+    TimeTracked: ['Is set', 'Is not set', 'Greater than', 'Equal to'],
   };
 
   filteredOptions: string[] = [...this.optionsList];
@@ -529,6 +536,65 @@ getSelectedAssigneeLabels(): string {
     this.selectedRecurringOptions = [option];
     this.showRecurringDropdown = false; // Close dropdown after selecting
   }
+
+  //  StartDate
+
+  showStartDateDropdown = false;
+  selectedStartDateOptions: string[] = [];
+  StartDateCondition: string = 'is'; // or 'is_not'
+
+// Toggle dropdown open/close
+  toggleStartDateDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showStartDateDropdown = !this.showStartDateDropdown;
+
+  }
+
+
+// Single selection handler
+  selectStartDate(option: string) {
+    this.selectedStartDateOptions = [option];
+    this.showStartDateDropdown = false; // Close dropdown after selecting
+  }
+
+  //  TimeEstimate
+
+  showTimeEstimateDropdown = false;
+  selectedTimeEstimateOptions: string[] = [];
+
+// Toggle dropdown open/close
+  toggleTimeEstimateDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showTimeEstimateDropdown = !this.showTimeEstimateDropdown;
+
+  }
+
+
+// Single selection handler
+  selectTimeEstimate(option: string) {
+    this.selectedTimeEstimateOptions = [option];
+    this.showTimeEstimateDropdown = false; // Close dropdown after selecting
+  }
+
+  //  TimeTracked
+
+  showTimeTrackedDropdown = false;
+  selectedTimeTrackedOptions: string[] = [];
+
+// Toggle dropdown open/close
+  toggleTimeTrackedDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showTimeTrackedDropdown = !this.showTimeTrackedDropdown;
+
+  }
+
+
+// Single selection handler
+  selectTimeTracked(option: string) {
+    this.selectedTimeTrackedOptions = [option];
+    this.showTimeTrackedDropdown = false; // Close dropdown after selecting
+  }
+
 
 }
 

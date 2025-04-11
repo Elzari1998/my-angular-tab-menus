@@ -702,6 +702,112 @@
       </div>
     </div>
 
+    <!-- StartDate Filter -->
+    <div *ngIf="selectedFilter ==='Start date'" class="position-relative mt-3" (click)="$event.stopPropagation()">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <select
+          class="form-select py-2 px-3"
+          style="height: 40px; max-width: 130px;"
+          [(ngModel)]="StartDateCondition"
+        >
+          <option value="is">Is</option>
+          <option value="is_not">Is Not</option>
+        </select>
+
+        <button
+          class="form-select py-2 px-3 w-100 text-start"
+          style="height: 40px"
+          (click)="toggleStartDateDropdown($event)">
+          {{ selectedStartDateOptions.length > 0 ? selectedStartDateOptions.join(', ') : 'Select Option' }}
+        </button>
+      </div>
+
+      <div
+        class="position-absolute bg-white border shadow p-3"
+        style="z-index: 1000; min-width: 280px;"
+        *ngIf="showStartDateDropdown"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="text-muted mb-2">Filter…</div>
+
+        <div
+          *ngFor="let option of filterOptionsMap['StartDate']"
+          class="mb-2"
+          style="cursor: pointer;"
+          [ngClass]="{ 'fw-bold text-primary': selectedStartDateOptions[0] === option }"
+          (click)="selectStartDate(option)"
+        >
+          {{ option }}
+        </div>
+      </div>
+    </div>
+
+    <!-- TimeEstimate Filter -->
+    <div *ngIf="selectedFilter ==='Time estimate'" class="position-relative mt-3" (click)="$event.stopPropagation()">
+      <div class="d-flex align-items-center gap-2 mb-2">
+
+        <button
+          class="form-select py-2 px-3 w-100 text-start"
+          style="height: 40px"
+          (click)="toggleTimeEstimateDropdown($event)">
+          {{ selectedTimeEstimateOptions.length > 0 ? selectedTimeEstimateOptions.join(', ') : 'Select Option' }}
+        </button>
+      </div>
+
+      <div
+        class="position-absolute bg-white border shadow p-3"
+        style="z-index: 1000; min-width: 280px;"
+        *ngIf="showTimeEstimateDropdown"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="text-muted mb-2">Filter…</div>
+
+        <div
+          *ngFor="let option of filterOptionsMap['TimeEstimate']"
+          class="mb-2"
+          style="cursor: pointer;"
+          [ngClass]="{ 'fw-bold text-primary': selectedTimeEstimateOptions[0] === option }"
+          (click)="selectTimeEstimate(option)"
+        >
+          {{ option }}
+        </div>
+      </div>
+    </div>
+
+    <!-- TimeTracked Filter -->
+    <div *ngIf="selectedFilter ==='Time tracked'" class="position-relative mt-3" (click)="$event.stopPropagation()">
+      <div class="d-flex align-items-center gap-2 mb-2">
+
+        <button
+          class="form-select py-2 px-3 w-100 text-start"
+          style="height: 40px"
+          (click)="toggleTimeTrackedDropdown($event)">
+          {{ selectedTimeTrackedOptions.length > 0 ? selectedTimeTrackedOptions.join(', ') : 'Select Option' }}
+        </button>
+      </div>
+
+      <div
+        class="position-absolute bg-white border shadow p-3"
+        style="z-index: 1000; min-width: 280px;"
+        *ngIf="showTimeTrackedDropdown"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="text-muted mb-2">Filter…</div>
+
+        <div
+          *ngFor="let option of filterOptionsMap['TimeTracked']"
+          class="mb-2"
+          style="cursor: pointer;"
+          [ngClass]="{ 'fw-bold text-primary': selectedTimeTrackedOptions[0] === option }"
+          (click)="selectTimeTracked(option)"
+        >
+          {{ option }}
+        </div>
+      </div>
+    </div>
+
+
+
     <!-- Nested Filter -->
     <div class="d-flex flex-column gap-2 mt-3">
       <a href="#" (click)="preventRefreshingThePage($event)">
