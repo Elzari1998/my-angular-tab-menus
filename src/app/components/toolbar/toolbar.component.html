@@ -62,7 +62,7 @@
               </div>
               <li>
                 <div class="d-flex justify-content-between align-items-center px-2 py-2 rounded text-dark" style="cursor: pointer;">
-                  <span>ClickUp Templates</span>
+                  <span>Cagan Templates</span>
                   <span class="badge bg-light text-muted border">145</span>
                 </div>
               </li>
@@ -91,7 +91,7 @@
             </div>
           </div>
 
-          <div class="col-9 ps-3" style="overflow-y: auto; height: calc(95vh - 210px);">
+          <div class="col-9 ps-3" style="overflow-y: auto; overflow-x: hidden; height: calc(95vh - 210px);">
             <div class="d-flex gap-2 mb-3">
               <input class="form-control w-50" type="search" placeholder="Search" name="search">
               <div class="dropdown">
@@ -152,7 +152,7 @@
             <hr>
 
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <h5 class="mb-0">Templates by ClickUp</h5>
+              <h5 class="mb-0">Templates by Cagan</h5>
               <a href="#" class="text-decoration-none">See 4 more</a>
             </div>
 
@@ -294,7 +294,6 @@
   </div>
 </div>
 
-
 <div class="modal fade" id="staticBackdropActivityLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropActivityLogLabel" aria-hidden="true">
   <div class="modal-dialog" style="margin:0;">
     <div class="modal-content mt-3"  style="width: 100vw; height: 95vh;" >
@@ -350,21 +349,47 @@
 
 <div class="modal fade" id="staticBackdropSaveTemplate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropSaveTemplateLabel" aria-hidden="true">
   <div class="modal-dialog" style="margin:0;">
-    <div class="modal-content mt-3"  style="width: 100vw; height: 95vh;" >
-      <div class="modal-header">
-        <h5 class="modal-title text-center" id="staticBackdropSaveTemplateLabel">
-          Save as new task Template
+    <div class="modal-content mt-3"  style="width: 100vw; height: 95vh; overflow-y: auto" >
+      <div class="modal-header justify-content-center position-relative">
+        <h5 class="modal-title mx-auto" id="staticBackdropSaveTemplateLabel">
+          Save as new task template
         </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close position-absolute end-0 top-0 mt-2 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-
       <div class="modal-body" >
         <div class="container " style="width: 500px">
           <h6> <small> Template name</small></h6>
           <input type="text" name="templateName" class="form-control w-100" placeholder="enter template name">
-          <div class="d-flex gap-2">
-              <button type="button" class="btn btn-outline-secondary btn-sm w-100"><i class="bi bi-plus"></i> add description</button>
-              <button type="button" class="btn btn-outline-secondary btn-sm w-100"><i class="bi bi-plus"></i> add tags</button>
+          <div class="d-flex  mt-1  gap-2">
+              <button type="button" class="btn btn-outline-secondary btn-sm " (click)="showDescriptions()"><i class="bi bi-plus"></i> add description</button>
+              <button type="button" class="btn btn-outline-secondary btn-sm " (click)="showTags()"><i class="bi bi-plus"></i> add tags</button>
+          </div>
+
+          <div *ngIf="showDescription">
+            <div class="row" >
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Add description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+            </div>
+          </div>
+
+
+          <div *ngIf="showTag">
+            <div class="row">
+              <label> Tags </label>
+              <div class="border rounded-2 p-2 m-2">
+                <div class="dropdown">
+                  <i class="p-1 border rounded bi bi-tag" type="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+
+                  <div class="dropdown-menu">
+                    <ul class="list-unstyled" style="height: 150px">
+                      <li><input type="text" class="form-control " name="tags" placeholder="" ></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="row mt-3 ">
@@ -421,17 +446,30 @@
           </div>
           <div class="row mt-3">
             <h6><small>Import Options</small></h6>
-            <div class="border rounded-2 p-2" style="height: 100px">
+            <div class="border rounded-2 p-2" style="height:auto;">
 
               <div class="d-flex gap-2 align-items-center">
-                <button type="button" class="btn btn-outline-secondary active w-100"> Import everything</button>
-                <button type="button" class="btn btn-outline-secondary  w-100"> Customize import items</button>
+                <button type="button" class="btn btn-outline-secondary w-100" [class.active]="!imports" (click)="showImportEverything()" > Import everything</button>
+                <button type="button" class="btn btn-outline-secondary w-100" [class.active]="imports" (click)="showCustomizeImports()"> Customize import items</button>
               </div>
 
-              <div class="text-black-50 mt-2">
-                <small>All properties, fields and settings will be imported exactly as is.</small>
+              <div *ngIf="!imports">
+                <div class="text-black-50 mt-2" >
+                  <small >All properties, fields and settings will be imported exactly as is.</small>
+                </div>
               </div>
 
+              <div *ngIf="imports">
+                <div class="row row-cols-2 g-2 m-3">
+                    <div class="form-check col" *ngFor="let customizeItem of customizeItemsImports" >
+                      <input class="form-check-input" type="checkbox" value="" id="checkChecked" checked>
+                      <label class="form-check-label" for="checkChecked">
+                        {{ customizeItem.name}}
+                      </label>
+                    </div>
+
+                  </div>
+              </div>
 
             </div>
           </div>
@@ -459,23 +497,25 @@
 <div class="modal fade" id="staticBackdropUploadExisting" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropUploadExistingLabel" aria-hidden="true">
   <div class="modal-dialog" style="margin:0;">
     <div class="modal-content mt-3"  style="width: 100vw; height: 95vh;" >
-      <div class="modal-header">
-        <h5 class="modal-title text-center" id="staticBackdropUploadExistingLabel">
-          Upload existing Template
+      <div class="modal-header justify-content-center position-relative">
+        <h5 class="modal-title mx-auto" id="staticBackdropUploadExistingLabel">
+          Save as new task template
         </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close position-absolute end-0 top-0 mt-2 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" >
         <div class="container " style="width: 500px">
           <h6> <small> Template name</small></h6>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="search templates" aria-label="Username" aria-describedby="basic-addon1">
 
             <div class="dropdown ms-2">
               <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person"></i> Created by</button>
               <ul class="dropdown-menu" style="width: 250px">
-                <input type="text" class="form-control" placeholder="search or enter email" name="search">
+                <div class="px-3">
+                  <input type="text" class="form-control" placeholder="Search or enter email" name="search">
+                </div>
                 <hr>
                 <div class="dropdown-item"><i class="bi bi-person-circle"> </i>  Me </div>
                 <div class="dropdown-item"><i class="bi bi-person-circle"> </i> Bhadvaraj </div>
@@ -504,6 +544,86 @@
 
       <div class="modal-footer d-flex justify-content-start">
         <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdropSaveTemplate">Save as new template instead</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editBacklogModal" tabindex="-1" aria-labelledby="editBacklogModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width: 600px;">
+      <div class="modal-header">
+        <h3 class="modal-title fs-6" id="editBacklogModalLabel">
+          Edit UI Core Components Statuses
+        </h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div  class="col-5">
+            <h6 class="text-muted mb-2" > Status type </h6>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1" >
+                Inherit from space
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Use custom statuses
+              </label>
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-muted small">Status template</label>
+              <div class="dropdown">
+                <button class="form-select text-start" data-bs-toggle="dropdown" aria-expanded="false">
+                  Select a template...
+                </button>
+                <ul class="dropdown-menu w-100 p-2 shadow-sm">
+                  <input class="form-control mb-2" type="search" placeholder="Search">
+                  <li><a class="dropdown-item" href="#">Cagan Scrum</a></li>
+                  <li><a class="dropdown-item" href="#">Content</a></li>
+                  <li><a class="dropdown-item" href="#">Kanban</a></li>
+                  <li><a class="dropdown-item" href="#">Marketing</a></li>
+                  <li><a class="dropdown-item" href="#">Normal</a></li>
+                  <li><a class="dropdown-item" href="#">Overall Board Status</a></li>
+                  <li><a class="dropdown-item" href="#">Product & Engineering</a></li>
+                  <li><a class="dropdown-item" href="#">Scrum</a></li>
+                  <li><a class="dropdown-item text-primary" href="#">+ New template</a></li>
+                </ul>
+              </div>
+              </div>
+          </div>
+
+
+          <div class="col-7 text-center mt-4">
+            <h6 class="text-muted fs-6 mb-2">Active</h6>
+            <ul class="list-unstyled">
+              <li class="editBacklogListIcons">TO - DO</li>
+              <li class="editBacklogListIcons">PENDING</li>
+              <li class="editBacklogListIcons">IN PROGRESS</li>
+            </ul>
+
+            <h6 class="text-muted fs-6 mb-2">Done</h6>
+            <ul class="list-unstyled">
+              <li class="editBacklogListIcons">DONE</li>
+            </ul>
+
+            <h6 class="text-muted fs-6 mb-2">Closed</h6>
+            <ul class="list-unstyled">
+              <li class="editBacklogListIcons">DEPLOYED</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" >Save Template </button>
+        <button type="button" class="btn btn-primary" >Apply Changes </button>
       </div>
     </div>
   </div>
