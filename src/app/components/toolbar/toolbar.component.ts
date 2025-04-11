@@ -33,7 +33,6 @@ export class ToolbarComponent {
   }
 
   showTags():void{
-    console.log('Whatup?? clicked !!!')
     this.showTag = !this.showTag;
   }
 

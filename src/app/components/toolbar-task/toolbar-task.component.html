@@ -66,7 +66,7 @@
     <div class="row  g-2 align-items-center">
       <div class="dropdown col-auto">
         <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Backlog
+          TO DO
         </button>
         <ul class="dropdown-menu">
           <div class="d-flex justify-content-center">
@@ -76,25 +76,22 @@
           <div class="d-flex justify-content-between m-2">
             <h6 class="text-muted fs-6">Statuses  </h6>
 
-            <i class="bi bi-gear"> </i>
+            <i class="bi bi-gear" data-bs-toggle="modal" data-bs-target="#editBacklogModal" > </i>
           </div>
           <li>
-            <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: #6c757d"></i>Backlog</a>
+            <a class="dropdown-item " href="#"><i class="bi bi-circle-fill me-2" style="color: gray"></i>To Do</a>
           </li>
           <li>
-            <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: blue"></i>To Do</a>
+            <a class="dropdown-item " href="#"><i class="bi bi-circle-fill me-2" style="color: gold"></i>PENDING </a>
           </li>
           <li>
-            <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: blue"></i>In Progress</a>
+            <a class="dropdown-item " href="#"><i class="bi bi-circle-fill me-2" style="color: blue"></i>In PROGRESS</a>
           </li>
           <li>
-            <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: gold"></i>In Review</a>
-          </li>
-          <li>
-            <a class="dropdown-item " href="#"><i class="bi bi-person-circle me-2" style="color: cyan"></i>Ready for dev</a>
+            <a class="dropdown-item " href="#"><i class="bi bi-check-circle me-2" style="color: darkblue"></i>IN PROGRESS</a>
           </li>
           <hr>
-          <li><a class="dropdown-item" href="#"><i class="bi bi-check-circle" style="color: green"></i> Done</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-circle-fill" style="color: green"></i> DEPLOYED</a></li>
         </ul>
       </div>
       <div class="dropdown col-auto">
@@ -338,94 +335,3 @@
 
 
 
-<div class="modal fade" id="editBacklogModal" tabindex="-1" aria-labelledby="editBacklogModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" style="width: 600px;">
-      <div class="modal-header">
-        <h3 class="modal-title fs-6" id="editBacklogModalLabel">
-          Edit Tourism Backlog Status
-        </h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div  class="col-4">
-            <h6 class="text-muted mb-2" > Status type </h6>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-              <label class="form-check-label" for="flexRadioDefault1" >
-                Inherit from space
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-              <label class="form-check-label" for="flexRadioDefault1">
-                Use custom statuses
-              </label>
-            </div>
-
-            <h6 class="text-muted mb-2" > Status type </h6>
-            <button class="btn btn-transparent border-0 dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-              Overall Board Status
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <input class="form-control h-75 mt-2"  type="search" placeholder="Search" [(ngModel)]="searchQuery" name="search">
-              <li><a class="dropdown-item" href="#">Scrum</a></li>
-              <li><a class="dropdown-item" href="#">Content</a></li>
-              <li><a class="dropdown-item" href="#">Kanban</a></li>
-              <li><a class="dropdown-item" href="#">Marketing</a></li>
-              <li><a class="dropdown-item" href="#">
-                <i class="bi bi-check2"></i>
-                Overall board status
-              </a></li>
-
-
-            </ul>
-          </div>
-
-
-          <div class="col-8 text-center">
-            <h6 class="text-muted fs-6 mb-2"> Active </h6>
-
-            <ul>
-              <li class="editBacklogListIcons">  BACKLOG</li>
-              <li class="editBacklogListIcons">TO - DO</li>
-              <li class="editBacklogListIcons"> IN PROGRESS</li>
-              <li class="editBacklogListIcons">IN REVIEW</li>
-              <li class="editBacklogListIcons">READY FOR REVIEW</li>
-              <li class="editBacklogListIcons add-status btn w-100"   >
-                <i class="bi bi-plus-circle"></i>
-                ADD STATUS
-              </li>
-            </ul>
-
-            <h6 class="text-muted fs-6 mb-2"> Done </h6>
-            <ul>
-              <li class="editBacklogListIcons add-status btn w-100"   >
-                <i class="bi bi-plus-circle"></i>
-                ADD STATUS
-              </li>
-            </ul>
-
-            <h6 class="text-muted fs-6 mb-2"> Closed </h6>
-            <ul>
-              <li class="editBacklogListIcons add-status btn w-100"   >
-                <i class="bi bi-check2"></i>
-                Done
-              </li>
-            </ul>
-
-          </div>
-        </div>
-
-      </div>
-
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" >Save Template </button>
-        <button type="button" class="btn btn-primary" >Apply Changes </button>
-      </div>
-    </div>
-  </div>
-</div>
