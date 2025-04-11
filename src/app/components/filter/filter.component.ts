@@ -108,6 +108,11 @@ export class FilterComponent {
     TimeEstimate: ['Is set', 'Is not set', 'Greater than', 'Equal to'],
 
     TimeTracked: ['Is set', 'Is not set', 'Greater than', 'Equal to'],
+
+    SprintPoints: ['Equals', 'Not equal to', 'Greater than', 'Less than', 'Greater than or equal to', 'Less than or equal to',
+      'Is set', 'Is not set'],
+
+
   };
 
   filteredOptions: string[] = [...this.optionsList];
@@ -595,6 +600,35 @@ getSelectedAssigneeLabels(): string {
     this.showTimeTrackedDropdown = false; // Close dropdown after selecting
   }
 
+  //  SprintPoints
+
+  showSprintPointsDropdown = false;
+  selectedSprintPointsOptions: string[] = [];
+  SprintPointsCheckboxModel: { [key: string]: boolean } = {};
+  SprintPointsCondition: number = 0;
+
+  toggleSprintPointsDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showSprintPointsDropdown = !this.showSprintPointsDropdown;
+  }
+
+  confirmSprintPointsFilter() {
+    this.selectedSprintPointsOptions = Object.entries(this.SprintPointsCheckboxModel)
+      .filter(([_, checked]) => checked)
+      .map(([option]) => option);
+    this.showSprintPointsDropdown = false;
+  }
+
+
+
+  toggleSprintPointsSelection(option: string) {
+    const index = this.selectedSprintPointsOptions.indexOf(option);
+    if (index > -1) {
+      this.selectedSprintPointsOptions.splice(index, 1);
+    } else {
+      this.selectedSprintPointsOptions.push(option);
+    }
+  }
 
 }
 
