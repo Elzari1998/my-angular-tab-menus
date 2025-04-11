@@ -112,6 +112,24 @@ export class FilterComponent {
     SprintPoints: ['Equals', 'Not equal to', 'Greater than', 'Less than', 'Greater than or equal to', 'Less than or equal to',
       'Is set', 'Is not set'],
 
+    Watcher: [
+      {label: 'Me', icon: 'bi bi-person-circle', color: '#121aba'},
+      {label: 'Bhadvaraj', icon: 'bi bi-person-circle', color: '#580fac'},
+      {label: 'Chantal', icon: 'bi bi-person-circle', color: '#e5781e'},
+      {label: 'Shawn', icon: 'bi bi-person-circle', color: '#871c54'},
+      {label: 'Tanja', icon: 'bi bi-person-circle', color: '#605858'}],
+
+    TaskType: [
+      { label: 'Task', icon: 'bi bi-record-circle me-2', color: '#605858' },
+      { label: 'Milestones', icon: 'bi bi-gem', color: '#605858' },
+      { label: 'Form Response', icon: 'bi bi-ui-checks', color: '#605858' },
+      { label: 'Topic', icon: 'bi bi-chat-fill', color: '#605858' },
+      { label: 'Update', icon: 'bi bi-volume-up-fill', color: '#605858' },
+
+    ],
+
+    LastStatusChange: ['Last', 'Next', 'Next year', 'This year', 'Last year', 'Last week', 'Exact Date', 'Before Date', 'After Date',
+      'Date Range', 'Any Date', 'No Date'],
 
   };
 
@@ -630,6 +648,98 @@ getSelectedAssigneeLabels(): string {
     }
   }
 
+  //   Watcher
+
+  showWatcherDropdown = false;
+  selectedWatcherOptions: WatcherOption[] = [];
+  WatcherCheckboxModel: { [key: string]: boolean } = {};
+
+  toggleWatcherDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showWatcherDropdown = !this.showWatcherDropdown;
+  }
+
+  confirmWatcherFilter() {
+    this.selectedWatcherOptions = Object.entries(this.WatcherCheckboxModel)
+      .filter(([_, checked]) => checked)
+      .map(([label]) =>
+        this.filterOptionsMap['Watcher'].find((option: { label: string; }) => option.label === label)!
+      );
+
+    this.showWatcherDropdown = false;
+
+  }
+  getSelectedWatcherLabels(): string {
+    return this.selectedWatcherOptions.map(option => option.label).join(', ');
+  }
+
+
+  WatcherCondition: string = 'is'; // or 'is_not'
+
+  toggleWatcherSelection(option: WatcherOption) {
+    const index = this.selectedWatcherOptions.findIndex(o => o.label === option.label);
+    if (index > -1) {
+      this.selectedWatcherOptions.splice(index, 1);
+    } else {
+      this.selectedWatcherOptions.push(option);
+    }
+  }
+
+  //   TaskType
+
+  showTaskTypeDropdown = false;
+  selectedTaskTypeOptions: TaskTypeOption[] = [];
+  TaskTypeCheckboxModel: { [key: string]: boolean } = {};
+
+  toggleTaskTypeDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showTaskTypeDropdown = !this.showTaskTypeDropdown;
+  }
+
+  confirmTaskTypeFilter() {
+    this.selectedTaskTypeOptions = Object.entries(this.TaskTypeCheckboxModel)
+      .filter(([_, checked]) => checked)
+      .map(([label]) =>
+        this.filterOptionsMap['TaskType'].find((option: { label: string; }) => option.label === label)!
+      );
+
+    this.showTaskTypeDropdown = false;
+  }
+
+  getSelectedTaskTypeLabels(): string {
+    return this.selectedTaskTypeOptions.map(option => option.label).join(', ');
+  }
+  TaskTypeCondition: string = 'is'; // or 'is_not'
+
+  toggleTaskTypeSelection(option: TaskTypeOption) {
+    const index = this.selectedTaskTypeOptions.findIndex(o => o.label === option.label);
+    if (index > -1) {
+      this.selectedTaskTypeOptions.splice(index, 1);
+    } else {
+      this.selectedTaskTypeOptions.push(option);
+    }
+  }
+
+  //  LastStatusChange
+
+  showLastStatusChangeDropdown = false;
+  selectedLastStatusChangeOptions: string[] = [];
+  LastStatusChangeCondition: string = 'is'; // or 'is_not'
+
+// Toggle dropdown open/close
+  toggleLastStatusChangeDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showLastStatusChangeDropdown = !this.showLastStatusChangeDropdown;
+
+  }
+
+
+// Single selection handler
+  selectLastStatusChange(option: string) {
+    this.selectedLastStatusChangeOptions = [option];
+    this.showLastStatusChangeDropdown = false; // Close dropdown after selecting
+  }
+
 }
 
 interface AssigneeOption {
@@ -651,6 +761,17 @@ interface CreatedByOption {
 }
 
 interface LocationOption {
+  label: string;
+  icon?: string;
+  color?: string;
+}
+interface WatcherOption {
+  label: string;
+  icon?: string;
+  color?: string;
+}
+
+interface TaskTypeOption {
   label: string;
   icon?: string;
   color?: string;

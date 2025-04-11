@@ -848,6 +848,129 @@
       </div>
     </div>
 
+    <!-- Watcher Filter -->
+    <div *ngIf="selectedFilter ==='Watcher'" class="position-relative mt-3" (click)="$event.stopPropagation()">
+      <div class="d-flex align-items-center gap-2 mb-2">
+
+        <select
+          class="form-select py-2 px-3"
+          style="height: 40px; max-width: 130px;"
+          [(ngModel)]="WatcherCondition"
+        >
+          <option value="is">Is</option>
+          <option value="is_not">Is Not</option>
+        </select>
+
+        <button
+          class="form-select py-2 px-3 w-100 text-start"
+          style="height: 40px"
+          (click)="toggleWatcherDropdown($event)">
+          {{ selectedWatcherOptions.length > 0 ? getSelectedWatcherLabels() : 'Watcher' }}
+        </button>
+      </div>
+
+      <div
+        class="position-absolute bg-white border shadow p-3"
+        style="z-index: 1000; min-width: 280px;"
+        *ngIf="showWatcherDropdown"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="text-muted mb-2">People</div>
+
+        <div
+          *ngFor="let option of filterOptionsMap['Watcher']"
+          class="mb-2 d-flex align-items-center"
+          style="cursor: pointer;"
+          [ngClass]="{ 'fw-bold text-primary': selectedWatcherOptions.includes(option) }"
+          (click)="toggleWatcherSelection(option)"
+        >
+          <i [class]="option.icon" [style.color]="option.color" class="me-2"></i>
+          {{ option.label }}
+        </div>
+      </div>
+    </div>
+
+    <!-- TaskType Filter -->
+    <div *ngIf="selectedFilter ==='Task type'" class="position-relative mt-3" (click)="$event.stopPropagation()">
+      <div class="d-flex align-items-center gap-2 mb-2">
+
+        <select
+          class="form-select py-2 px-3"
+          style="height: 40px; max-width: 130px;"
+          [(ngModel)]="TaskTypeCondition"
+        >
+          <option value="is">Is</option>
+          <option value="is_not">Is Not</option>
+        </select>
+
+        <button
+          class="form-select py-2 px-3 w-100 text-start"
+          style="height: 40px"
+          (click)="toggleTaskTypeDropdown($event)">
+          {{ selectedTaskTypeOptions.length > 0 ? getSelectedTaskTypeLabels() : 'Select task type' }}
+        </button>
+      </div>
+
+      <div
+        class="position-absolute bg-white border shadow p-3"
+        style="z-index: 1000; min-width: 280px;"
+        *ngIf="showTaskTypeDropdown"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="text-muted mb-2">Filter…</div>
+
+        <div
+          *ngFor="let option of filterOptionsMap['TaskType']"
+          class="mb-2 d-flex align-items-center"
+          style="cursor: pointer;"
+          [ngClass]="{ 'fw-bold text-primary': selectedTaskTypeOptions.includes(option) }"
+          (click)="toggleTaskTypeSelection(option)"
+        >
+          <i [class]="option.icon" [style.color]="option.color" class="me-2"></i>
+          {{ option.label }}
+        </div>
+      </div>
+    </div>
+
+    <!-- LastStatusChange Filter -->
+    <div *ngIf="selectedFilter ==='Last status change'" class="position-relative mt-3" (click)="$event.stopPropagation()">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <select
+          class="form-select py-2 px-3"
+          style="height: 40px; max-width: 130px;"
+          [(ngModel)]="LastStatusChangeCondition"
+        >
+          <option value="is">Is</option>
+          <option value="is_not">Is Not</option>
+        </select>
+
+        <button
+          class="form-select py-2 px-3 w-100 text-start"
+          style="height: 40px"
+          (click)="toggleLastStatusChangeDropdown($event)">
+          {{ selectedLastStatusChangeOptions.length > 0 ? selectedLastStatusChangeOptions.join(', ') : 'Select Option' }}
+        </button>
+      </div>
+
+      <div
+        class="position-absolute bg-white border shadow p-3"
+        style="z-index: 1000; min-width: 280px;"
+        *ngIf="showLastStatusChangeDropdown"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="text-muted mb-2">Filter…</div>
+
+        <div
+          *ngFor="let option of filterOptionsMap['LastStatusChange']"
+          class="mb-2"
+          style="cursor: pointer;"
+          [ngClass]="{ 'fw-bold text-primary': selectedLastStatusChangeOptions[0] === option }"
+          (click)="selectLastStatusChange(option)"
+        >
+          {{ option }}
+        </div>
+      </div>
+    </div>
 
 
     <!-- Nested Filter -->
