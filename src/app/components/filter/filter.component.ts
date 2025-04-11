@@ -87,6 +87,20 @@ export class FilterComponent {
       'Date Range', 'Any Date', 'No Date'],
 
     Dependency: ['Waiting on', 'Blocking', 'Link', 'Any'],
+
+    Duration: ['Is set', 'Is not set', 'Greater than', 'Equal to'],
+
+    Location: [
+      { label: 'CLIENT PROJECTS', icon: 'bi bi-circle-fill me-2', color: '#121aba' },
+      { label: 'CAGAN TECH DEV SPACE', icon: 'bi bi-circle-fill me-2', color: '#a50a0a' },
+      { label: 'MARKETING', icon: 'bi bi-circle-fill me-2', color: '#e5781e' },
+      { label: 'OUR PRODUCTS', icon: 'bi bi-circle-fill me-2', color: '#08970d' },
+      { label: 'Business Development', icon: 'bi bi-circle-fill me-2', color: '#0066ff' },
+      { label: 'Service Desk', icon: 'bi bi-circle-fill me-2', color: '#cd17b7' },
+      { label: 'Employee Onboarding', icon: 'bi bi-circle-fill me-2', color: '#4e4c4c' }
+    ],
+
+    Recurring: ['Is recurring', 'Is not recurring'],
   };
 
   filteredOptions: string[] = [...this.optionsList];
@@ -442,7 +456,82 @@ getSelectedAssigneeLabels(): string {
     this.selectedDependencyOptions = [option];
     this.showDependencyDropdown = false; // Close dropdown after selecting
   }
+
+  //  Duration
+
+  showDurationDropdown = false;
+  selectedDurationOptions: string[] = [];
+
+// Toggle dropdown open/close
+  toggleDurationDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showDurationDropdown = !this.showDurationDropdown;
+
+  }
+
+
+// Single selection handler
+  selectDuration(option: string) {
+    this.selectedDurationOptions = [option];
+    this.showDurationDropdown = false; // Close dropdown after selecting
+  }
+
+  //   Location
+
+  showLocationDropdown = false;
+  selectedLocationOptions: LocationOption[] = [];
+  LocationCheckboxModel: { [key: string]: boolean } = {};
+
+  toggleLocationDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showLocationDropdown = !this.showLocationDropdown;
+  }
+
+  confirmLocationFilter() {
+    this.selectedLocationOptions = Object.entries(this.LocationCheckboxModel)
+      .filter(([_, checked]) => checked)
+      .map(([label]) =>
+        this.filterOptionsMap['Location'].find((option: { label: string; }) => option.label === label)!
+      );
+
+    this.showLocationDropdown = false;
+  }
+
+  getSelectedLocationLabels(): string {
+    return this.selectedLocationOptions.map(option => option.label).join(', ');
+  }
+  LocationCondition: string = 'is'; // or 'is_not'
+
+  toggleLocationSelection(option: LocationOption) {
+    const index = this.selectedLocationOptions.findIndex(o => o.label === option.label);
+    if (index > -1) {
+      this.selectedLocationOptions.splice(index, 1);
+    } else {
+      this.selectedLocationOptions.push(option);
+    }
+  }
+
+  //  Recurring
+
+  showRecurringDropdown = false;
+  selectedRecurringOptions: string[] = [];
+
+// Toggle dropdown open/close
+  toggleRecurringDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showRecurringDropdown = !this.showRecurringDropdown;
+
+  }
+
+
+// Single selection handler
+  selectRecurring(option: string) {
+    this.selectedRecurringOptions = [option];
+    this.showRecurringDropdown = false; // Close dropdown after selecting
+  }
+
 }
+
 interface AssigneeOption {
   label: string;
   icon?: string;
@@ -456,6 +545,12 @@ interface PriorityOption {
 }
 
 interface CreatedByOption {
+  label: string;
+  icon?: string;
+  color?: string;
+}
+
+interface LocationOption {
   label: string;
   icon?: string;
   color?: string;

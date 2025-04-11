@@ -596,6 +596,112 @@
     </div>
 
 
+    <!-- Duration Filter -->
+    <div *ngIf="selectedFilter === 'Duration'" class="position-relative mt-3" (click)="$event.stopPropagation()">
+      <div class="d-flex align-items-center gap-2 mb-2">
+
+        <button
+          class="form-select py-2 px-3 w-100 text-start"
+          style="height: 40px"
+          (click)="toggleDurationDropdown($event)">
+          {{ selectedDurationOptions.length > 0 ? selectedDurationOptions.join(', ') : 'Select Option' }}
+        </button>
+      </div>
+
+      <div
+        class="position-absolute bg-white border shadow p-3"
+        style="z-index: 1000; min-width: 280px;"
+        *ngIf="showDurationDropdown"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="text-muted mb-2">Filter…</div>
+
+        <div
+          *ngFor="let option of filterOptionsMap['Duration']"
+          class="mb-2"
+          style="cursor: pointer;"
+          [ngClass]="{ 'fw-bold text-primary': selectedDurationOptions[0] === option }"
+          (click)="selectDuration(option)"
+        >
+          {{ option }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Location Filter -->
+    <div *ngIf="selectedFilter ==='Location'" class="position-relative mt-3" (click)="$event.stopPropagation()">
+      <div class="d-flex align-items-center gap-2 mb-2">
+
+        <select
+          class="form-select py-2 px-3"
+          style="height: 40px; max-width: 130px;"
+          [(ngModel)]="LocationCondition"
+        >
+          <option value="is">Is</option>
+          <option value="is_not">Is Not</option>
+        </select>
+
+        <button
+          class="form-select py-2 px-3 w-100 text-start"
+          style="height: 40px"
+          (click)="toggleLocationDropdown($event)">
+          {{ selectedLocationOptions.length > 0 ? getSelectedLocationLabels() : 'Location' }}
+        </button>
+      </div>
+
+      <div
+        class="position-absolute bg-white border shadow p-3"
+        style="z-index: 1000; min-width: 280px;"
+        *ngIf="showLocationDropdown"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="text-muted mb-2">Filter…</div>
+
+        <div
+          *ngFor="let option of filterOptionsMap['Location']"
+          class="mb-2 d-flex align-items-center"
+          style="cursor: pointer;"
+          [ngClass]="{ 'fw-bold text-primary': selectedLocationOptions.includes(option) }"
+          (click)="toggleLocationSelection(option)"
+        >
+          <i [class]="option.icon" [style.color]="option.color" class="me-2"></i>
+          {{ option.label }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Recurring Filter -->
+    <div *ngIf="selectedFilter === 'Recurring'" class="position-relative mt-3" (click)="$event.stopPropagation()">
+      <div class="d-flex align-items-center gap-2 mb-2">
+
+        <button
+          class="form-select py-2 px-3 w-100 text-start"
+          style="height: 40px"
+          (click)="toggleRecurringDropdown($event)">
+          {{ selectedRecurringOptions.length > 0 ? selectedRecurringOptions.join(', ') : 'Is Recurring' }}
+        </button>
+      </div>
+
+      <div
+        class="position-absolute bg-white border shadow p-3"
+        style="z-index: 1000; min-width: 280px;"
+        *ngIf="showRecurringDropdown"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="text-muted mb-2">Filter…</div>
+
+        <div
+          *ngFor="let option of filterOptionsMap['Recurring']"
+          class="mb-2"
+          style="cursor: pointer;"
+          [ngClass]="{ 'fw-bold text-primary': selectedRecurringOptions[0] === option }"
+          (click)="selectRecurring(option)"
+        >
+          {{ option }}
+        </div>
+      </div>
+    </div>
+
     <!-- Nested Filter -->
     <div class="d-flex flex-column gap-2 mt-3">
       <a href="#" (click)="preventRefreshingThePage($event)">
