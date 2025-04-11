@@ -42,7 +42,26 @@ export class FilterComponent {
       { label: 'High', icon: 'bi-flag-fill', color: '#fbc02d' },
       { label: 'Normal', icon: 'bi-flag-fill', color: '#1e88e5' },
       { label: 'Low', icon: 'bi-flag-fill', color: '#9e9e9e' },
-      { label: 'No Priority', icon: 'bi-flag', color: '#f8f4f4' }]
+      { label: 'No Priority', icon: 'bi-flag', color: '#f8f4f4' }],
+
+    Assignee: [
+      { label: 'Me', icon: 'bi bi-person-circle', color: '#121aba' },
+      { label: 'Bhadvaraj', icon: 'bi bi-person-circle', color: '#580fac' },
+      { label: 'Chantal', icon: 'bi bi-person-circle', color: '#e5781e' },
+      { label: 'Shawn', icon: 'bi bi-person-circle', color: '#871c54' },
+      { label: 'Tanja', icon: 'bi bi-person-circle', color: '#605858' }],
+
+    Archived: [ 'Status', 'Tags', 'Due Date', 'Priority', 'Assignee', 'Archived',
+      'Assigned comments', 'Created by', 'Date closed', 'Date created', 'Date updated', 'Date done',
+      'Dependency', 'Duration', 'Location', 'Recurring', 'Start date', 'Status is closed',
+      'Time estimate', 'Time tracked', 'Sprint Points', 'Watcher', 'Milestone',
+      'Custom Fields', 'Task type'],
+
+    AssignedComments: [ 'Status', 'Tags', 'Due Date', 'Priority', 'Assignee', 'Archived',
+      'Assigned comments', 'Created by', 'Date closed', 'Date created', 'Date updated', 'Date done',
+      'Dependency', 'Duration', 'Location', 'Recurring', 'Start date', 'Status is closed',
+      'Time estimate', 'Time tracked', 'Sprint Points', 'Watcher', 'Milestone',
+      'Custom Fields', 'Task type']
 
 
   };
@@ -164,28 +183,111 @@ export class FilterComponent {
 
   showDueDateDropdown = false;
   selectedDueDateOptions: string[] = [];
-  DueDateCheckboxModel: { [key: string]: boolean } = {};
+  DueDateCondition: string = 'is'; // or 'is_not'
 
+// Toggle dropdown open/close
   toggleDueDateDropdown(event: Event): void {
     event.stopPropagation();
     this.showDueDateDropdown = !this.showDueDateDropdown;
+
   }
 
-  confirmDueDateFilter() {
-    this.selectedDueDateOptions = Object.entries(this.DueDateCheckboxModel)
+
+// Single selection handler
+  selectDueDate(option: string) {
+    this.selectedDueDateOptions = [option];
+    this.showDueDateDropdown = false; // Close dropdown after selecting
+  }
+
+
+
+  //   Assignee
+
+  showAssigneeDropdown = false;
+  selectedAssigneeOptions: string[] = [];
+  AssigneeCheckboxModel: { [key: string]: boolean } = {};
+
+  toggleAssigneeDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showAssigneeDropdown = !this.showAssigneeDropdown;
+  }
+
+  confirmAssigneeFilter() {
+    this.selectedAssigneeOptions = Object.entries(this.AssigneeCheckboxModel)
       .filter(([_, checked]) => checked)
-      .map(([option]) => option);
-    this.showDueDateDropdown = false;
-  }
-  DueDateCondition: string = 'is'; // or 'is_not'
+      .map(([label]) =>
+        this.filterOptionsMap['Assignee'].find((option: { label: string; }) => option.label === label)!
+      );
 
-  toggleDueDateSelection(option: string) {
-    const index = this.selectedDueDateOptions.indexOf(option);
+    this.showAssigneeDropdown = false;
+
+  }
+
+  getSelectedAssigneeLabels(): string {
+    return this.selectedAssigneeOptions
+      .map(label => {
+        const match = this.filterOptionsMap['Assignee'].find((opt: { label: string; }) => opt.label === label);
+        return match ? match.label : label;
+      })
+      .join(', ');
+  }
+
+  AssigneeCondition: string = 'is'; // or 'is_not'
+
+  toggleAssigneeSelection(option: string) {
+    const index = this.selectedAssigneeOptions.indexOf(option);
     if (index > -1) {
-      this.selectedDueDateOptions.splice(index, 1);
+      this.selectedAssigneeOptions.splice(index, 1);
     } else {
-      this.selectedDueDateOptions.push(option);
+      this.selectedAssigneeOptions.push(option);
     }
   }
+
+  //  Archived
+
+  showArchivedDropdown = false;
+  selectedArchivedOptions: string[] = [];
+  ArchivedCheckboxModel: { [key: string]: boolean } = {};
+
+  toggleArchivedDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showArchivedDropdown = !this.showArchivedDropdown;
+  }
+
+  confirmArchivedFilter() {
+    this.selectedArchivedOptions = Object.entries(this.ArchivedCheckboxModel)
+      .filter(([_, checked]) => checked)
+      .map(([option]) => option);
+    this.showArchivedDropdown = false;
+  }
+  ArchivedCondition: string = 'is'; // or 'is_not'
+
+  toggleArchivedSelection(option: string) {
+    const index = this.selectedArchivedOptions.indexOf(option);
+    if (index > -1) {
+      this.selectedArchivedOptions.splice(index, 1);
+    } else {
+      this.selectedArchivedOptions.push(option);
+    }
+  }
+
+  // AssignedComments
+
+  showAssignedCommentsDropdown = false;
+  selectedAssignedCommentsOptions: string[] = [];
+  AssignedCommentsCondition: string = 'is'; // or 'is_not'
+
+// Toggle dropdown open/close
+  toggleAssignedCommentsDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showAssignedCommentsDropdown = !this.showAssignedCommentsDropdown;
+  }
+
+// Single selection handler
+  selectAssignedComment(option: string) {
+    this.selectedAssignedCommentsOptions = [option];
+    this.showAssignedCommentsDropdown = false; // Close dropdown after selecting
+  }
+
 
 }

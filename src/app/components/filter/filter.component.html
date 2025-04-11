@@ -219,13 +219,144 @@
           *ngFor="let option of filterOptionsMap['DueDate']"
           class="mb-2"
           style="cursor: pointer;"
-          [ngClass]="{ 'fw-bold text-primary': selectedDueDateOptions.includes(option) }"
-          (click)="toggleDueDateSelection(option)"
+          [ngClass]="{ 'fw-bold text-primary': selectedDueDateOptions[0] === option }"
+          (click)="selectDueDate(option)"
         >
           {{ option }}
         </div>
       </div>
     </div>
+
+    <!-- Assignee Filter -->
+    <div *ngIf="selectedFilter === 'Assignee'" class="position-relative mt-3" (click)="$event.stopPropagation()">
+      <div class="d-flex align-items-center gap-2 mb-2">
+
+        <select
+          class="form-select py-2 px-3"
+          style="height: 40px; max-width: 130px;"
+          [(ngModel)]="AssigneeCondition"
+        >
+          <option value="is">Is</option>
+          <option value="is_not">Is Not</option>
+        </select>
+
+        <button
+          class="form-select py-2 px-3 w-100 text-start"
+          style="height: 40px"
+          (click)="toggleAssigneeDropdown($event)">
+          {{ selectedPriorityOptions.length > 0 ? getSelectedPriorityLabels() : 'Assignee' }}
+
+
+        </button>
+      </div>
+
+      <div
+        class="position-absolute bg-white border shadow p-3"
+        style="z-index: 1000; min-width: 280px;"
+        *ngIf="showAssigneeDropdown"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="text-muted mb-2">People</div>
+
+        <div
+          *ngFor="let option of filterOptionsMap['Assignee']"
+          class="mb-2 d-flex align-items-center"
+          style="cursor: pointer;"
+          [ngClass]="{ 'fw-bold text-primary': selectedAssigneeOptions.includes(option) }"
+          (click)="toggleAssigneeSelection(option)"
+        >
+          <i [class]="option.icon" [style.color]="option.color" class="me-2"></i>
+          {{ option.label }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Archived Filter -->
+    <div *ngIf="selectedFilter === 'Archived'" class="position-relative mt-3" (click)="$event.stopPropagation()">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <button
+          class="form-select py-2 px-3  text-start"
+          style="height: 40px"
+          (click)="toggleArchivedDropdown($event)">
+          {{ selectedArchivedOptions.length > 0 ? selectedArchivedOptions.join(', ') : 'Archived' }}
+        </button>
+
+        <select
+          class="form-select py-2 px-3 w-100"
+          style="height: 40px; max-width: 130px;"
+          [(ngModel)]="ArchivedCondition"
+        >
+          <option value="is">Is Archived</option>
+          <option value="is_not">Is Not Archived</option>
+        </select>
+
+
+      </div>
+
+      <div
+        class="position-absolute bg-white border shadow p-3"
+        style="z-index: 1000; min-width: 280px;"
+        *ngIf="showArchivedDropdown"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="text-muted mb-2">Filter…</div>
+
+        <div
+          *ngFor="let option of filterOptionsMap['Archived']"
+          class="mb-2"
+          style="cursor: pointer;"
+          [ngClass]="{ 'fw-bold text-primary': selectedArchivedOptions.includes(option) }"
+          (click)="toggleArchivedSelection(option)"
+        >
+          {{ option }}
+        </div>
+      </div>
+    </div>
+
+    <!-- AssignedComments -->
+    <div *ngIf="selectedFilter === 'Assigned comments'" class="position-relative mt-3" (click)="$event.stopPropagation()">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <button
+          class="form-select py-2 px-3  text-start"
+          style="height: 40px"
+          (click)="toggleAssignedCommentsDropdown($event)">
+          {{ selectedAssignedCommentsOptions.length > 0 ? selectedAssignedCommentsOptions.join(', ') : 'AssignedComments' }}
+        </button>
+
+        <select
+          class="form-select py-2 px-3 w-100"
+          style="height: 40px; max-width: 130px;"
+          [(ngModel)]="AssignedCommentsCondition"
+        >
+          <option value="is">Has Assigned Comments</option>
+          <option value="is_not">Doesn't have Assigned Comments</option>
+        </select>
+
+
+      </div>
+
+      <div
+        class="position-absolute bg-white border shadow p-3"
+        style="z-index: 1000; min-width: 280px;"
+        *ngIf="showAssignedCommentsDropdown"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="text-muted mb-2">Filter…</div>
+
+        <div
+          *ngFor="let option of filterOptionsMap['AssignedComments']"
+          class="mb-2"
+          style="cursor: pointer;"
+          [ngClass]="{ 'fw-bold text-primary': selectedAssignedCommentsOptions[0] === option }"
+          (click)="selectAssignedComment(option)"
+        >
+          {{ option }}
+        </div>
+      </div>
+
+    </div>
+
+
     <!-- Nested Filter -->
     <div class="d-flex flex-column gap-2 mt-3">
       <a href="#" (click)="preventRefreshingThePage($event)">
