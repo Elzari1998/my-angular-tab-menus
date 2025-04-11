@@ -22,6 +22,7 @@ export class FilterComponent {
 
     this.showStatusDropdown = false;
   }
+
   optionsList: string[] = [
     'Status', 'Tags', 'Due Date', 'Priority', 'Assignee', 'Archived',
     'Assigned comments', 'Created by', 'Date closed', 'Date created', 'Date updated', 'Date done',
@@ -32,36 +33,55 @@ export class FilterComponent {
 
   filterOptionsMap: any = {
     Status: ['Active', 'Done', 'Closed'],
-    Tags: ['#3cx', '#anglo', '#c-care', '#estateagent', '#leadl3920', '#projectmgt','#servicedes', '#simphr', '#ticketingsaas', '#ux'],
-    DueDate: ['Today', 'Yesterday', 'Tomorrow', 'Next 7 Days', 'Last 7 Days', 'This week','Next week', 'Last Month',
+
+    Tags: ['#3cx', '#anglo', '#c-care', '#estateagent', '#leadl3920', '#projectmgt', '#servicedes', '#simphr', '#ticketingsaas', '#ux'],
+
+    DueDate: ['Today', 'Yesterday', 'Tomorrow', 'Next 7 Days', 'Last 7 Days', 'This week', 'Next week', 'Last Month',
       'This Month', 'Next Month', 'Today & Earlier', 'Last Quarter', 'This quarter', 'Next quarter', 'Overdue',
-    'Later than Today', 'Last', 'Next', 'Next year', 'This year', 'Last year', 'Last week', 'Exact Date', 'Before Date', 'After Date',
+      'Later than Today', 'Last', 'Next', 'Next year', 'This year', 'Last year', 'Last week', 'Exact Date', 'Before Date', 'After Date',
       'Date Range', 'Any Date', 'No Date'],
+
     Priority: [
-      { label: 'Urgent', icon: 'bi-flag-fill', color: '#e53935' },
-      { label: 'High', icon: 'bi-flag-fill', color: '#fbc02d' },
-      { label: 'Normal', icon: 'bi-flag-fill', color: '#1e88e5' },
-      { label: 'Low', icon: 'bi-flag-fill', color: '#9e9e9e' },
-      { label: 'No Priority', icon: 'bi-flag', color: '#f8f4f4' }],
+      {label: 'Urgent', icon: 'bi-flag-fill', color: '#e53935'},
+      {label: 'High', icon: 'bi-flag-fill', color: '#fbc02d'},
+      {label: 'Normal', icon: 'bi-flag-fill', color: '#1e88e5'},
+      {label: 'Low', icon: 'bi-flag-fill', color: '#9e9e9e'},
+      {label: 'No Priority', icon: 'bi-flag', color: '#f8f4f4'}],
 
     Assignee: [
-      { label: 'Me', icon: 'bi bi-person-circle', color: '#121aba' },
-      { label: 'Bhadvaraj', icon: 'bi bi-person-circle', color: '#580fac' },
-      { label: 'Chantal', icon: 'bi bi-person-circle', color: '#e5781e' },
-      { label: 'Shawn', icon: 'bi bi-person-circle', color: '#871c54' },
-      { label: 'Tanja', icon: 'bi bi-person-circle', color: '#605858' }],
+      {label: 'Me', icon: 'bi bi-person-circle', color: '#121aba'},
+      {label: 'Bhadvaraj', icon: 'bi bi-person-circle', color: '#580fac'},
+      {label: 'Chantal', icon: 'bi bi-person-circle', color: '#e5781e'},
+      {label: 'Shawn', icon: 'bi bi-person-circle', color: '#871c54'},
+      {label: 'Tanja', icon: 'bi bi-person-circle', color: '#605858'}],
 
-    Archived: [ 'Status', 'Tags', 'Due Date', 'Priority', 'Assignee', 'Archived',
+    Archived: ['Status', 'Tags', 'Due Date', 'Priority', 'Assignee', 'Archived',
       'Assigned comments', 'Created by', 'Date closed', 'Date created', 'Date updated', 'Date done',
       'Dependency', 'Duration', 'Location', 'Recurring', 'Start date', 'Status is closed',
       'Time estimate', 'Time tracked', 'Sprint Points', 'Watcher', 'Milestone',
       'Custom Fields', 'Task type'],
 
-    AssignedComments: [ 'Status', 'Tags', 'Due Date', 'Priority', 'Assignee', 'Archived',
+    AssignedComments: ['Status', 'Tags', 'Due Date', 'Priority', 'Assignee', 'Archived',
       'Assigned comments', 'Created by', 'Date closed', 'Date created', 'Date updated', 'Date done',
       'Dependency', 'Duration', 'Location', 'Recurring', 'Start date', 'Status is closed',
       'Time estimate', 'Time tracked', 'Sprint Points', 'Watcher', 'Milestone',
-      'Custom Fields', 'Task type']
+      'Custom Fields', 'Task type'],
+
+    CreatedBy: [
+      {label: 'Me', icon: 'bi bi-person-circle', color: '#121aba'},
+      {label: 'Bhadvaraj', icon: 'bi bi-person-circle', color: '#580fac'},
+      {label: 'Chantal', icon: 'bi bi-person-circle', color: '#e5781e'},
+      {label: 'Shawn', icon: 'bi bi-person-circle', color: '#871c54'},
+      {label: 'Tanja', icon: 'bi bi-person-circle', color: '#605858'}],
+
+    DateClosed: ['Last', 'Next', 'Next year', 'This year', 'Last year', 'Last week', 'Exact Date', 'Before Date', 'After Date',
+      'Date Range', 'Any Date', 'No Date'],
+
+    DateCreated: ['Last', 'Next', 'Next year', 'This year', 'Last year', 'Last week', 'Exact Date', 'Before Date', 'After Date',
+      'Date Range', 'Any Date', 'No Date'],
+
+    DateUpdated: ['Last', 'Next', 'Next year', 'This year', 'Last year', 'Last week', 'Exact Date', 'Before Date', 'After Date',
+      'Date Range', 'Any Date', 'No Date'],
 
 
   };
@@ -96,10 +116,10 @@ export class FilterComponent {
   }
 
 
-
   preventRefreshingThePage(event: Event): void {
     event.preventDefault();
   }
+
   showStatusDropdown = false;
 
   toggleStatusDropdown(event: Event): void {
@@ -127,6 +147,7 @@ export class FilterComponent {
       .map(([option]) => option);
     this.showTagsDropdown = false;
   }
+
   tagsCondition: string = 'is'; // or 'is_not'
 
   toggleTagSelection(option: string) {
@@ -141,7 +162,7 @@ export class FilterComponent {
 //   Priority
 
   showPriorityDropdown = false;
-  selectedPriorityOptions: string[] = [];
+  selectedPriorityOptions: PriorityOption[] = [];
   PriorityCheckboxModel: { [key: string]: boolean } = {};
 
   togglePriorityDropdown(event: Event): void {
@@ -160,18 +181,12 @@ export class FilterComponent {
   }
 
   getSelectedPriorityLabels(): string {
-    return this.selectedPriorityOptions
-      .map(label => {
-        const match = this.filterOptionsMap['Priority'].find((opt: { label: string; }) => opt.label === label);
-        return match ? match.label : label;
-      })
-      .join(', ');
+    return this.selectedPriorityOptions.map(option => option.label).join(', ');
   }
+  PriorityCondition: string = 'is'; // or 'is_not'
 
-    PriorityCondition: string = 'is'; // or 'is_not'
-
-  togglePrioritySelection(option: string) {
-    const index = this.selectedPriorityOptions.indexOf(option);
+  togglePrioritySelection(option: PriorityOption) {
+    const index = this.selectedPriorityOptions.findIndex(o => o.label === option.label);
     if (index > -1) {
       this.selectedPriorityOptions.splice(index, 1);
     } else {
@@ -200,12 +215,14 @@ export class FilterComponent {
   }
 
 
-
   //   Assignee
 
   showAssigneeDropdown = false;
-  selectedAssigneeOptions: string[] = [];
+  selectedAssigneeOptions: AssigneeOption[] = [];
   AssigneeCheckboxModel: { [key: string]: boolean } = {};
+
+
+
 
   toggleAssigneeDropdown(event: Event): void {
     event.stopPropagation();
@@ -222,26 +239,22 @@ export class FilterComponent {
     this.showAssigneeDropdown = false;
 
   }
+getSelectedAssigneeLabels(): string {
+  return this.selectedAssigneeOptions.map(option => option.label).join(', ');
+}
 
-  getSelectedAssigneeLabels(): string {
-    return this.selectedAssigneeOptions
-      .map(label => {
-        const match = this.filterOptionsMap['Assignee'].find((opt: { label: string; }) => opt.label === label);
-        return match ? match.label : label;
-      })
-      .join(', ');
-  }
 
   AssigneeCondition: string = 'is'; // or 'is_not'
 
-  toggleAssigneeSelection(option: string) {
-    const index = this.selectedAssigneeOptions.indexOf(option);
+  toggleAssigneeSelection(option: AssigneeOption) {
+    const index = this.selectedAssigneeOptions.findIndex(o => o.label === option.label);
     if (index > -1) {
       this.selectedAssigneeOptions.splice(index, 1);
     } else {
       this.selectedAssigneeOptions.push(option);
     }
   }
+
 
   //  Archived
 
@@ -260,6 +273,7 @@ export class FilterComponent {
       .map(([option]) => option);
     this.showArchivedDropdown = false;
   }
+
   ArchivedCondition: string = 'is'; // or 'is_not'
 
   toggleArchivedSelection(option: string) {
@@ -290,4 +304,117 @@ export class FilterComponent {
   }
 
 
+//   CreatedBy
+
+  showCreatedByDropdown = false;
+  selectedCreatedByOptions: PriorityOption[] = [];
+  CreatedByCheckboxModel: { [key: string]: boolean } = {};
+
+  toggleCreatedByDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showCreatedByDropdown = !this.showCreatedByDropdown;
+  }
+
+  confirmCreatedByFilter() {
+    this.selectedCreatedByOptions = Object.entries(this.CreatedByCheckboxModel)
+      .filter(([_, checked]) => checked)
+      .map(([label]) =>
+        this.filterOptionsMap['CreatedBy'].find((option: { label: string; }) => option.label === label)!
+      );
+
+    this.showCreatedByDropdown = false;
+
+  }
+
+  getSelectedCreatedByLabels(): string {
+    return this.selectedCreatedByOptions.map(option => option.label).join(', ');
+  }
+
+  CreatedByCondition: string = 'is'; // or 'is_not'
+
+  toggleCreatedBySelection(option: CreatedByOption) {
+    const index = this.selectedCreatedByOptions.findIndex(o => o.label === option.label);
+    if (index > -1) {
+      this.selectedCreatedByOptions.splice(index, 1);
+    } else {
+      this.selectedCreatedByOptions.push(option);
+    }
+  }
+
+  //  DateClosed
+
+  showDateClosedDropdown = false;
+  selectedDateClosedOptions: string[] = [];
+  DateClosedCondition: string = 'is'; // or 'is_not'
+
+// Toggle dropdown open/close
+  toggleDateClosedDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showDateClosedDropdown = !this.showDateClosedDropdown;
+
+  }
+
+// Single selection handler
+  selectDateClosed(option: string) {
+    this.selectedDateClosedOptions = [option];
+    this.showDateClosedDropdown = false; // Close dropdown after selecting
+  }
+
+  //  DateCreated
+
+  showDateCreatedDropdown = false;
+  selectedDateCreatedOptions: string[] = [];
+  DateCreatedCondition: string = 'is'; // or 'is_not'
+
+// Toggle dropdown open/close
+  toggleDateCreatedDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showDateCreatedDropdown = !this.showDateCreatedDropdown;
+
+  }
+
+
+// Single selection handler
+  selectDateCreated(option: string) {
+    this.selectedDateCreatedOptions = [option];
+    this.showDateCreatedDropdown = false; // Close dropdown after selecting
+  }
+
+  //  DateUpdated
+
+  showDateUpdatedDropdown = false;
+  selectedDateUpdatedOptions: string[] = [];
+  DateUpdatedCondition: string = 'is'; // or 'is_not'
+
+// Toggle dropdown open/close
+  toggleDateUpdatedDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showDateUpdatedDropdown = !this.showDateUpdatedDropdown;
+
+  }
+
+
+// Single selection handler
+  selectDateUpdated(option: string) {
+    this.selectedDateUpdatedOptions = [option];
+    this.showDateUpdatedDropdown = false; // Close dropdown after selecting
+  }
+
+}
+interface AssigneeOption {
+  label: string;
+  icon?: string;
+  color?: string;
+}
+
+interface PriorityOption {
+  label: string;
+  icon?: string;
+  color?: string;
+}
+
+interface CreatedByOption {
+  label: string;
+  icon?: string;
+  color?: string;
 }
