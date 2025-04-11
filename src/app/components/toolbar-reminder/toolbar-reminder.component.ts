@@ -12,10 +12,11 @@ import { CommonModule } from '@angular/common';
 export class ToolbarReminderComponent {
 
   users = [
-    { id: '1', name: 'John Doe' },
-    { id: '2', name: 'Jane Smith' },
-    { id: '3', name: 'Alice Johnson' },
+    { id: '1', name: 'John Doe', color: '#E3A9AD' },
+    { id: '2', name: 'Jane Smith', color: '#15B0A5' },
+    { id: '3', name: 'Alice Johnson' , color: '#FFBB33'}
   ];
+
 
   notifications = [
     { id: '1', name: 'On due date' },
@@ -62,5 +63,20 @@ export class ToolbarReminderComponent {
 
   getNotificationName(id: string): string | undefined {
     return this.notifications.find(notif => notif.id === id)?.name;
+  }
+  // Filtered list of users
+  filteredUsers: Array<{ id: string, name: string, color:string }> = [...this.users];
+  // Method to filter users based on search query
+  filterUsers(): void {
+    this.filteredUsers = this.users.filter(user =>
+      user.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+  }
+  // Selected user
+  selectedUserId: string | null = null;
+  // Method to handle user selection
+  selectUser(userId: string): void {
+    this.selectedUserId = userId;
+    console.log('Selected user ID:', userId);
   }
 }

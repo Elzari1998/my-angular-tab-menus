@@ -1,0 +1,21 @@
+.user-info {
+  display: flex;
+  align-items: center;  /* Aligns the icon and name vertically */
+}
+
+.user-icon {
+  width: 20px;          /* Size of the circle */
+  height: 20px;         /* Size of the circle */
+  border-radius: 50%;   /* Makes it circular */
+  background-color: #4CAF50; /* You can change this to a fixed or random color */
+  color: white;         /* Text color */
+  font-weight: bold;    /* Makes the first letter bold */
+  display: flex;
+  justify-content: center; /* Centers the letter inside the circle */
+  align-items: center;     /* Centers the letter inside the circle */
+  font-size: 10px;
+}
+
+.user-name {
+  font-size: 14px;       /* Adjust font size for name */
+}

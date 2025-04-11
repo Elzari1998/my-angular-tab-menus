@@ -22,9 +22,37 @@
       <button class="btn btn-light border dropdown-toggle" type="button" data-bs-toggle="dropdown">
         {{ getUserName(reminder.assignedUser) || 'For me' }}
       </button>
-      <ul class="dropdown-menu">
-        <li *ngFor="let user of users">
-          <a class="dropdown-item" (click)="reminder.assignedUser = user.id">{{ user.name }}</a>
+      <ul class="dropdown-menu" style="width: 300px;">
+        <div class="p-2" style="padding-left: 15px; margin-bottom: -15px;">
+          <p class="mb-1"><strong>Delegate Reminder</strong></p>
+          <p class="delegation-text">Assign this reminder to someone else.</p>
+        </div>
+
+        <!-- Search Bar Above User List -->
+        <div class="input-group p--1">
+           <span class="input-group-text">
+        <i class="bi bi-search"></i>
+      </span>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search or enter email..."
+            [(ngModel)]="searchQuery"
+            (input)="filterUsers()"
+          />
+        </div>
+        <!-- Loop through filtered users -->
+        <li *ngFor="let user of filteredUsers">
+          <a class="dropdown-item" href="#" (click)="selectUser(user.id)">
+            <div class="user-info d-flex align-items-center">
+              <!-- User Color Circle -->
+              <div class="user-icon" [ngStyle]="{ 'background-color': user.color }">
+                <span class="text-white">{{ user.name[0] }}</span> <!-- First letter of the user's name -->
+              </div>
+              <!-- User Name -->
+              <span class="user-name ms-2">{{ user.name }}</span>
+            </div>
+          </a>
         </li>
       </ul>
     </div>
