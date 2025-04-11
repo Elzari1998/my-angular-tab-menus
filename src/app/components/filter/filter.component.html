@@ -555,6 +555,46 @@
       </div>
     </div>
 
+    <!-- Dependency Filter -->
+    <div *ngIf="selectedFilter === 'Dependency'" class="position-relative mt-3" (click)="$event.stopPropagation()">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <select
+          class="form-select py-2 px-3"
+          style="height: 40px; max-width: 130px;"
+          [(ngModel)]="DependencyCondition"
+        >
+          <option value="is">Has</option>
+          <option value="is_not">Doesn't have</option>
+        </select>
+
+        <button
+          class="form-select py-2 px-3 w-100 text-start"
+          style="height: 40px"
+          (click)="toggleDependencyDropdown($event)">
+          {{ selectedDependencyOptions.length > 0 ? selectedDependencyOptions.join(', ') : 'Select Option' }}
+        </button>
+      </div>
+
+      <div
+        class="position-absolute bg-white border shadow p-3"
+        style="z-index: 1000; min-width: 280px;"
+        *ngIf="showDependencyDropdown"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="text-muted mb-2">Filter…</div>
+
+        <div
+          *ngFor="let option of filterOptionsMap['Dependency']"
+          class="mb-2"
+          style="cursor: pointer;"
+          [ngClass]="{ 'fw-bold text-primary': selectedDependencyOptions[0] === option }"
+          (click)="selectDependency(option)"
+        >
+          {{ option }}
+        </div>
+      </div>
+    </div>
+
 
     <!-- Nested Filter -->
     <div class="d-flex flex-column gap-2 mt-3">

@@ -86,7 +86,7 @@ export class FilterComponent {
     DateDone: ['Last', 'Next', 'Next year', 'This year', 'Last year', 'Last week', 'Exact Date', 'Before Date', 'After Date',
       'Date Range', 'Any Date', 'No Date'],
 
-
+    Dependency: ['Waiting on', 'Blocking', 'Link', 'Any'],
   };
 
   filteredOptions: string[] = [...this.optionsList];
@@ -423,6 +423,25 @@ getSelectedAssigneeLabels(): string {
     this.showDateDoneDropdown = false; // Close dropdown after selecting
   }
 
+  //  Dependency
+
+  showDependencyDropdown = false;
+  selectedDependencyOptions: string[] = [];
+  DependencyCondition: string = 'is'; // or 'is_not'
+
+// Toggle dropdown open/close
+  toggleDependencyDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showDependencyDropdown = !this.showDependencyDropdown;
+
+  }
+
+
+// Single selection handler
+  selectDependency(option: string) {
+    this.selectedDependencyOptions = [option];
+    this.showDependencyDropdown = false; // Close dropdown after selecting
+  }
 }
 interface AssigneeOption {
   label: string;
