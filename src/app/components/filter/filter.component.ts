@@ -83,6 +83,9 @@ export class FilterComponent {
     DateUpdated: ['Last', 'Next', 'Next year', 'This year', 'Last year', 'Last week', 'Exact Date', 'Before Date', 'After Date',
       'Date Range', 'Any Date', 'No Date'],
 
+    DateDone: ['Last', 'Next', 'Next year', 'This year', 'Last year', 'Last week', 'Exact Date', 'Before Date', 'After Date',
+      'Date Range', 'Any Date', 'No Date'],
+
 
   };
 
@@ -398,6 +401,26 @@ getSelectedAssigneeLabels(): string {
   selectDateUpdated(option: string) {
     this.selectedDateUpdatedOptions = [option];
     this.showDateUpdatedDropdown = false; // Close dropdown after selecting
+  }
+
+  //  DateDone
+
+  showDateDoneDropdown = false;
+  selectedDateDoneOptions: string[] = [];
+  DateDoneCondition: string = 'is'; // or 'is_not'
+
+// Toggle dropdown open/close
+  toggleDateDoneDropdown(event: Event): void {
+    event.stopPropagation();
+    this.showDateDoneDropdown = !this.showDateDoneDropdown;
+
+  }
+
+
+// Single selection handler
+  selectDateDone(option: string) {
+    this.selectedDateDoneOptions = [option];
+    this.showDateDoneDropdown = false; // Close dropdown after selecting
   }
 
 }
