@@ -37,7 +37,9 @@ import {
 })
 export class ToolbarDocComponent implements AfterViewInit {
   showDocumentEditor = false;
+  // Variable to track visibility of the input box
   isInputVisible: boolean = false;
+  // Variable to store the input field value
   inputValue: string = '';
 
   @ViewChild('document_editor', { static: false })
