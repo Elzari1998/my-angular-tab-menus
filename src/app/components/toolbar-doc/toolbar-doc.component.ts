@@ -114,4 +114,18 @@ export class ToolbarDocComponent implements AfterViewInit {
       });
     }
   }
+
+
+  // Method to toggle the input box visibility
+  toggleInput(): void {
+    this.isInputVisible = !this.isInputVisible;
+  }
+
+  createDoc(): void {
+    // Hide the input field and show the label and icon again
+    this.isInputVisible = false;
+    // Clear the input field
+    this.inputValue = '';
+
+  }
 }

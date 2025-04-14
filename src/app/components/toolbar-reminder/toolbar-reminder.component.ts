@@ -44,11 +44,7 @@ export class ToolbarReminderComponent {
   }
 
   saveReminder(): void {
-    if (!this.reminder.description || !this.reminder.time) {
-      alert("Please provide both a description and a time.");
-      return;
-    }
-    console.log(this.reminder);
+
   }
 
   resizeTextarea(event: any): void {
