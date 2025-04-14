@@ -64,3 +64,11 @@ button.cancel {
   background: #f1f1f1;
 }
 
+.e-dialog.e-documenteditor-table-dialog {
+  width: 600px !important;
+height: auto !important;
+}
+
+.e-dialog.e-documenteditor-table-dialog .e-dlg-content {
+  padding: 20px !important;
+}

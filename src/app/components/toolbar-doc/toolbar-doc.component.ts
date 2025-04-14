@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from '@syncfusion/ej2-angular-buttons';
 import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
 import { ColorPickerModule } from '@syncfusion/ej2-angular-inputs';
+
 import {
   DocumentEditorComponent,
   EditorService,
@@ -13,6 +14,8 @@ import {
   ContextMenuService,
   DocumentEditorAllModule
 } from '@syncfusion/ej2-angular-documenteditor';
+import bootstrap from '../../../main.server';
+import { Tooltip } from 'bootstrap';
 
 @Component({
   selector: 'app-toolbar-doc',
@@ -106,6 +109,7 @@ export class ToolbarDocComponent implements AfterViewInit {
     }
   }
 
+
   ngAfterViewInit(): void {
     if (typeof window !== 'undefined') {
       document.querySelectorAll('.nav-link').forEach((tab) => {
@@ -116,6 +120,9 @@ export class ToolbarDocComponent implements AfterViewInit {
         });
       });
     }
+
+
+
   }
 
 

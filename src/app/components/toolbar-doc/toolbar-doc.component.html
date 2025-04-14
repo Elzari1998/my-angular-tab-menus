@@ -98,19 +98,43 @@
             <!-- Toolbar -->
             <div *ngIf="showDocumentEditor" class="mt-3">
               <div class="d-flex flex-wrap gap-2 mb-3">
-                <button class="btn btn-outline-secondary btn-sm" (click)="toolbarButtonClick({ item: { id: 'table' } })">Table</button>
-                <button class="btn btn-outline-secondary btn-sm" (click)="toolbarButtonClick({ item: { id: 'insert_above' } })">Insert Row Above</button>
-                <button class="btn btn-outline-secondary btn-sm" (click)="toolbarButtonClick({ item: { id: 'insert_below' } })">Insert Row Below</button>
-                <button class="btn btn-outline-secondary btn-sm" (click)="toolbarButtonClick({ item: { id: 'insert_left' } })">Insert Col Left</button>
-                <button class="btn btn-outline-secondary btn-sm" (click)="toolbarButtonClick({ item: { id: 'insert_right' } })">Insert Col Right</button>
-                <button class="btn btn-outline-danger btn-sm" (click)="toolbarButtonClick({ item: { id: 'delete_row' } })">Delete Row</button>
-                <button class="btn btn-outline-danger btn-sm" (click)="toolbarButtonClick({ item: { id: 'delete_column' } })">Delete Column</button>
-                <button class="btn btn-outline-danger btn-sm" (click)="toolbarButtonClick({ item: { id: 'delete_table' } })">Delete Table</button>
-                <button class="btn btn-outline-primary btn-sm" (click)="toolbarButtonClick({ item: { id: 'merge_cell' } })">Merge Cells</button>
-                <button class="btn btn-outline-dark btn-sm" (click)="toolbarButtonClick({ item: { id: 'table_dialog' } })">Dialog</button>
+                <button class="btn btn-outline-secondary btn-sm" (click)="toolbarButtonClick({ item: { id: 'table' } })">
+                  <i class="bi bi-table"></i>
+                </button>
+                <button class="btn btn-outline-secondary btn-sm" (click)="toolbarButtonClick({ item: { id: 'insert_above' } })">
+                  <i class="bi bi-arrow-bar-up"></i>
+                </button>
+                <button class="btn btn-outline-secondary btn-sm" (click)="toolbarButtonClick({ item: { id: 'insert_below' } })">
+                  <i class="bi bi-arrow-bar-down"></i>
+                </button>
+                <button class="btn btn-outline-secondary btn-sm" (click)="toolbarButtonClick({ item: { id: 'insert_left' } })">
+                  <i class="bi bi-arrow-bar-left"></i>
+                </button>
+                <button class="btn btn-outline-secondary btn-sm" (click)="toolbarButtonClick({ item: { id: 'insert_right' } })">
+                  <i class="bi bi-arrow-bar-right"></i>
+                </button>
+                <button class="btn btn-outline-danger btn-sm" (click)="toolbarButtonClick({ item: { id: 'delete_row' } })">
+                  <i class="bi bi-border-width"></i>
+                </button>
+                <button class="btn btn-outline-danger btn-sm" (click)="toolbarButtonClick({ item: { id: 'delete_column' } })">
+                  <i class="bi bi-layout-three-columns"></i>
+                </button>
+                <button class="btn btn-outline-danger btn-sm" (click)="toolbarButtonClick({ item: { id: 'delete_table' } })">
+                  <i class="bi bi-x-circle"></i>
+                </button>
+                <button class="btn btn-outline-primary btn-sm" (click)="toolbarButtonClick({ item: { id: 'merge_cell' } })">
+                  <i class="bi bi-columns-gap"></i>
+                </button>
+                <button class="btn btn-outline-dark btn-sm" (click)="toolbarButtonClick({ item: { id: 'table_dialog' } })">
+                  <i class="bi bi-sliders"></i>
+                </button>
               </div>
 
-              <!-- Document Editor -->
+
+
+
+
+            <!-- Document Editor -->
               <ejs-documenteditor
                 #document_editor
                 [isReadOnly]="false"
