@@ -37,12 +37,15 @@ import {
 })
 export class ToolbarDocComponent implements AfterViewInit {
   showDocumentEditor = false;
+  isInputVisible: boolean = false;
+  inputValue: string = '';
 
   @ViewChild('document_editor', { static: false })
   public documentEditor!: DocumentEditorComponent;
 
   @ViewChild('modalBody', { static: false })
   modalBody!: ElementRef;
+
 
   toggleDocumentEditor(): void {
     this.showDocumentEditor = true;
