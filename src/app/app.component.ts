@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { TabMenuComponent } from './components/tab-menu/tab-menu.component';
-import {ToolbarComponent} from './components/toolbar/toolbar.component';
+import {CommonModule} from '@angular/common';
+import {RouterOutlet} from '@angular/router';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TabMenuComponent, ToolbarComponent,],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {}
+export class AppComponent {
+
+}
