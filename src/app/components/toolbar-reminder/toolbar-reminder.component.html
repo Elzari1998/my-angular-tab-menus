@@ -6,15 +6,29 @@
   <!-- Dropdown buttons -->
   <div class="d-flex gap-2 mb-3">
     <!-- Date dropdown -->
-    <div class="dropdown">
-      <button class="btn btn-light border dropdown-toggle" type="button" data-bs-toggle="dropdown">
-        {{ reminder.time || 'Today' }}
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" (click)="reminder.time = 'Today'">Today</a></li>
-        <li><a class="dropdown-item" (click)="reminder.time = 'Tomorrow'">Tomorrow</a></li>
-        <li><a class="dropdown-item" (click)="reminder.time = 'Pick a date'">Pick a date</a></li>
+    <button class="btn btn-light border dropdown-toggle" type="button" (click)="toggleDateDropdown()">
+      {{ selectedDateLabel || 'Due date' }}
+    </button>
+
+    <div *ngIf="showDateDropdown" class="dropdown-menu d-flex p-3 show custom-date-dropdown">
+      <!-- Left Quick Options -->
+      <ul class="list-unstyled pe-3 border-end me-3">
+        <li *ngFor="let option of quickOptions">
+          <button class="dropdown-item" (click)="selectQuickDate(option.label)">{{ option.label }}</button>
+        </li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li>
+          <button class="dropdown-item text-primary" (click)="selectRecurring()">Set Recurring</button>
+        </li>
       </ul>
+
+      <!-- Right Calendar -->
+      <div>
+        <input type="date" class="form-control mb-2" [(ngModel)]="customDate" (change)="selectCustomDate()"/>
+        <div class="text-muted small">Pick a custom date</div>
+      </div>
     </div>
 
     <!-- Assigned user dropdown -->

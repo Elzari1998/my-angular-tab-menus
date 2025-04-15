@@ -1,0 +1,74 @@
+.modal-dialog {
+  max-width: 900px;
+}
+
+.modal-body {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+#documentEditorContainer {
+  height: 400px; /* or adjust as needed */
+  border: 1px solid #ccc;
+}
+
+.doc-modal {
+  width: 700px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.doc-header {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.doc-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.editor-container {
+  height: 250px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #fafafa;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  gap: 12px;
+}
+
+button {
+  border-radius: 6px;
+  padding: 6px 16px;
+  font-weight: 500;
+}
+
+button.create-doc {
+  background-color: #6a4df4;
+  color: white;
+  border: none;
+}
+
+button.cancel {
+  background: #f1f1f1;
+}
+
+.e-dialog.e-documenteditor-table-dialog {
+  width: 600px !important;
+height: auto !important;
+}
+
+.e-dialog.e-documenteditor-table-dialog .e-dlg-content {
+  padding: 20px !important;
+}
