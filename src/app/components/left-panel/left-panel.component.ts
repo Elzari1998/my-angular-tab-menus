@@ -2,7 +2,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {SidebarModule} from '@syncfusion/ej2-angular-navigations';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-left-panel',
@@ -11,8 +11,12 @@ import {RouterLink} from '@angular/router';
   styleUrl: './left-panel.component.css'
 })
 export class LeftPanelComponent {
-  isCollapsed = false;
+  isCollapsed = false
   showSettings = false;
+
+  @Output() hideTabMenuEvent = new EventEmitter<void>();
+
+  constructor(private router: Router) {}
 
   toggleSidebar() {
     this.isCollapsed = !this.isCollapsed;
@@ -20,6 +24,9 @@ export class LeftPanelComponent {
 
   showSettingsMenu() {
     this.showSettings = true;
+    this.hideTabMenuEvent.emit();
+    this.router.navigate(['/settings']);
+
   }
 
   showMainMenu() {
@@ -50,5 +57,15 @@ export class LeftPanelComponent {
     { name: 'Trash', icon: 'bi-trash', route: '/trash' },
   ]
 
+  personalSettings = [
+    { name : 'My Settings', icon: 'bi-gear', route: '/mySettings' },
+    {name : 'Workspaces', icon: 'bi-layout-text-window' , route: '/myWorkspaces' },
+    {name : 'Notifications', icon: 'bi-bell', route: '/myNotifications' },
+    {name : 'Apps', icon: 'bi-grid', route: '/myApps' },
+    {name : 'Cloud Storage', icon: 'bi-cloud' , route: '/myCloudStorage' },
+    {name : 'Calendar', icon : 'bi-calendar' , route: '/myCalendar' },
+    {name : 'Referrals', icon: 'bi-person-plus', route: '/myReferrals' },
+
+  ]
 
 }

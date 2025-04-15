@@ -11,7 +11,7 @@
     </div>
 
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#" (click)="showSettingsMenu()"><i class="bi bi-gear"></i> Settings</a></li>
+      <li><a class="dropdown-item"   (click)="showSettingsMenu()"><i class="bi bi-gear"></i> Settings</a></li>
       <li><a class="dropdown-item" href="#">Upgrade</a></li>
       <li><a class="dropdown-item" href="#">Apps</a></li>
       <li><a class="dropdown-item" href="#">Manage users</a></li>
@@ -60,10 +60,27 @@
               <span *ngIf="!isCollapsed">{{ item.name }}</span>
             </a>
           </li>
+
+          <p class="fs-6 fw-bold text-muted mt-3"> Shawn Louw </p>
+          <li class="nav-item " *ngFor="let personalItems of personalSettings">
+            <a [routerLink]="personalItems.route" class="nav-link d-flex align-items-center">
+              <i class="bi fs-6 me-2" [ngClass]="personalItems.icon"></i>
+              <span *ngIf="!isCollapsed"> {{ personalItems.name }}</span>
+            </a>
+          </li>
+
+          <li>
+
+          </li>
         </ng-template>
       </ul>
     </div>
 
+    <div class="mt-auto px-3 py-2 border-top">
+      <a href="#" class="btn btn-outline-danger btn-sm w-100 text-start">
+        <i class="bi bi-box-arrow-right me-2"></i>
+        <span *ngIf="!isCollapsed">Logout</span>
+      </a>
 
   </div>
 </div>
