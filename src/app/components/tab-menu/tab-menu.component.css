@@ -138,6 +138,10 @@ ul li{
 .add-status{
   color: lightgray;
 }
+.nav-link {
+  color: #575555FF;
+}
+
 /* remidner */
 /* .modal-body {
   overflow-y: auto;

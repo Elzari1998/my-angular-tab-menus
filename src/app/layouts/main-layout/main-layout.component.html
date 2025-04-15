@@ -1,0 +1,14 @@
+<app-toolbar></app-toolbar>
+
+<div class="d-flex" [ngClass]="{ 'sidebar-collapsed': isCollapsed }">
+  <nav class="sidebar bg-light border-end">
+    <app-left-panel (click)="toggleSidebar()"></app-left-panel>
+  </nav>
+
+  <div class="flex-grow-1">
+    <app-tab-menu></app-tab-menu>
+    <div class="">
+      <router-outlet> </router-outlet>
+    </div>
+  </div>
+</div>
