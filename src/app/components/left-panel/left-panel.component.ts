@@ -53,7 +53,7 @@ export class LeftPanelComponent {
     { name: 'CaganApps', icon: 'bi-grid' , route: '/cagan-apps' },
     { name: 'Settings', icon: 'bi-gear' , route: '/settings' },
     { name: 'Spaces', icon: 'bi-layout-text-window-reverse' , route: '/spaces' },
-    { name: 'Security & Permission', icon: 'bi-shield-lock' ,route: '/security' },
+    { name: 'Security & Permission', icon: 'bi-shield-lock' ,route: '/security-and-permissions' },
     { name: 'Audit Logs', icon: 'bi-journal-check' , route: '/auditLogs' },
     { name: 'Teams', icon: 'bi-diagram-3' , route: '/teams' },
     { name: 'Task Types', icon: 'bi-list-check' , route: '/tasks-types' },
