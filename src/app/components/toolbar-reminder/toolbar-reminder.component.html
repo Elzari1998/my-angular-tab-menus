@@ -6,7 +6,7 @@
   <!-- Dropdown buttons -->
   <div class="d-flex gap-2 mb-3">
     <!-- Date dropdown -->
-    <button class="btn btn-light border dropdown-toggle" type="button" (click)="toggleDateDropdown()">
+    <button class="btn btn-light border dropdown-toggle btn-sm" type="button" (click)="toggleDateDropdown()">
       {{ selectedDateLabel || 'Due date' }}
     </button>
 
@@ -33,7 +33,7 @@
 
     <!-- Assigned user dropdown -->
     <div class="dropdown">
-      <button class="btn btn-light border dropdown-toggle" type="button" data-bs-toggle="dropdown">
+      <button class="btn btn-light border dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown">
         {{ getUserName(reminder.assignedUser) || 'For me' }}
       </button>
       <ul class="dropdown-menu" style="width: 300px;">
@@ -73,7 +73,7 @@
 
     <!-- Notification dropdown -->
     <div class="dropdown">
-      <button class="btn btn-light border dropdown-toggle" type="button" data-bs-toggle="dropdown">
+      <button class="btn btn-light border dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown">
         {{ getNotificationName(reminder.notification) || 'Notify me' }}
       </button>
       <ul class="dropdown-menu">
