@@ -48,17 +48,17 @@
   gap: 12px;
 }
 
-button {
-  border-radius: 6px;
-  padding: 6px 16px;
-  font-weight: 500;
-}
+/*button {*/
+/*  border-radius: 6px;*/
+/*  padding: 6px 16px;*/
+/*  font-weight: 500;*/
+/*}*/
 
-button.create-doc {
-  background-color: #6a4df4;
-  color: white;
-  border: none;
-}
+/*button.create-doc {*/
+/*  background-color: #6a4df4;*/
+/*  color: white;*/
+/*  border: none;*/
+/*}*/
 
 button.cancel {
   background: #f1f1f1;

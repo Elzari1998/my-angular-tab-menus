@@ -54,7 +54,7 @@ export class ToolbarReminderComponent {
   }
 
   saveReminder(): void {
-
+    this.showAttachments = !this.showAttachments;
   }
 
   resizeTextarea(event: any): void {
@@ -113,7 +113,7 @@ export class ToolbarReminderComponent {
 
   selectRecurring() {
     // Optionally open another modal or nested menu
-    alert("Set recurring clicked!");
+    alert("Set recurring clicked!x");
   }
 
 }
