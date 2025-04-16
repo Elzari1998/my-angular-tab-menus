@@ -1,5 +1,5 @@
 <div class="dropdown ">
-  <button class="btn btn-outline-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <button class="btn btn-outline-secondary btn-sm " type="button" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="bi bi-house-door"></i>
     Workspace
     <i class="bi bi-chevron-down ms-2"></i>
@@ -55,8 +55,8 @@
             (focus)="onMessageTextareaFocus()" (blur)="onMessageTextareaBlur()"></textarea>
 
   <!-- Buttons (initially hidden, will be shown when textarea is focused) -->
-  <div class="button-container mt-3" *ngIf="showAttachments">
-    <button class="btn btn-no-border " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <div class="button-container mt-2" *ngIf="showAttachments">
+    <button class="btn btn-no-border btn-sm btn-light  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="bi bi-bell"></i>
     </button>
     <ul class="dropdown-menu" style="width: 300px;">
@@ -87,13 +87,13 @@
         </a>
       </li>
     </ul>
-    <button class="btn btn-no-border " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn btn-no-border btn-sm btn-light  ms-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="bi bi-at"></i>
     </button>
-    <button class="btn btn-no-border " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn btn-no-border btn-sm btn-light  ms-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="bi bi-check-circle"></i>
     </button>
-    <button class="btn btn-no-border " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn btn-no-border btn-sm btn-light  ms-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="bi bi-emoji-smile"></i>
     </button>
     <ul class="dropdown-menu">
@@ -101,7 +101,7 @@
       <li><a class="dropdown-item" href="#">use</a></li>
       <li><a class="dropdown-item" href="#">api</a></li>
     </ul>
-    <button class="btn btn-no-border " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn btn-no-border btn-sm btn-light  ms-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="bi bi-slash"></i>
     </button>
     <ul class="dropdown-menu">
@@ -124,7 +124,7 @@
   <div class="d-flex">
     <!-- Notification Bell Icon Button with dropdown -->
     <div class="dropdown">
-      <button class="btn btn-no-border ms-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="btn btn-no-border ms-2 btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi bi-bell"></i>
       </button>
       <ul class="dropdown-menu" style="width: 300px;">
@@ -157,7 +157,7 @@
       </ul>
     </div>
     <!-- Create Chat Button -->
-    <button class="btn btn-primary ms-2" (click)="createChat()">Create Chat</button>
+    <button class="btn btn-primary btn-sm ms-2" (click)="createChat()">Create Chat</button>
   </div>
 </div>
 

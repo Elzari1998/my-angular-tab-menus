@@ -54,7 +54,7 @@ export class ToolbarReminderComponent {
   }
 
   saveReminder(): void {
-
+    this.showAttachments = !this.showAttachments;
   }
 
   resizeTextarea(event: any): void {
