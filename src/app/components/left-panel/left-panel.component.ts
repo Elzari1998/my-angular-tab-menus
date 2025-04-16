@@ -13,6 +13,7 @@ import {Router, RouterLink} from '@angular/router';
 export class LeftPanelComponent {
   isCollapsed = false
   showSettings = false;
+  hideCaganDropdown = false
 
   @Output() hideTabMenuEvent = new EventEmitter<void>();
 
@@ -22,10 +23,15 @@ export class LeftPanelComponent {
     this.isCollapsed = !this.isCollapsed;
   }
 
+  hideDropdown(){
+    this.hideCaganDropdown = true;
+  }
+
   showSettingsMenu() {
     this.showSettings = true;
     this.hideTabMenuEvent.emit();
     this.router.navigate(['/settings']);
+    this.hideDropdown()
 
   }
 

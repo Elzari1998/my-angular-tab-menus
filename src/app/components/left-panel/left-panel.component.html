@@ -1,14 +1,17 @@
 <div class="d-flex" style="height: 100vh">
   <div [ngClass]="{ 'sidebar-collapsed': isCollapsed, 'sidebar-expanded': !isCollapsed }" class="sidebar bg-light d-flex flex-column">
 
-    <div class="btn btn-outline-secondary m-1 btn-sm d-flex justify-content-between align-items-center dropdown-toggle"
-         data-bs-toggle="dropdown" aria-expanded="false">
-      <div class="d-flex align-items-center">
-        <i class="bi bi-circle-fill me-2" style="color: teal;"></i>
-        <span *ngIf="!isCollapsed" >Cagan Tech...</span>
+<!--    <ng-container *ngIf="!hideCaganDropdown">-->
+      <div class="btn btn-outline-secondary m-1 btn-sm d-flex justify-content-between align-items-center dropdown-toggle"
+           data-bs-toggle="dropdown" aria-expanded="false">
+        <div class="d-flex align-items-center">
+          <i class="bi bi-circle-fill me-2" style="color: teal;"></i>
+          <span *ngIf="!isCollapsed" >Cagan Tech...</span>
+        </div>
+        <i class="bi ms-2" [ngClass]="isCollapsed ? 'bi-layout-sidebar-reverse' : 'bi-layout-sidebar'" (click)="toggleSidebar()"></i>
       </div>
-      <i class="bi ms-2" [ngClass]="isCollapsed ? 'bi-layout-sidebar-reverse' : 'bi-layout-sidebar'" (click)="toggleSidebar()"></i>
-    </div>
+
+<!--    </ng-container>-->
 
     <ul class="dropdown-menu">
       <li><a class="dropdown-item"   (click)="showSettingsMenu()"><i class="bi bi-gear"></i> Settings</a></li>
@@ -47,11 +50,11 @@
         </ng-container>
 
         <ng-template #settingsList>
-          <li class="nav-item mt-2">
-            <button class="btn btn-outline-secondary btn-sm" (click)="showMainMenu()">
-              <i class="bi bi-arrow-left-circle"></i>
+          <li class="nav-item mt-2" routerLink="">
+            <div class="fs-6" (click)="showMainMenu()">
+              <i class="bi bi-arrow-left  me-2"></i>
               <span *ngIf="!isCollapsed">Back to Workspace</span>
-            </button>
+            </div>
           </li>
 
           <li class="nav-item" *ngFor="let item of settingsMenu">
@@ -82,5 +85,6 @@
         <span *ngIf="!isCollapsed">Logout</span>
       </a>
 
+  </div>
   </div>
 </div>
