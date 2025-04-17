@@ -1,0 +1,86 @@
+<div class=" m-4  d-flex justify-content-between align-items-center">
+  <ul class="nav nav-tabs ">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Spaces</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Archived Spaces</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Inaccessible Spaces</a>
+    </li>
+
+  </ul>
+
+  <button type="button" class="btn btn-outline-primary"> <i class="bi bi-plus"></i> New Space </button>
+
+
+
+</div>
+
+  <div class=" m-4 border rounded bg-light-subtle py-5 px-2 d-flex justify-content-between">
+    <div class="d-flex flex-column align-items-start col-4 border-end pe-3">
+      <div class="d-flex align-items-center mb-2">
+        <i class="bi bi-people-fill fs-4 me-2 "></i>
+        <strong>Team Space</strong>
+        <a href="#" class="ms-5 small text-decoration-none">
+          <i class="bi bi-box-arrow-up-right fs-6 me-2 text-decoration-none"></i>
+          Go to Space</a>
+      </div>
+      <div class="d-flex align-items-start gap-3 mb-2  px-3">
+        <div class="d-flex flex-column align-items-center border-end">
+          <small class="text-muted me-3 ">Owner</small>
+          <div class="rounded-circle me-3 bg-primary text-white d-flex align-items-center justify-content-center mt-2"
+            style="width: 30px; height: 30px;">SL</div>
+        </div>
+
+        <div class="d-flex flex-column">
+          <small class="text-muted">Shared With</small>
+          <span>Everyone. <a href="#" class="text-decoration-none">Make private</a></span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="d-flex flex-column align-items-start col-4 border-end pe-3">
+      <div class="d-flex align-items-center mb-2">
+        <i class="bi bi-people-fill fs-4 ms-2 "></i>
+        <strong class="ms-2">Statuses</strong>
+      </div>
+
+      <div class="d-flex align-items-start mb-2  px-3">
+        <div class="d-flex gap-2 align-items-center border-end">
+          <button type="button" class="btn btn-secondary btn-sm"> TO-DO </button>
+          <button type="button" class="btn btn-primary btn-sm"> IN PROGRESS </button>
+          <button type="button" class="btn btn-success btn-sm"> DONE </button>
+
+        </div>
+
+
+      </div>
+    </div>
+
+
+    <div class="d-flex flex-column align-items-start col-4 pe-3"  >
+      <div class="d-flex align-items-center mb-2" >
+        <i class="bi bi-people-fill fs-4 ms-2 "></i>
+        <strong class="ms-2">Cagan Apps</strong>
+        <strong class="ms-5">Required Views</strong>
+
+      </div>
+      <div class="d-flex align-items-start gap-3 mb-2  px-3">
+        <div class="d-grid border-end p-2" style="grid-template-columns: repeat(5, 1fr); gap: 0.7rem;">
+          <div *ngFor="let icons of caganAppsIcons">
+            <i  [ngClass]="icons.icon"></i>
+          </div>
+
+        </div>
+
+        <div class="d-grid " style="grid-template-columns: repeat(3, 1fr); gap: 0.8rem;">
+            <div *ngFor="let requiredViewIcons of requiredViews">
+              <i  [ngClass]="requiredViewIcons.icon"></i>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -2,7 +2,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {SidebarModule} from '@syncfusion/ej2-angular-navigations';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-left-panel',
@@ -11,15 +11,28 @@ import {RouterLink} from '@angular/router';
   styleUrl: './left-panel.component.css'
 })
 export class LeftPanelComponent {
-  isCollapsed = false;
+  isCollapsed = false
   showSettings = false;
+  hideCaganDropdown = false
+
+  @Output() hideTabMenuEvent = new EventEmitter<void>();
+
+  constructor(private router: Router) {}
 
   toggleSidebar() {
     this.isCollapsed = !this.isCollapsed;
   }
 
+  hideDropdown(){
+    this.hideCaganDropdown = true;
+  }
+
   showSettingsMenu() {
     this.showSettings = true;
+    this.hideTabMenuEvent.emit();
+    this.router.navigate(['/settings']);
+    this.hideDropdown()
+
   }
 
   showMainMenu() {
@@ -40,7 +53,7 @@ export class LeftPanelComponent {
     { name: 'CaganApps', icon: 'bi-grid' , route: '/cagan-apps' },
     { name: 'Settings', icon: 'bi-gear' , route: '/settings' },
     { name: 'Spaces', icon: 'bi-layout-text-window-reverse' , route: '/spaces' },
-    { name: 'Security & Permission', icon: 'bi-shield-lock' ,route: '/security' },
+    { name: 'Security & Permission', icon: 'bi-shield-lock' ,route: '/security-and-permissions' },
     { name: 'Audit Logs', icon: 'bi-journal-check' , route: '/auditLogs' },
     { name: 'Teams', icon: 'bi-diagram-3' , route: '/teams' },
     { name: 'Task Types', icon: 'bi-list-check' , route: '/tasks-types' },
@@ -50,5 +63,15 @@ export class LeftPanelComponent {
     { name: 'Trash', icon: 'bi-trash', route: '/trash' },
   ]
 
+  personalSettings = [
+    { name : 'My Settings', icon: 'bi-gear', route: '/mySettings' },
+    {name : 'Workspaces', icon: 'bi-layout-text-window' , route: '/myWorkspaces' },
+    {name : 'Notifications', icon: 'bi-bell', route: '/myNotifications' },
+    {name : 'Apps', icon: 'bi-grid', route: '/myApps' },
+    {name : 'Cloud Storage', icon: 'bi-cloud' , route: '/myCloudStorage' },
+    {name : 'Calendar', icon : 'bi-calendar' , route: '/myCalendar' },
+    {name : 'Referrals', icon: 'bi-person-plus', route: '/myReferrals' },
+
+  ]
 
 }
