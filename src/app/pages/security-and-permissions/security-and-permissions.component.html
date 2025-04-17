@@ -4,7 +4,7 @@
     <i class="bi bi-shield-check fs-4 me-2"></i> <h4> Security </h4>
   </div>
 
-  <div class="row ">
+  <div class="row m-2">
     <div class="col-6">
       <div class="d-flex align-items-center gap-2 mb-2">
         <h6 class="mb-0">Two-factor authentication (2FA)</h6>
@@ -38,8 +38,7 @@
     </div>
     </div>
   <hr>
-
-  <div class="row ">
+  <div class="row m-2">
     <div class="col-6">
       <div class="d-flex align-items-center gap-2 mb-2">
         <h6 class="mb-0">Single sign-on (SSO)</h6>
@@ -49,26 +48,28 @@
         Require Workspace members to log in to Cagan using their  credentials from your SSO identity provider(IDP).
         Click on your vendor or use SAML to connect with other providers to start the setup process.
 
-        <br>
+        <br> <br>
         <a href="#">Learn more</a> about SSO.
       </small>
     </div>
 
-    <div class="col-6">
-      <div class="form-check">
+    <div class="col-6 d-flex flex-column gap-2">
+      <div class="form-check d-flex align-items-center">
         <input class="form-check-input" type="radio" name="radioDefault" checked>
         <label class="form-check-label" for="radioDefault1">
           Don't require SSO
         </label>
       </div>
-      <div class="form-check">
+
+      <div class="form-check d-flex align-items-center">
         <input class="form-check-input" type="radio" name="radioDefault" >
         <label class="form-check-label me-2" for="radioDefault2">
           Google
         </label>
         <button type="button" class="btn btn-primary btn-sm">Business</button>
       </div>
-      <div class="form-check">
+
+      <div class="form-check d-flex align-items-center">
         <input class="form-check-input" type="radio" name="radioDefault" >
         <label class="form-check-label me-2" for="radioDefault2">
           Okta
@@ -76,7 +77,7 @@
         <button type="button" class="btn btn-primary btn-sm">Enterprise</button>
       </div>
 
-      <div class="form-check">
+      <div class="form-check d-flex align-items-center">
         <input class="form-check-input" type="radio" name="radioDefault" >
         <label class="form-check-label me-2" for="radioDefault2">
           Microsoft
@@ -84,7 +85,7 @@
         <button type="button" class="btn btn-primary btn-sm">Enterprise</button>
       </div>
 
-      <div class="form-check">
+      <div class="form-check d-flex align-items-center">
         <input class="form-check-input" type="radio" name="radioDefault" >
         <label class="form-check-label me-2" for="radioDefault2">
           SAML
@@ -94,14 +95,9 @@
 
     </div>
 
-
-
-
   </div>
   <hr>
-
-
-  <div class="row ">
+  <div class="row m-2">
     <div class="col-6">
       <div class="d-flex align-items-center gap-2 mb-2">
         <h6 class="mb-0">Session management</h6>
@@ -111,16 +107,31 @@
         Set the session and idle timeout durations for your workspace. Members in your workspace will be prompted
         to log back in after their session expires. Session limits don't apply when using Mobile app.
 
-        <br>
+        <br><br>
         <a href="#">Learn more</a> about session management.
       </small>
     </div>
 
     <div class="col-6">
-      <small class="fs-4"> Session duration</small>
+      <small class="fs-6 fw-bolder"> Session duration</small>
+      <div class="input-group w-50">
+        <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+          <option selected>Never expires </option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
 
-
-
+      <small class="fs-6 fw-bolder"> Idle timeout duration </small>
+      <div class="input-group w-50">
+        <select class="form-select" id="inputGroupSelect" aria-label="Example select with button addon">
+          <option selected>Never expires </option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
     </div>
 
 
@@ -130,6 +141,238 @@
   <hr>
 
 
+  <div class="m-4 d-flex ">
+    <i class="bi bi-person fs-4 me-2"></i> <h4> Invite Permissions </h4> <small class=" m-2 "><a href="#"> Learn more</a></small>
+  </div>
+  <div class="row m-2">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col " class="bg-light text-muted">ACTIONS</th>
+        <th scope="col" class="bg-light text-muted">GUEST</th>
+        <th  class="bg-light text-muted">LIMITED MEMBER</th>
+        <th  class="bg-light text-muted"> MEMBER</th>
+        <th  class="bg-light text-muted">ADMIN</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">
+          <h6 class="text-muted"> Collaboration </h6>
+          <strong class="text-muted">Invite Members</strong> <br>
+          <small class="text-muted"> Give the user permission to invite members to the Workspace</small>
+        </th>
+        <td>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch"  >
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch"  >
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch"  checked>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch"  >
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <strong class="text-muted">Invite Guests and Limited Members</strong> <br>
+          <small class="text-muted"> Give the user permission to invite guests and limited members to the Workspace</small>
+        </th>
+        <td>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch"  >
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch"  >
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" checked >
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch"  >
+          </div>
+        </td>
+      </tr>
+
+
+
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="m-4 ">
+    <div class="d-flex align-items-center">
+      <i class="bi bi-lock fs-5 me-2"></i> <h4> Custom Role Permissions </h4> <small class=" m-2 "><a href="#"> Learn more</a></small>
+    </div>
+    <div class=" d-flex justify-content-between align-items-center">
+      <div class="input-group mb-3 w-50 mt-3">
+        <div class="input-group-text">
+          <i class="bi bi-search"></i>
+        </div>
+        <input type="text" class="form-control  " placeholder="search for action..." aria-label="Text input with checkbox">
+      </div>
+      <button type="button" class="btn btn-primary "><i class="bi bi-plus mb-0"> </i> New Role</button>
+    </div>
+
+  </div>
+  <div class="row m-2">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="" class="col-6 bg-light text-muted">ACTIONS</th>
+        <th scope="" class="bg-light text-muted">GUEST</th>
+        <th  class="bg-light text-muted">LIMITED MEMBER</th>
+        <th  class="bg-light text-muted"> MEMBER</th>
+        <th  class="bg-light text-muted">ADMIN</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let permission of customRolePermissions; let i = index">
+        <th scope="row">
+          <strong class="text-muted">{{ permission.heading }}</strong><br>
+          <small class="text-muted">{{ permission.description }}</small>
+        </th>
+        <td *ngFor="let toggle of permission.switches">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" [checked]="toggle">
+          </div>
+        </td>
+      </tr>
+
+
+
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="m-4 d-flex ">
+    <i class="bi bi-lock fs-4 me-2"></i> <h4> Advanced Permissions </h4> <small class=" m-2 "><a href="#"> Learn more</a></small>
+  </div>
+  <div class="row mb-3">
+    <div class="col-3 d-flex justify-content-center align-items-center">
+      <div class="form-check form-switch">
+        <input class="form-check-input " type="checkbox" role="switch" checked>
+      </div>
+    </div>
+
+    <div class="col-9">
+        <div class="d-flex gap-3">
+          <i class="bi bi-share fs-6"></i><h6 class="fs-6">Request Access</h6>
+        </div>
+      <small> Give members and guests permission to request access to items. Item owner will be able to approve and deny requests.</small>
+      <div class="mt-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+          <label class="form-check-label" for="flexCheckChecked">
+            Allow members and guests outside the Workspace to request access to items they don't have acess to.
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked5" checked>
+          <label class="form-check-label" for="flexCheckChecked">
+            Allow members (including limited members) to request edit access to items they have view-only permissions on.
+          </label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <hr>
+
+
+  <div *ngFor="let advanceItems of advancedPermissions ">
+
+
+  </div>
+  <div class="row mt-3 mb-3">
+    <div class="col-3 d-flex justify-content-center align-items-center">
+      <div class="form-check form-switch">
+        <input class="form-check-input " type="checkbox" role="switch" >
+      </div>
+    </div>
+
+    <div class="col-9">
+      <div class="d-flex gap-3">
+        <i class="bi bi-globe fs-6"></i><h6 class="fs-6">Make new space private</h6><button type="button" class="btn btn-primary btn-sm">Enterprise</button>
+      </div>
+      <small> Default all newly created Spaces to private</small>
+    </div>
+
+  </div>
+  <hr>
+
+  <div class="row mt-3 mb-3">
+    <div class="col-3 d-flex justify-content-center align-items-center">
+      <div class="form-check form-switch">
+        <input class="form-check-input " type="checkbox" role="switch" >
+      </div>
+    </div>
+
+    <div class="col-9">
+      <div class="d-flex gap-3">
+        <i class="bi bi-globe fs-6"></i><h6 class="fs-6">Allow admins to manage private spaces</h6><button type="button" class="btn btn-primary btn-sm">Enterprise</button>
+      </div>
+      <small> Give ability to add and remove people, and transfer ownershio of any Space.</small>
+    </div>
+
+  </div>
+  <hr>
+
+
+  <div class="row mt-3 mb-3">
+    <div class="col-3 d-flex justify-content-center align-items-center">
+      <div class="form-check form-switch">
+        <input class="form-check-input " type="checkbox" role="switch" >
+      </div>
+    </div>
+
+    <div class="col-9">
+      <div class="d-flex gap-3">
+        <i class="bi bi-pencil-square fs-6"></i><h6 class="fs-6">Allow admins to manage private custom fields</h6><button type="button" class="btn btn-primary btn-sm">Enterprise</button>
+      </div>
+      <small> When enabled, admins will be able to see and edit all prive Custom Fields.</small>
+    </div>
+
+  </div>
+  <hr>
+
+
+  <div class="row mt-3 mb-3">
+    <div class="col-3 d-flex justify-content-center align-items-center">
+      <div class="form-check form-switch">
+        <input class="form-check-input " type="checkbox" role="switch" >
+      </div>
+    </div>
+
+    <div class="col-9">
+      <div class="d-flex gap-3">
+        <i class="bi bi-globe2 fs-6"></i><h6 class="fs-6">Block public sharing</h6><button type="button" class="btn btn-primary btn-sm">Enterprise</button>
+      </div>
+      <small> All futue public sharing will be prevented once the feature is turned on. Pre-existing publicly shared items ae not impacted by the change but disabled</small>
+    </div>
+
+  </div>
+  <hr>
   </div>
 
 
